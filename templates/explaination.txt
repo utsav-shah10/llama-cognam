@@ -1,0 +1,10 @@
+1. layout.html: This is the main layout template that serves as the base structure for your pages. It includes dynamic blocks such as the navbar, footer, and sidebar, which can be rendered dynamically based on the content.
+
+2. Footer, navbar, sidebar.html: These are individual templates for specific UI components (as described in `ui.png`). They define the structure and content for the footer, navbar, and sidebar sections.
+
+3. counter.html: This template extends `layout.html` and adds a static block of type "counter" to the content area.
+
+4. about.html: This template also extends `layout.html` and provides a description about the website in the content block.
+
+Note : 
+CSS is not included to exactly follow the ui. Added blocks only. 

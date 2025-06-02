@@ -1,0 +1,13 @@
+{% if length(side_blocks) == 2 %}
+    <div class="sidebar">
+
+        {% for side_block in side_blocks %}
+            <div class="side-block">
+                {{side_block}}
+            </div>
+        {% endfor %}
+
+    </div>
+{% else %}
+    <div>More than 2 blocks are provided in sidebar.</div>
+{% endif %}

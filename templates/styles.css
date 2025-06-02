@@ -1,0 +1,66 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Container styles */
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 20px;
+    width: 100%;
+    background-color: #f4f4f4;
+  }
+  
+  /* Header styles */
+  header {
+    background-color: #ddd;
+    padding: 20px;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav ul li {
+    list-style: none;
+  }
+  
+  /* Main content styles */
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .content {
+    background-color: #fff;
+    padding: 20px;
+  }
+  
+  .image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .text p {
+    padding: 20px;
+  }
+  
+  /* Aside styles */
+  aside {
+    background-color: #eee;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+  }

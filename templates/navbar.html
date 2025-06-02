@@ -1,0 +1,22 @@
+<nav class="navbar">
+    {% if length(left_block) == 1 %}
+        <div class="navbar-left">
+        {{ left_block }}
+        </div>
+    
+    {% else %}
+        <div>More than 1 block provided in left side of navbar.</div>
+    {% endif %}
+
+    {% if length(right_blocks) == 4 %}
+        <div class="navbar-right">
+            {% for block in right_blocks %}
+            <div class="nav-item">
+                {{ block }}
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>More than 4 blocks provided.</p>
+    {% endif %}
+</nav>

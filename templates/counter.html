@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block mainapp %}
+    <div class="main-content">
+        <div class="circular-section">
+            {% block circular-content %}
+                Counter : 
+                <span class="count">
+                    {% block cnt %}
+                        100
+                    {% endblock  %}
+                </span>
+            {% endblock %}
+        </div>
+
+        {% if length(content-blocks) == 3 %}
+            <div class="content-blocks">
+                {% for content in content-blocks %}
+                    <div class="content-blk">
+                        {{content}}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div>Content blocks are more than 3. Not consistent with layout</div>
+        {% endif %}
+    </div>
+{% endblock %}

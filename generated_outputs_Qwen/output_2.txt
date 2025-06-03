@@ -1,0 +1,7 @@
+a for loop which iterates over array named "arr" containing strings. Use length function as upper limit.
+
+```jinja
+{% for index in range(len(arr)) %}
+  {{ arr[index] }}
+{% endfor %}
+```

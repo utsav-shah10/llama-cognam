@@ -1,0 +1,5 @@
+```jinja
+{% for item in arr %}
+  {{ item | lower }}
+{% endfor %}
+```

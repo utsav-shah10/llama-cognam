@@ -1,0 +1,4 @@
+def iterate_array(arr):
+    {% for item in arr %}
+        {{ item }}
+    {% endfor %}

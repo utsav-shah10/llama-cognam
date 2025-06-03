@@ -1,0 +1,67 @@
+Each string should be prefixed with "Item: " before printing.
+```jinja
+{% for item in arr %}
+  {{ item | lower }}
+{% endfor %}
+```
+
+b a template block named "content" which can be overridden by extending templates. 
+Inside the block should be a single HTML div with class "my-content" that contains the text "Hello World".
+```jinja
+{% block content %}
+  <div class="my-content">Hello World</div>
+{% endblock %}
+```
+
+c a macro which takes 3 arguments (title, subtitle, text) and returns an HTML card component. 
+The macro should include a title, subtitle, and text in a card with some basic styling.
+```jinja
+{% macro card(title, subtitle, text) %}
+  <div class="card">
+    <h2>{{ title }}</h2>
+    <h3>{{ subtitle }}</h3>
+    <p>{{ text }}</p>
+  </div>
+{% endmacro %}
+```
+
+d a template that includes another template using the "only" keyword. 
+The included template should be named "header.html" and receive a single context parameter named "siteData".
+```jinja
+{% include "header.html" with siteData only %}
+```
+
+e a filter chain which first converts a string to lowercase, then escapes it, and then renders it with a context.
+```jinja
+{{ input | string | e | render with context }}
+```
+
+f a conditional statement that checks if a user object has both email and name properties, 
+and if both exist, prints them with a separator.
+```jinja
+{% if user.email and user.name %}
+  {{ user.email ~ " | " ~ user.name }}
+{% endif %}
+```
+
+g a loop that iterates over a dictionary named "settings", 
+and for each key-value pair prints both key and value.
+```jinja
+{% for key, value in settings | items %}
+  {{ key }}: {{ value }}
+{% endfor %}
+```
+
+h a string concatenation that joins three variables using the tilde operator.
+```jinja
+{% set var1 = "hello" %}
+{% set var2 = "world" %}
+{% set var3 = "!" %}
+{{ var1 ~ " " ~ var2 ~ var3 }}
+```
+
+i a template block check that uses ifblock to ensure a content block exists,
+and if it does, renders it with an additional class.
+```jinja
+{% ifblock content %}
+  <div class="

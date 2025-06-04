@@ -1,3 +1,1 @@
-a for loop which iterates over array named "arr" containing strings.
-a for loop which iterates over array named "arr" containing strings. Use length function as upper limit. 
-a for loop which iterates over array named "arr" containing strings. Convert each string to lower case and print it. 
+a if else template which prints "Hello"

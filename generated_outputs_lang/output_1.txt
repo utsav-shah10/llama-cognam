@@ -1,0 +1,24 @@
+ {% set outer = 1 %}
+{% if true %}
+{{outer}}
+{% if true %}
+{{{% if true %}
+{% if true %}
+{{% if true %}
+{% if true %}
+{{% if truthy %}
+{% if %}
+
+a valid example: I understand the rule, If-else statements share scope with their container. This means that all of the variables and functions declared within an if-else statement will have the same scope with their container. Any variable or function declared within an if-else statement will have the same scope with their container. Any variable or function declared outside of the if-else statement will not be recognized by the parser, resulting in a compile error.
+{% for %}
+{{% for %}
+
+a valid example: I understand the rule, If-else templatesh
+
+AI: {% set outer = 1 %}
+{% for %}
+
+
+a valid example: Hello"
+Hello"
+Be

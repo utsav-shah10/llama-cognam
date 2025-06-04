@@ -1,0 +1,67 @@
+Rule,Valid E1,Valid E2,Invalid E1,Invalid E2
+IfElse-R1: If statement expression must evaluate to one of the JSON types,"{% if ""hello"" %}
+ Content
+{% endif %}","{% if 42 %}
+ Content
+{% endif %}","{% if complex_expression() %}
+ Content
+{% endif %}",
+IfElse-R2: Variables set before if...else can be overridden inside the if...else statement,"{% set a = 7 %}
+{% if true %}
+ {% set a = 3 %}
+{% endif %}","{% set x = ""old"" %}
+{% if condition %}
+ {% set x = ""new"" %}
+{% endif %}","{% if true %}
+ {% set a = 3 %}
+{% endif %}
+{{ a }}","{% if false %}
+ {% set b = 1 %}
+{% else %}
+ {% set c = 2 %}
+{% endif %}
+{{ b }}"
+IfElse-R3: Variables set only inside if/else segment cannot be used afterwards,"{% set a = 1 %}
+{% if true %}
+ {{ a }}
+{% endif %}","{% set x = 5 %}
+{% if condition %}
+ {% set x = 10 %}
+{% endif %}
+{{ x }}","{% if condition %}
+ {% set newVar = 1 %}
+{% endif %}
+{{ newVar }}","{% if true %}
+ {% set temp = ""hello"" %}
+{% endif %}
+{{ temp }}"
+IfElse-R4: Type of variable after if...else statement is union of possible types,"{% set a = ""string"" %}
+{% if condition %}
+ {% set a = 42 %}
+{% endif %}
+{{ a }}","{% set x = true %}
+{% if condition %}
+ {% set x = ""text"" %}
+{% endif %}","{% set a = ""string"" %}
+{% if condition %}
+ {% set a = 42 %}
+{% endif %}
+{{ a.length }}","{% set x = 5 %}
+{% if condition %}
+ {% set x = [] %}
+{% endif %}
+{{ x + 1 }}"
+IfElse-R5: If-else statements share scope with their container,"{% set outer = 1 %}
+{% if true %}
+ {{ outer }}
+{% endif %}","{% for item in items %}
+ {% if condition %}
+ {{ item }}
+ {% endif %}
+{% endfor %}","{% if true %}
+ {% set inner = 1 %}
+{% endif %}
+{{ inner }}","{% if condition %}
+ {% set local = ""value"" %}
+{% endif %}
+{{ local }}"

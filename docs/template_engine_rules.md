@@ -34,8 +34,8 @@ This document outlines the comprehensive rules and constraints for the JavaScrip
 
 ### Rule Coverage: `./test/test_printStatement.js`
 
-- **Type Acceptance**: Print statements accept either `string` or `number` types only
-- **Usage**: Used for outputting values to the template
+- **R1:** Print statements accept either `string` or `number` types only
+- **R2:** Print statements are used for outputting values to the template
 
 ```javascript
 // Valid examples
@@ -52,24 +52,16 @@ This document outlines the comprehensive rules and constraints for the JavaScrip
 
 ### Rule Coverage: `./test/test_forElse.js`
 
-### Symbol Declaration Rules
-- Multiple definition/declaration of the same symbol is **prohibited**
-- Iterator variables **cannot be modified** inside the for loop
-- Loop variables **cannot be modified** inside the for loop
-
-### Type and Iteration Rules
-- **Integers are not iterable** - only arrays and objects can be iterated
-- **Else scope** is a sibling of iterator scope and does not have access to iterator variables
-
-### Dictionary Iteration Syntax
-- Correct syntax for dual item iteration: `for a,b (dict) | items`
-- The `items` filter only works on `object` type
-- In `for a,b (dict) | items`:
-  - Type of `b` is a union of all dictionary values
-  - Type of `a` is `string` (dictionary keys)
-
-### Loop Properties
-- `loop.first` and `loop.last` are of type `boolean`
+- **R1:** Multiple definition/declaration of the same symbol is prohibited
+- **R2:** Iterator variables cannot be modified inside the for loop
+- **R3:** Loop variables cannot be modified inside the for loop
+- **R4:** Integers are not iterable - only arrays and objects can be iterated
+- **R5:** Else scope is a sibling of iterator scope and does not have access to iterator variables
+- **R6:** Correct syntax for dual item iteration is `for a,b (dict) | items`
+- **R7:** The `items` filter only works on `object` type
+- **R8:** In `for a,b (dict) | items`, type of `b` is a union of all dictionary values
+- **R9:** In `for a,b (dict) | items`, type of `a` is `string` (dictionary keys)
+- **R10:** `loop.first` and `loop.last` are of type `boolean`
 
 ```javascript
 // Valid for loop
@@ -94,7 +86,7 @@ This document outlines the comprehensive rules and constraints for the JavaScrip
 
 ### Rule Coverage: `./test/test_renderStatement.js`
 
-- **Type Acceptance**: Render statements accept either `string` or `number` types only
+- **R1:** Render statements accept either `string` or `number` types only
 
 ```javascript
 // Valid
@@ -111,9 +103,8 @@ This document outlines the comprehensive rules and constraints for the JavaScrip
 
 ### Rule Coverage: `./test/test_userEnvironment.js`
 
-### Function and Variable Rules
-- **Functions must be present** in user environment to be used
-- **Variable names cannot be the same** as function names (naming conflicts prohibited)
+- **R1:** Functions must be present in user environment to be used
+- **R2:** Variable names cannot be the same as function names (naming conflicts prohibited)
 
 ```javascript
 // If function 'process' exists in user environment
@@ -129,10 +120,8 @@ This document outlines the comprehensive rules and constraints for the JavaScrip
 
 ### Rule Coverage: `./test/test_verbatimStatement.js`
 
-### Content Restrictions
-- Verbatim statement's code segment **must not contain**:
-  - `"{% endraw %}"`
-  - `"{% endverbatim %}"`
+- **R1:** Verbatim statement's code segment must not contain `"{% endraw %}"`
+- **R2:** Verbatim statement's code segment must not contain `"{% endverbatim %}"`
 
 ```javascript
 // Valid
@@ -152,19 +141,12 @@ This document outlines the comprehensive rules and constraints for the JavaScrip
 
 ### Rule Coverage: `./test/test_objWithIf.js`
 
-### Object Property Access Rules
-
-#### Basic Property Access
-- `x.b` can be used with if condition, and if true, can be used inside that if statement
-- `x.b` can **only** be used with if condition when the property might not exist
-- Direct usage `{{x.b}}` is **not allowed** if `x` doesn't contain `b` as key
-
-#### Logical Operators
-- `x.b` can be used **only with `and` operator** in if conditions
-- **`or` operator is not valid** with potentially undefined object properties
-
-#### Scope Limitations
-- Object keys **cannot be accessed in `elif` or `else` blocks** if checked in if statement
+- **R1:** `x.b` can be used with if condition, and if true, can be used inside that if statement
+- **R2:** `x.b` can only be used with if condition when the property might not exist
+- **R3:** Direct usage `{{x.b}}` is not allowed if `x` doesn't contain `b` as key
+- **R4:** `x.b` can be used only with `and` operator in if conditions
+- **R5:** `or` operator is not valid with potentially undefined object properties
+- **R6:** Object keys cannot be accessed in `elif` or `else` blocks if checked in if statement
 
 ```javascript
 // Valid usage
@@ -196,9 +178,8 @@ This document outlines the comprehensive rules and constraints for the JavaScrip
 
 ### Rule Coverage: `./test/test_contextSchema.js`
 
-### Context Modification Rules
-- **Items present in context cannot be modified**
-- **Items not present in context cannot be used directly**
+- **R1:** Items present in context cannot be modified
+- **R2:** Items not present in context cannot be used directly
 
 ```javascript
 // Given context: { a: { type: 'boolean' } }
@@ -216,23 +197,16 @@ This document outlines the comprehensive rules and constraints for the JavaScrip
 
 ### Rule Coverage: `./test/test_block.js`
 
-### Block Scope Rules
-- **Each separate block** within a template has its own **independent scope**
-- **Multiple blocks of same name** are not allowed
-- **Nested blocks do not have access** to enclosing block variables
-- **Nested blocks are evaluated** at the place of outermost block
-
-### Context and Resolution
-- **If context is provided** and a reference is unresolved, then **error is thrown**
-- **If context is not provided** and a reference is not resolved, then only **warning is shown**
-- **Parent tag is replaced** by closest ancestor
-
-### IfBlock Statement
-- `ifblock` is used to check if a block is present
-- Block must be defined before `ifblock` check
-
-### Block Name Matching
-- Block starting and ending names **must match exactly**
+- **R1:** Each separate block within a template has its own independent scope
+- **R2:** Multiple blocks of same name are not allowed
+- **R3:** Nested blocks do not have access to enclosing block variables
+- **R4:** Nested blocks are evaluated at the place of outermost block
+- **R5:** If context is provided and a reference is unresolved, then error is thrown
+- **R6:** If context is not provided and a reference is not resolved, then only warning is shown
+- **R7:** Parent tag is replaced by closest ancestor
+- **R8:** `ifblock` is used to check if a block is present
+- **R9:** Block must be defined before `ifblock` check
+- **R10:** Block starting and ending names must match exactly
 
 ```javascript
 // Valid block usage
@@ -270,37 +244,20 @@ This document outlines the comprehensive rules and constraints for the JavaScrip
 
 ### Rule Coverage: `./test/test_function.js`
 
-### Built-in Function Argument Types
-
-#### String Functions
-- `lower()` - accepts string argument
-- `upper()` - accepts string argument  
-- `title()` - accepts string argument
-
-#### Number Functions
-- `round()` - accepts number argument
-- `ceil()` - accepts number argument
-- `floor()` - accepts number argument
-
-#### Collection Functions
-- `length()` - accepts either array or object argument
-- `mean()` - accepts array argument
-
-#### Utility Functions
-- `range()` - accepts integers as arguments
-- `rgbcolor()` - accepts either string or colorArray arguments
-- `hexcolor()` - accepts either string or colorArray arguments
-
-### Filter to Function Conversion
-The following Jinja/Twig filters are converted to functions:
-- `first`, `last`, `join`, `concat`
-- `lower`, `upper`, `title` 
-- `round`, `ceil`, `floor`
-- `length`, `mean`, `range`
-
-### Function Rules
-- **String addition is prohibited**
-- **Functions or macros need to be discovered** in user-function scope
+- **R1:** `lower()` accepts string argument
+- **R2:** `upper()` accepts string argument  
+- **R3:** `title()` accepts string argument
+- **R4:** `round()` accepts number argument
+- **R5:** `ceil()` accepts number argument
+- **R6:** `floor()` accepts number argument
+- **R7:** `length()` accepts either array or object argument
+- **R8:** `mean()` accepts array argument
+- **R9:** `range()` accepts integers as arguments
+- **R10:** `rgbcolor()` accepts either string or colorArray arguments
+- **R11:** `hexcolor()` accepts either string or colorArray arguments
+- **R12:** The following Jinja/Twig filters are converted to functions: `first`, `last`, `join`, `concat`, `lower`, `upper`, `title`, `round`, `ceil`, `floor`, `length`, `mean`, `range`
+- **R13:** String addition is prohibited
+- **R14:** Functions or macros need to be discovered in user-function scope
 
 ```javascript
 // Valid function calls
@@ -318,11 +275,10 @@ The following Jinja/Twig filters are converted to functions:
 
 ### Rule Coverage: `./test/test_include.js`
 
-### Template Inclusion Rules
-- **No template containing block tags or extends tag** may be included
-- **Included template has access to passed arguments only** (when using `only` keyword)
-- **Only object is accepted** as context for inclusion
-- **Recursive include is not allowed**
+- **R1:** No template containing block tags or extends tag may be included
+- **R2:** Included template has access to passed arguments only (when using `only` keyword)
+- **R3:** Only object is accepted as context for inclusion
+- **R4:** Recursive include is not allowed
 
 ```javascript
 // Invalid - including template with blocks
@@ -346,11 +302,10 @@ The following Jinja/Twig filters are converted to functions:
 
 ### Rule Coverage: `./test/test_JSON_schema_validation.js`
 
-### Validation Capabilities
-- **Able to detect invalid keys** for nested objects
-- **Able to predefine static arrays** in JSON
-- **Type resolution**: `"string"` and `"number"` in JSON resolve to `["string","sourceString"]` and `["integer","number"]` in application scope
-- **Reference resolution**: References resolve when needed, not before prepopulating application scope
+- **R1:** Able to detect invalid keys for nested objects
+- **R2:** Able to predefine static arrays in JSON
+- **R3:** Type resolution: `"string"` and `"number"` in JSON resolve to `["string","sourceString"]` and `["integer","number"]` in application scope
+- **R4:** Reference resolution: References resolve when needed, not before prepopulating application scope
 
 ---
 
@@ -358,10 +313,9 @@ The following Jinja/Twig filters are converted to functions:
 
 ### Rule Coverage: `./test/test_schemaResolve.js`
 
-### Resolution Process
-- Function resolves JSON references provided as context schema
-- Deals with application scope object contents (filled by context schema)
-- **Not dealing with JSON schema itself**, but with application scope object
+- **R1:** Function resolves JSON references provided as context schema
+- **R2:** Deals with application scope object contents (filled by context schema)
+- **R3:** Not dealing with JSON schema itself, but with application scope object
 
 ---
 
@@ -369,15 +323,12 @@ The following Jinja/Twig filters are converted to functions:
 
 ### Rule Coverage: `./test/test_ifElse.js`
 
-### Expression Rules
-- **If statement expression must evaluate** to one of the JSON types
-- **Variables set before if...else** can be overridden inside the if...else statement
-- **Variables set only inside if/else** segment cannot be used afterwards
-- **Type union**: Type of variable after if...else statement is union of possible types
-
-### Scope Rules
-- **If-else statements share scope** with their container
-- **Application scope variables cannot be modified**
+- **R1:** If statement expression must evaluate to one of the JSON types
+- **R2:** Variables set before if...else can be overridden inside the if...else statement
+- **R3:** Variables set only inside if/else segment cannot be used afterwards
+- **R4:** Type of variable after if...else statement is union of possible types
+- **R5:** If-else statements share scope with their container
+- **R6:** Application scope variables cannot be modified
 
 ```javascript
 // Valid - variable override
@@ -408,16 +359,13 @@ The following Jinja/Twig filters are converted to functions:
 
 ### Rule Coverage: `./test/test_macro.js`
 
-### Macro Definition Rules
-- **No macro may share the name** of any other object in same scope or parent scope
-- **Macro statement may not appear inside** if...else or for...else statements
-- **Calling a macro before its definition** is prohibited
-- **Macro does not have access** to containing scope
-- **Internal macro scope is subordinate** to user-function scope, not application scope
-
-### Macro Functionality
-- **Macros can call themselves recursively**
-- **Macro arguments cannot have name** of a builtin function
+- **R1:** No macro may share the name of any other object in same scope or parent scope
+- **R2:** Macro statement may not appear inside if...else or for...else statements
+- **R3:** Calling a macro before its definition is prohibited
+- **R4:** Macro does not have access to containing scope
+- **R5:** Internal macro scope is subordinate to user-function scope, not application scope
+- **R6:** Macros can call themselves recursively
+- **R7:** Macro arguments cannot have name of a builtin function
 
 ```javascript
 // Valid macro definition and usage
@@ -456,10 +404,9 @@ The following Jinja/Twig filters are converted to functions:
 
 ### Rule Coverage: `./test/test_reserveWord.js`
 
-### Reserved Word Rules
-- **Reserved words cannot be used as variables**
-- Reserved words include: `true`, `TRUE`, `block`, `ifblock`, `if`, `else`, `elif`, `set`, etc.
-- **`loop` can be used as variable only inside loop scope**
+- **R1:** Reserved words cannot be used as variables
+- **R2:** Reserved words include: `true`, `TRUE`, `block`, `ifblock`, `if`, `else`, `elif`, `set`, etc.
+- **R3:** `loop` can be used as variable only inside loop scope
 
 ```javascript
 // Invalid variable names
@@ -479,23 +426,14 @@ The following Jinja/Twig filters are converted to functions:
 
 ### Rule Coverage: `./test/test_expression.js`
 
-### Operator Rules
-
-#### Negate Operator
-- **Prohibited on strings**
-- **Works on integers**
-
-#### Concatenate Operator
-- **Works on strings**
-- **Does not work on boolean**
-
-#### In/NotIn Operators
-- **`in` operator works on string and array**
-- **`notIn` operator works on string and array**
-
-#### Access Operators
-- **Dot operator**: `<array>.<integer>` or `<object>.<identifier>`
-- **Subscript operator**: `<array>[<integer>]` or `<object>[<identifier>]`
+- **R1:** Negate operator is prohibited on strings
+- **R2:** Negate operator works on integers
+- **R3:** Concatenate operator works on strings
+- **R4:** Concatenate operator does not work on boolean
+- **R5:** `in` operator works on string and array
+- **R6:** `notIn` operator works on string and array
+- **R7:** Dot operator: `<array>.<integer>` or `<object>.<identifier>`
+- **R8:** Subscript operator: `<array>[<integer>]` or `<object>[<identifier>]`
 
 ```javascript
 // Valid expressions
@@ -521,9 +459,8 @@ The following Jinja/Twig filters are converted to functions:
 
 ### Rule Coverage: `./test/test_macroDefinition.js`
 
-### Definition Scope Rules
-- **Macros cannot be defined inside sub-scopes**
-- Must be defined at template root level
+- **R1:** Macros cannot be defined inside sub-scopes
+- **R2:** Must be defined at template root level
 
 ```javascript
 // Valid - macro at root level
@@ -545,14 +482,10 @@ The following Jinja/Twig filters are converted to functions:
 
 ### Rule Coverage: `./test/test_variables.js`
 
-### String Concatenation
-- **`~` operator is used for string concatenation**
-
-### Aliasing Rules
-- **Aliasing happens when RHS is**:
-  - A variable
-  - Member of an array or object
-- **Aliasing does not happen when RHS is an expression**
+- **R1:** `~` operator is used for string concatenation
+- **R2:** Aliasing happens when RHS is a variable
+- **R3:** Aliasing happens when RHS is member of an array or object
+- **R4:** Aliasing does not happen when RHS is an expression
 
 ```javascript
 // String concatenation
@@ -570,19 +503,15 @@ The following Jinja/Twig filters are converted to functions:
 
 ### Rule Coverage: `./test/test_stringLiteral.js`
 
-### Quote Rules
-- **Single quotes can contain double quotes**
-- **Single quotes cannot contain another single quote**
-- **Double quotes can contain single quotes**  
-- **Double quotes cannot contain another double quote**
-
-### Prohibited Content
-String literals **must not contain**:
-- `'%}'`
-- `'#{'` 
-- `'\\'`
-- `'\\n'`
-- `'\\r'`
+- **R1:** Single quotes can contain double quotes
+- **R2:** Single quotes cannot contain another single quote
+- **R3:** Double quotes can contain single quotes  
+- **R4:** Double quotes cannot contain another double quote
+- **R5:** String literals must not contain `'%}'`
+- **R6:** String literals must not contain `'#{'` 
+- **R7:** String literals must not contain `'\\'`
+- **R8:** String literals must not contain `'\\n'`
+- **R9:** String literals must not contain `'\\r'`
 
 ```javascript
 // Valid string literals
@@ -602,8 +531,7 @@ String literals **must not contain**:
 
 ### Rule Coverage: `./test/test_import.js`
 
-### Import Rules
-- **Circular import is prohibited** (prevents circular macro calls)
+- **R1:** Circular import is prohibited (prevents circular macro calls)
 
 ```javascript
 // File A importing File B, and File B importing File A
@@ -616,10 +544,9 @@ String literals **must not contain**:
 
 ### Rule Coverage: `./test/test_resolve.js`
 
-### Resolution Rules
-- **Escaping works** for output safety
-- **String is marked safe** using safe filter
-- **Function calls in expressions are not allowed**
+- **R1:** Escaping works for output safety
+- **R2:** String is marked safe using safe filter
+- **R3:** Function calls in expressions are not allowed
 
 ```javascript
 // Valid
@@ -636,14 +563,11 @@ String literals **must not contain**:
 
 ### Rule Coverage: `./test/test_arrayAndObject.js`
 
-### Collection Rules
-- **`items` filter accepts 'object' type**
-- **For statement works on 'array' type**
-- **Empty object and empty array are allowed**
-
-### Loop Properties
-- **`loop.first` returns boolean** (prohibited inside render)
-- **`loop.index` returns integer** (can be used inside render)
+- **R1:** `items` filter accepts 'object' type
+- **R2:** For statement works on 'array' type
+- **R3:** Empty object and empty array are allowed
+- **R4:** `loop.first` returns boolean (prohibited inside render)
+- **R5:** `loop.index` returns integer (can be used inside render)
 
 ```javascript
 // Valid collections
@@ -667,25 +591,14 @@ String literals **must not contain**:
 
 ### Rule Coverage: `./test/test_filter.js`
 
-### Filter Argument Rules
-
-#### String Filters
-- **`string` filter**: argument should be string or nothing
-- **`int` filter**: works on string, takes only one argument, does not work on boolean
-
-#### Number Filters  
-- **`number` filter**: argument should be integer or nothing, does not work on boolean
-
-#### Template Filters
-- **`template` operator**: does not work on boolean, works on source string
-- **`render` filter**: does not work on boolean, argument should be object or nothing
-
-#### Safety Filters
-- **`safe` filter**: does not work on boolean, works on string
-- **`e` (escape) filter**: does not work on boolean, works on string
-
-### Error Handling
-- **Null type errors** are thrown for undefined variables
+- **R1:** `string` filter: argument should be string or nothing
+- **R2:** `int` filter: works on string, takes only one argument, does not work on boolean
+- **R3:** `number` filter: argument should be integer or nothing, does not work on boolean
+- **R4:** `template` operator: does not work on boolean, works on source string
+- **R5:** `render` filter: does not work on boolean, argument should be object or nothing
+- **R6:** `safe` filter: does not work on boolean, works on string
+- **R7:** `e` (escape) filter: does not work on boolean, works on string
+- **R8:** Null type errors are thrown for undefined variables
 
 ```javascript
 // Valid filter usage

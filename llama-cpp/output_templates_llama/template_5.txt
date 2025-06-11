@@ -1,0 +1,9 @@
+Prompt: 
+Output: 
+
+{%- if condition -%}
+  {%- assign msg = 'Hi' -%}
+{%- else -%}
+  {%- assign msg = 'Hello' -%}
+{%- endif -%}
+{{ msg }}

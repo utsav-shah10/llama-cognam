@@ -1,0 +1,29 @@
+"overview": |-
+    The expression tag is a less-verbose alternative syntax for the print statement.  Unlike all named statement tags, its internal syntax does not begin with the tag name.  {{ <expression> }} is semantically equivalent to {% print <expression> %}.  The statement represented by an expression tag is a print statement.
+"tests":
+-   "data": |
+        {}
+    "desc": |-
+        The expression tag is a less-verbose alternative syntax for the print statement.  Unlike all named statement tags, its internal syntax does not begin with the tag name.  {{ <expression> }} is semantically equivalent to {% print <expression> %}.  The statement represented by an expression tag is a print statement.
+    "expected": |+
+        {{ var }}
+
+    "name": |-
+        test_42_00_expression_inline_test.test
+    "template": |
+        {{ "{{ var }}" }}
+    "testname": |-
+        expression inline
+-   "data": |
+        { "xyz" : 123 }
+    "desc": |-
+        The expression tag is a less-verbose alternative syntax for the print statement.  Unlike all named statement tags, its internal syntax does not begin with the tag name.  {{ <expression> }} is semantically equivalent to {% print <expression> %}.  The statement represented by an expression tag is a print statement.
+    "expected": |+
+        $xyz
+
+    "name": |-
+        test_54_06_print_var_string.test
+    "template": |
+        {{ "$xyz" }}
+    "testname": |-
+        print var string

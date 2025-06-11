@@ -1,0 +1,5 @@
+Prompt: 
+Output: 
+
+{{ 'Hello World' }}
+{{ 42 }}

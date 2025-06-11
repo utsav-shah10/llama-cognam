@@ -1,0 +1,147 @@
+"overview": "These Blended special functions each have specific functionality.cheakout\
+    \ in descrition of individual function. "
+"tests":
+-   "data": |
+        {}
+    "desc": " Escaped strings are introduced by applying the escape filter (alias\
+        \ e) to string objects. "
+    "expected": |+
+        testing e for ampersent is &amp;
+        testing escape for ampersent is &amp;
+
+    "name": |-
+        test_23_01_escape.test
+    "template": |
+        {% set e_test = "testing e for ampersent is &"|e %}
+        {% set escape_test = "testing escape for ampersent is &"|escape %}
+        {{e_test}}
+        {{escape_test}}
+    "testname": |-
+        escape
+-   "data": |
+        {}
+    "desc": |-
+        To comment-out part of a line in a template, use the comment syntax which is by default set to {# ... #}. This is useful to comment out parts of the template for debugging or to add information for other template designers or yourself.
+    "expected": |+
+        <!-- This is an html comment -->
+
+    "name": |-
+        test_10_01_comments.test
+    "template": "{# This is a single-line {% comment #}\n<!-- This is an html comment\
+        \ -->\n{# This is a multi-line \n{% comment #}\n"
+    "testname": |-
+        comments
+-   "data": |
+        { "list" : [ 1, 2, 3, 4, 5, 6, 7] }
+    "desc": |-
+        Return the first item of a sequence.
+    "expected": |4
+
+        function first output = 1
+    "name": |-
+        test_14_00_first.test
+    "template": |
+        {% set map = list %}
+
+        function first output = {% print first(map) %}
+    "testname": |-
+        first
+-   "data": |
+        { "list" : [ 1, 2, 3, 4, 5, 6, 7] }
+    "desc": |-
+        Return the last item of a sequence.
+    "expected": |4
+
+        function last output = 7
+    "name": |-
+        test_14_01_last.test
+    "template": |
+        {% set map = list %}
+
+        function last output = {% print last(map) %}
+    "testname": |-
+        last
+-   "data": |
+        {}
+    "desc": |-
+        The method lower() returns a copy of the string in which all case-based characters have been lowercased. Convert a value to lowercase.
+    "expected": |
+        function lower output = the words was in upper but now in lower case
+    "name": |-
+        test_14_09_lower.test
+    "template": |
+        function lower output = {% print lower("THE WORDS WAS IN UPPER BUT NOW IN LOWER CASE") %}
+    "testname": |-
+        lower
+-   "data": |
+        {}
+    "desc": |-
+        The method upper() returns a copy of the string in which all case-based characters have been uppercased. Convert a value to uppercase.
+    "expected": |
+        function upper output = THE WORDS WAS IN LOWER BUT NOW IN UPPER CASE
+    "name": |-
+        test_14_10_upper.test
+    "template": |
+        function upper output = {% print upper("the words was in lower but now in upper case") %}
+    "testname": |-
+        upper
+-   "data": |
+        {}
+    "desc": |-
+        Return a titlecased version of the value. I.e. words will start with uppercase letters, all remaining characters are lowercase.
+    "expected": |
+        function title output = This Is Title Case Function
+    "name": |-
+        test_14_11_title.test
+    "template": |
+        function title output = {% print title("this is title case function") %}
+    "testname": |-
+        title
+-   "data": |
+        {}
+    "desc": |-
+        Returns the length of the value. This works for both strings and lists.
+    "expected": |
+        input is list function length output = 8
+        input is string function length output = 6
+    "name": |-
+        test_14_12_length.test
+    "template": |
+        input is list function length output = {% print length([1,2,3,4,5,6,7,8]) %}
+
+        input is string function length output = {% print length("worlds") %}
+    "testname": |-
+        length
+-   "data": |
+        {
+         "past_datetime": [2010, 12, 10, 23, 15, 10],
+         "future_datetime": [2033, 9, 20, 15, 3, 15]
+        }
+    "desc": |-
+        Variables can be modified by filters. Filters are separated from the variable by a pipe symbol (|) and may have optional arguments in parentheses. Multiple filters can be chained. The output of one filter is applied to the next.Templates can be introduced through the use of the template filter, which compiles a string into a template object or string into a number or number/list into a string.The date filter formats a date to a specified format.The date can be a date object, milliseconds, or a datetime string may like ("%Y-%m-%d").Then dates are compared.
+    "expected": |+
+        true
+        true
+
+    "name": |-
+        test_67_01_now_function_comapre_future_and_past_date.test
+    "template": |
+        {% set current_datetime = now() %}
+        {% set result1 = past_datetime|datetime < current_datetime %}
+        {% set result2 = future_datetime|datetime > current_datetime %}
+        {{ result1|string }}
+        {{ result2|string }}
+    "testname": |-
+        comapre dates
+-   "data": |
+        {"var" : 100.122220004455}
+    "desc": |-
+        Round function trims a float to a decimal of required precision
+    "expected": |
+        100.122220004
+    "name": |-
+        test_14_16_round_func_test.test
+    "template": |
+        {{ round(var,12) }}
+    "testname": |-
+        test round function

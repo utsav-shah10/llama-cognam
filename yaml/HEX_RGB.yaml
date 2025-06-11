@@ -1,0 +1,966 @@
+"overview": |-
+    It takes input in the form of a hex color code value and converts that value to a RGB value i.e.(Decimal value).
+    Convert the red, green and blue color values from decimal to hex.
+"tests":
+-   "data": |
+        { "col_list": [255, 0, 0] }
+    "desc": |-
+        Convert the red, green and blue color values from decimal to hex.
+    "expected": |
+        function rgb2hex output = #FF0000
+    "name": |-
+        test_14_04_rgb2hex.test
+    "template": |
+        function rgb2hex output = {% print hexcolor(col_list) %}
+    "testname": |-
+        rgb2hex
+-   "data": "{\"theme\": \n     {\"colors\" : \n         {\n          \"black\" :\
+        \ \"#000000\",\n          \"red\" : \"#FF0000\",\n          \"white\" : \"\
+        #FFFFFF\"\n          }\n     }\n}\n"
+    "desc": |-
+        It takes input in the form of a hex color code value and converts that value to a RGB value i.e.(Decimal value).
+    "expected": |+
+        function hex2rgb output
+        red = 255
+        green = 255
+        blue = 255
+
+    "name": |-
+        test_14_05_hex2rgb.test
+    "template": |+
+        function hex2rgb output
+        {% set var = rgbcolor(theme.colors.white) %}
+        red = {% print var[0] %}
+
+        green = {% print var[1] %}
+
+        blue = {% print var[2] %}
+
+    "testname": |-
+        hex2rgb
+-   "data": |
+        { "color": "yellowgreen", "bColor": "blue" }
+    "desc": |-
+        The RGB-to-hexadecimal converter algorithm is simple: make sure that your R, G, B (red, green, blue) values are in the range 0...255, convert R, G, B to hex strings, and then concatenate the three hex strings together. Convert RGB to Hex color values here.
+    "expected": |+
+        <style>
+        div.header {
+            color: #9ACD32;
+            backround-color: #0000FF;
+        }
+        </style>
+
+    "name": |-
+        test_63_00_to_hex_test.test
+    "template": |
+        <style>
+        div.header {
+            color: {{ hexcolor(color) }};
+            backround-color: {{ hexcolor(bColor) }};
+        }
+        </style>
+    "testname": "to_hex "
+-   "data": |
+        { "color": [20,50,200], "bColor": [10,20,30] }
+    "desc": "The RGB-to-hexadecimal converter algorithm is simple: make sure that\
+        \ your R, G, B (red, green, blue) values are in the range 0...255, convert\
+        \ R, G, B to hex strings, and then concatenate the three hex strings together. "
+    "expected": |+
+        <style>
+        div.header {
+            color: #1432C8;
+            backround-color: #0A141E;
+        }
+        </style>
+
+    "name": |-
+        test_63_01_to_hex_test.test
+    "template": |
+        <style>
+        div.header {
+            color: {{ hexcolor(color) }};
+            backround-color: {{ hexcolor(bColor) }};
+        }
+        </style>
+    "testname": |-
+        to_hex
+-   "data": |
+        { "color": "#FF00FF", "bColor": "#00FF00" }
+    "desc": "The RGB-to-hexadecimal converter algorithm is simple: make sure that\
+        \ your R, G, B (red, green, blue) values are in the range 0...255, convert\
+        \ R, G, B to hex strings, and then concatenate the three hex strings together. "
+    "expected": |+
+        <style>
+        div.header {
+            color: #FF00FF;
+            backround-color: #00FF00;
+        }
+        </style>
+
+    "name": |-
+        test_63_02_to_hex_test.test
+    "template": |
+        <style>
+        div.header {
+            color: {{ hexcolor(color) }};
+            backround-color: {{ hexcolor(bColor) }};
+        }
+        </style>
+    "testname": |-
+        to_hex
+-   "data": |
+        { "color": "#F0F", "bColor": "#0F0" }
+    "desc": "The RGB-to-hexadecimal converter algorithm is simple: make sure that\
+        \ your R, G, B (red, green, blue) values are in the range 0...255, convert\
+        \ R, G, B to hex strings, and then concatenate the three hex strings together. "
+    "expected": |+
+        <style>
+        div.header {
+            color: #FF00FF;
+            backround-color: #00FF00;
+        }
+        </style>
+
+    "name": |-
+        test_63_03_to_hex_test.test
+    "template": |
+        <style>
+        div.header {
+            color: {{ hexcolor(color) }};
+            backround-color: {{ hexcolor(bColor) }};
+        }
+        </style>
+    "testname": |-
+        to_hex
+-   "data": |
+        { "color": "F0F", "bColor": "0F0" }
+    "desc": "The RGB-to-hexadecimal converter algorithm is simple: make sure that\
+        \ your R, G, B (red, green, blue) values are in the range 0...255, convert\
+        \ R, G, B to hex strings, and then concatenate the three hex strings together. "
+    "expected": |+
+        <style>
+        div.header {
+            color: #FF00FF;
+            backround-color: #00FF00;
+        }
+        </style>
+
+    "name": |-
+        test_63_04_to_hex_test.test
+    "template": |
+        <style>
+        div.header {
+            color: {{ hexcolor(color) }};
+            backround-color: {{ hexcolor(bColor) }};
+        }
+        </style>
+    "testname": |-
+        to_hex
+-   "data": |
+        {}
+    "desc": "The RGB-to-hexadecimal converter algorithm is simple: make sure that\
+        \ your R, G, B (red, green, blue) values are in the range 0...255, convert\
+        \ R, G, B to hex strings, and then concatenate the three hex strings together. "
+    "expected": |+
+        #00FFFF
+        #7FFFD4
+        #F0F8FF
+        #FAEBD7
+        #F0FFFF
+        #F5F5DC
+        #FFE4C4
+        #000000
+        #FFEBCD
+        #0000FF
+        #8A2BE2
+        #A52A2A
+        #DEB887
+        #5F9EA0
+        #7FFF00
+        #D2691E
+        #FF7F50
+        #6495ED
+        #FFF8DC
+        #DC143C
+        #00FFFF
+        #00008B
+        #008B8B
+        #B8860B
+        #A9A9A9
+        #A9A9A9
+        #006400
+        #BDB76B
+        #8B008B
+        #556B2F
+        #FF8C00
+        #9932CC
+        #8B0000
+        #E9967A
+        #8FBC8F
+        #483D8B
+        #2F4F4F
+        #2F4F4F
+        #00CED1
+        #9400D3
+        #FF1493
+        #00BFFF
+        #696969
+        #696969
+        #1E90FF
+        #B22222
+        #FFFAF0
+        #228B22
+        #FF00FF
+        #DCDCDC
+        #F8F8FF
+        #FFD700
+        #DAA520
+        #808080
+        #808080
+        #008000
+        #ADFF2F
+        #F0FFF0
+        #FF69B4
+        #CD5C5C
+        #4B0082
+        #FFFFF0
+        #F0E68C
+        #E6E6FA
+        #FFF0F5
+        #7CFC00
+        #FFFACD
+        #ADD8E6
+        #F08080
+        #E0FFFF
+        #FAFAD2
+        #D3D3D3
+        #D3D3D3
+        #90EE90
+        #FFB6C1
+        #FFA07A
+        #20B2AA
+        #87CEFA
+        #778899
+        #778899
+        #B0C4DE
+        #FFFFE0
+        #00FF00
+        #32CD32
+        #FAF0E6
+        #FF00FF
+        #800000
+        #66CDAA
+        #0000CD
+        #BA55D3
+        #9370DB
+        #3CB371
+        #7B68EE
+        #00FA9A
+        #48D1CC
+        #C71585
+        #191970
+        #F5FFFA
+        #FFE4E1
+        #FFE4B5
+        #FFDEAD
+        #000080
+        #FDF5E6
+        #808000
+        #6B8E23
+        #FFA500
+        #FF4500
+        #DA70D6
+        #EEE8AA
+        #98FB98
+        #AFEEEE
+        #DB7093
+        #FFEFD5
+        #FFDAB9
+        #CD853F
+        #FFC0CB
+        #DDA0DD
+        #B0E0E6
+        #800080
+        #FF0000
+        #BC8F8F
+        #4169E1
+        #8B4513
+        #FA8072
+        #F4A460
+        #2E8B57
+        #FFF5EE
+        #A0522D
+        #C0C0C0
+        #87CEEB
+        #6A5ACD
+        #708090
+        #708090
+        #FFFAFA
+        #00FF7F
+        #4682B4
+        #D2B48C
+        #008080
+        #D8BFD8
+        #FF6347
+        #40E0D0
+        #EE82EE
+        #F5DEB3
+        #FFFFFF
+        #F5F5F5
+        #FFFF00
+        #9ACD32
+
+    "name": |-
+        test_63_05_color_map_with_hexcolor_test.test
+    "template": |
+        {{ hexcolor("aqua") }}
+        {{ hexcolor("aquamarine") }}
+        {{ hexcolor("aliceblue") }}
+        {{ hexcolor("antiquewhite") }}
+        {{ hexcolor("azure") }}
+        {{ hexcolor("beige") }}
+        {{ hexcolor("bisque") }}
+        {{ hexcolor("black") }}
+        {{ hexcolor("blanchedalmond") }}
+        {{ hexcolor("blue") }}
+        {{ hexcolor("blueviolet") }}
+        {{ hexcolor("brown") }}
+        {{ hexcolor("burlywood") }}
+        {{ hexcolor("cadetblue") }}
+        {{ hexcolor("chartreuse") }}
+        {{ hexcolor("chocolate") }}
+        {{ hexcolor("coral") }}
+        {{ hexcolor("cornflowerblue") }}
+        {{ hexcolor("cornsilk") }}
+        {{ hexcolor("crimson") }}
+        {{ hexcolor("cyan") }}
+        {{ hexcolor("darkblue") }}
+        {{ hexcolor("darkcyan") }}
+        {{ hexcolor("darkgoldenrod") }}
+        {{ hexcolor("darkgray") }}
+        {{ hexcolor("darkgrey") }}
+        {{ hexcolor("darkgreen") }}
+        {{ hexcolor("darkkhaki") }}
+        {{ hexcolor("darkmagenta") }}
+        {{ hexcolor("darkolivegreen") }}
+        {{ hexcolor("darkorange") }}
+        {{ hexcolor("darkorchid") }}
+        {{ hexcolor("darkred") }}
+        {{ hexcolor("darksalmon") }}
+        {{ hexcolor("darkseagreen") }}
+        {{ hexcolor("darkslateblue") }}
+        {{ hexcolor("darkslategray") }}
+        {{ hexcolor("darkslategrey") }}
+        {{ hexcolor("darkturquoise") }}
+        {{ hexcolor("darkviolet") }}
+        {{ hexcolor("deeppink") }}
+        {{ hexcolor("deepskyblue") }}
+        {{ hexcolor("dimgray") }}
+        {{ hexcolor("dimgrey") }}
+        {{ hexcolor("dodgerblue") }}
+        {{ hexcolor("firebrick") }}
+        {{ hexcolor("floralwhite") }}
+        {{ hexcolor("forestgreen") }}
+        {{ hexcolor("fuchsia") }}
+        {{ hexcolor("gainsboro") }}
+        {{ hexcolor("ghostwhite") }}
+        {{ hexcolor("gold") }}
+        {{ hexcolor("goldenrod") }}
+        {{ hexcolor("gray") }}
+        {{ hexcolor("grey") }}
+        {{ hexcolor("green") }}
+        {{ hexcolor("greenyellow") }}
+        {{ hexcolor("honeydew") }}
+        {{ hexcolor("hotpink") }}
+        {{ hexcolor("indianred") }}
+        {{ hexcolor("indigo") }}
+        {{ hexcolor("ivory") }}
+        {{ hexcolor("khaki") }}
+        {{ hexcolor("lavender") }}
+        {{ hexcolor("lavenderblush") }}
+        {{ hexcolor("lawngreen") }}
+        {{ hexcolor("lemonchiffon") }}
+        {{ hexcolor("lightblue") }}
+        {{ hexcolor("lightcoral") }}
+        {{ hexcolor("lightcyan") }}
+        {{ hexcolor("lightgoldenrodyellow") }}
+        {{ hexcolor("lightgray") }}
+        {{ hexcolor("lightgrey") }}
+        {{ hexcolor("lightgreen") }}
+        {{ hexcolor("lightpink") }}
+        {{ hexcolor("lightsalmon") }}
+        {{ hexcolor("lightseagreen") }}
+        {{ hexcolor("lightskyblue") }}
+        {{ hexcolor("lightslategray") }}
+        {{ hexcolor("lightslategrey") }}
+        {{ hexcolor("lightsteelblue") }}
+        {{ hexcolor("lightyellow") }}
+        {{ hexcolor("lime") }}
+        {{ hexcolor("limegreen") }}
+        {{ hexcolor("linen") }}
+        {{ hexcolor("magenta") }}
+        {{ hexcolor("maroon") }}
+        {{ hexcolor("mediumaquamarine") }}
+        {{ hexcolor("mediumblue") }}
+        {{ hexcolor("mediumorchid") }}
+        {{ hexcolor("mediumpurple") }}
+        {{ hexcolor("mediumseagreen") }}
+        {{ hexcolor("mediumslateblue") }}
+        {{ hexcolor("mediumspringgreen") }}
+        {{ hexcolor("mediumturquoise") }}
+        {{ hexcolor("mediumvioletred") }}
+        {{ hexcolor("midnightblue") }}
+        {{ hexcolor("mintcream") }}
+        {{ hexcolor("mistyrose") }}
+        {{ hexcolor("moccasin") }}
+        {{ hexcolor("navajowhite") }}
+        {{ hexcolor("navy") }}
+        {{ hexcolor("oldlace") }}
+        {{ hexcolor("olive") }}
+        {{ hexcolor("olivedrab") }}
+        {{ hexcolor("orange") }}
+        {{ hexcolor("orangered") }}
+        {{ hexcolor("orchid") }}
+        {{ hexcolor("palegoldenrod") }}
+        {{ hexcolor("palegreen") }}
+        {{ hexcolor("paleturquoise") }}
+        {{ hexcolor("palevioletred") }}
+        {{ hexcolor("papayawhip") }}
+        {{ hexcolor("peachpuff") }}
+        {{ hexcolor("peru") }}
+        {{ hexcolor("pink") }}
+        {{ hexcolor("plum") }}
+        {{ hexcolor("powderblue") }}
+        {{ hexcolor("purple") }}
+        {{ hexcolor("red") }}
+        {{ hexcolor("rosybrown") }}
+        {{ hexcolor("royalblue") }}
+        {{ hexcolor("saddlebrown") }}
+        {{ hexcolor("salmon") }}
+        {{ hexcolor("sandybrown") }}
+        {{ hexcolor("seagreen") }}
+        {{ hexcolor("seashell") }}
+        {{ hexcolor("sienna") }}
+        {{ hexcolor("silver") }}
+        {{ hexcolor("skyblue") }}
+        {{ hexcolor("slateblue") }}
+        {{ hexcolor("slategray") }}
+        {{ hexcolor("slategrey") }}
+        {{ hexcolor("snow") }}
+        {{ hexcolor("springgreen") }}
+        {{ hexcolor("steelblue") }}
+        {{ hexcolor("tan") }}
+        {{ hexcolor("teal") }}
+        {{ hexcolor("thistle") }}
+        {{ hexcolor("tomato") }}
+        {{ hexcolor("turquoise") }}
+        {{ hexcolor("violet") }}
+        {{ hexcolor("wheat") }}
+        {{ hexcolor("white") }}
+        {{ hexcolor("whitesmoke") }}
+        {{ hexcolor("yellow") }}
+        {{ hexcolor("yellowgreen") }}
+    "testname": |-
+        color map with hexcolor
+-   "data": |
+        {}
+    "desc": "The RGB-to-hexadecimal converter algorithm is simple: make sure that\
+        \ your R, G, B (red, green, blue) values are in the range 0...255, convert\
+        \ R, G, B to hex strings, and then concatenate the three hex strings together. "
+    "expected": |+
+        #000000
+        #000000
+        #000000
+        #000000
+        #000000
+        #000000
+
+    "name": |-
+        test_63_06_invalid_input_with_hexcolor_test.test
+    "template": |
+        {{ hexcolor([480, 235, 125]) }}
+        {{ hexcolor("#xga") }}
+        {{ hexcolor("xga") }}
+        {{ hexcolor("#x20g11") }}
+        {{ hexcolor("x20g11") }}
+        {{ hexcolor("thousand") }}
+    "testname": |-
+        invalid input with hexcolor
+-   "data": |
+        { "color": [20,50,200], "bColor": [10,20,30] }
+    "desc": |-
+        It takes input in the form of a hex color code value and converts that value to a RGB value i.e.(Decimal value).
+    "expected": |+
+        <style>
+        div.header {
+            color: rgb(20, 50, 200);
+            backround-color: rgb(10, 20, 30);
+        }
+        </style>
+
+    "name": |-
+        test_64_01_to_rgb_test.test
+    "template": |
+        {% set contentColor = rgbcolor(color) %}
+        {% set backColor = rgbcolor(bColor) %}
+        <style>
+        div.header {
+            color: rgb({{ contentColor[0] }}, {{ contentColor[1] }}, {{ contentColor[2] }});
+            backround-color: rgb({{ backColor[0] }}, {{ backColor[1] }}, {{ backColor[2] }});
+        }
+        </style>
+    "testname": |-
+        to_rgb
+-   "data": |
+        { "color": "#00FF00", "bColor": "#010256" }
+    "desc": |-
+        It takes input in the form of a hex color code value and converts that value to a RGB value i.e.(Decimal value).
+    "expected": |+
+        <style>
+        div.header {
+            color: rgb(0, 255, 0);
+            backround-color: rgb(1, 2, 86);
+        }
+        </style>
+
+    "name": |-
+        test_64_02_to_rgb_test.test
+    "template": |
+        {% set contentColor = rgbcolor(color) %}
+        {% set backColor = rgbcolor(bColor) %}
+        <style>
+        div.header {
+            color: rgb({{ contentColor[0] }}, {{ contentColor[1] }}, {{ contentColor[2] }});
+            backround-color: rgb({{ backColor[0] }}, {{ backColor[1] }}, {{ backColor[2] }});
+        }
+        </style>
+    "testname": |-
+        to_rgb
+-   "data": |
+        { "color": "#0F0", "bColor": "#012" }
+    "desc": |-
+        It takes input in the form of a hex color code value and converts that value to a RGB value i.e.(Decimal value).
+    "expected": |+
+        <style>
+        div.header {
+            color: rgb(0, 255, 0);
+            backround-color: rgb(0, 17, 34);
+        }
+        </style>
+
+    "name": |-
+        test_64_03_to_rgb_test.test
+    "template": |
+        {% set contentColor = rgbcolor(color) %}
+        {% set backColor = rgbcolor(bColor) %}
+        <style>
+        div.header {
+            color: rgb({{ contentColor[0] }}, {{ contentColor[1] }}, {{ contentColor[2] }});
+            backround-color: rgb({{ backColor[0] }}, {{ backColor[1] }}, {{ backColor[2] }});
+        }
+        </style>
+    "testname": |-
+        to_rgb
+-   "data": |
+        { "color": "blue", "bColor": "lime" }
+    "desc": |-
+        It takes input in the form of a hex color code value and converts that value to a RGB value i.e.(Decimal value).
+    "expected": |+
+        <style>
+        div.header {
+            color: rgb(0, 0, 255);
+            backround-color: rgb(0, 255, 0);
+        }
+        </style>
+
+    "name": |-
+        test_64_05_to_rgb_test.test
+    "template": |
+        {% set contentColor = rgbcolor(color) %}
+        {% set backColor = rgbcolor(bColor) %}
+        <style>
+        div.header {
+            color: rgb({{ contentColor[0] }}, {{ contentColor[1] }}, {{ contentColor[2] }});
+            backround-color: rgb({{ backColor[0] }}, {{ backColor[1] }}, {{ backColor[2] }});
+        }
+        </style>
+    "testname": |-
+        to_rgb
+-   "data": |
+        { "color": "0F0", "bColor": "012" }
+    "desc": |-
+        It takes input in the form of a hex color code value and converts that value to a RGB value i.e.(Decimal value).
+    "expected": |+
+        <style>
+        div.header {
+            color: rgb(0, 255, 0);
+            backround-color: rgb(0, 17, 34);
+        }
+        </style>
+
+    "name": |-
+        test_64_06_to_rgb_test.test
+    "template": |
+        {% set contentColor = rgbcolor(color) %}
+        {% set backColor = rgbcolor(bColor) %}
+        <style>
+        div.header {
+            color: rgb({{ contentColor[0] }}, {{ contentColor[1] }}, {{ contentColor[2] }});
+            backround-color: rgb({{ backColor[0] }}, {{ backColor[1] }}, {{ backColor[2] }});
+        }
+        </style>
+    "testname": |-
+        to_rgb
+-   "data": |
+        { "color": "00FF00", "bColor": "010256" }
+    "desc": |-
+        It takes input in the form of a hex color code value and converts that value to a RGB value i.e.(Decimal value).
+    "expected": |+
+        <style>
+        div.header {
+            color: rgb(0, 255, 0);
+            backround-color: rgb(1, 2, 86);
+        }
+        </style>
+
+    "name": |-
+        test_64_07_to_rgb_test.test
+    "template": |
+        {% set contentColor = rgbcolor(color) %}
+        {% set backColor = rgbcolor(bColor) %}
+        <style>
+        div.header {
+            color: rgb({{ contentColor[0] }}, {{ contentColor[1] }}, {{ contentColor[2] }});
+            backround-color: rgb({{ backColor[0] }}, {{ backColor[1] }}, {{ backColor[2] }});
+        }
+        </style>
+    "testname": |-
+        to_rgb
+-   "data": |
+        {}
+    "desc": |-
+        It takes input in the form of a hex color code value and converts that value to a RGB value i.e.(Decimal value).
+    "expected": |+
+        [0, 255, 255]
+        [127, 255, 212]
+        [240, 248, 255]
+        [250, 235, 215]
+        [240, 255, 255]
+        [245, 245, 220]
+        [255, 228, 196]
+        [0, 0, 0]
+        [255, 235, 205]
+        [0, 0, 255]
+        [138, 43, 226]
+        [165, 42, 42]
+        [222, 184, 135]
+        [95, 158, 160]
+        [127, 255, 0]
+        [210, 105, 30]
+        [255, 127, 80]
+        [100, 149, 237]
+        [255, 248, 220]
+        [220, 20, 60]
+        [0, 255, 255]
+        [0, 0, 139]
+        [0, 139, 139]
+        [184, 134, 11]
+        [169, 169, 169]
+        [169, 169, 169]
+        [0, 100, 0]
+        [189, 183, 107]
+        [139, 0, 139]
+        [85, 107, 47]
+        [255, 140, 0]
+        [153, 50, 204]
+        [139, 0, 0]
+        [233, 150, 122]
+        [143, 188, 143]
+        [72, 61, 139]
+        [47, 79, 79]
+        [47, 79, 79]
+        [0, 206, 209]
+        [148, 0, 211]
+        [255, 20, 147]
+        [0, 191, 255]
+        [105, 105, 105]
+        [105, 105, 105]
+        [30, 144, 255]
+        [178, 34, 34]
+        [255, 250, 240]
+        [34, 139, 34]
+        [255, 0, 255]
+        [220, 220, 220]
+        [248, 248, 255]
+        [255, 215, 0]
+        [218, 165, 32]
+        [128, 128, 128]
+        [128, 128, 128]
+        [0, 128, 0]
+        [173, 255, 47]
+        [240, 255, 240]
+        [255, 105, 180]
+        [205, 92, 92]
+        [75, 0, 130]
+        [255, 255, 240]
+        [240, 230, 140]
+        [230, 230, 250]
+        [255, 240, 245]
+        [124, 252, 0]
+        [255, 250, 205]
+        [173, 216, 230]
+        [240, 128, 128]
+        [224, 255, 255]
+        [250, 250, 210]
+        [211, 211, 211]
+        [211, 211, 211]
+        [144, 238, 144]
+        [255, 182, 193]
+        [255, 160, 122]
+        [32, 178, 170]
+        [135, 206, 250]
+        [119, 136, 153]
+        [119, 136, 153]
+        [176, 196, 222]
+        [255, 255, 224]
+        [0, 255, 0]
+        [50, 205, 50]
+        [250, 240, 230]
+        [255, 0, 255]
+        [128, 0, 0]
+        [102, 205, 170]
+        [0, 0, 205]
+        [186, 85, 211]
+        [147, 112, 219]
+        [60, 179, 113]
+        [123, 104, 238]
+        [0, 250, 154]
+        [72, 209, 204]
+        [199, 21, 133]
+        [25, 25, 112]
+        [245, 255, 250]
+        [255, 228, 225]
+        [255, 228, 181]
+        [255, 222, 173]
+        [0, 0, 128]
+        [253, 245, 230]
+        [128, 128, 0]
+        [107, 142, 35]
+        [255, 165, 0]
+        [255, 69, 0]
+        [218, 112, 214]
+        [238, 232, 170]
+        [152, 251, 152]
+        [175, 238, 238]
+        [219, 112, 147]
+        [255, 239, 213]
+        [255, 218, 185]
+        [205, 133, 63]
+        [255, 192, 203]
+        [221, 160, 221]
+        [176, 224, 230]
+        [128, 0, 128]
+        [255, 0, 0]
+        [188, 143, 143]
+        [65, 105, 225]
+        [139, 69, 19]
+        [250, 128, 114]
+        [244, 164, 96]
+        [46, 139, 87]
+        [255, 245, 238]
+        [160, 82, 45]
+        [192, 192, 192]
+        [135, 206, 235]
+        [106, 90, 205]
+        [112, 128, 144]
+        [112, 128, 144]
+        [255, 250, 250]
+        [0, 255, 127]
+        [70, 130, 180]
+        [210, 180, 140]
+        [0, 128, 128]
+        [216, 191, 216]
+        [255, 99, 71]
+        [64, 224, 208]
+        [238, 130, 238]
+        [245, 222, 179]
+        [255, 255, 255]
+        [245, 245, 245]
+        [255, 255, 0]
+        [154, 205, 50]
+
+    "name": |-
+        test_64_08_color_map_with_rgbcolor_test.test
+    "template": |
+        {{ rgbcolor("aqua")|string }}
+        {{ rgbcolor("aquamarine")|string }}
+        {{ rgbcolor("aliceblue")|string }}
+        {{ rgbcolor("antiquewhite")|string }}
+        {{ rgbcolor("azure")|string }}
+        {{ rgbcolor("beige")|string }}
+        {{ rgbcolor("bisque")|string }}
+        {{ rgbcolor("black")|string }}
+        {{ rgbcolor("blanchedalmond")|string }}
+        {{ rgbcolor("blue")|string }}
+        {{ rgbcolor("blueviolet")|string }}
+        {{ rgbcolor("brown")|string }}
+        {{ rgbcolor("burlywood")|string }}
+        {{ rgbcolor("cadetblue")|string }}
+        {{ rgbcolor("chartreuse")|string }}
+        {{ rgbcolor("chocolate")|string }}
+        {{ rgbcolor("coral")|string }}
+        {{ rgbcolor("cornflowerblue")|string }}
+        {{ rgbcolor("cornsilk")|string }}
+        {{ rgbcolor("crimson")|string }}
+        {{ rgbcolor("cyan")|string }}
+        {{ rgbcolor("darkblue")|string }}
+        {{ rgbcolor("darkcyan")|string }}
+        {{ rgbcolor("darkgoldenrod")|string }}
+        {{ rgbcolor("darkgray")|string }}
+        {{ rgbcolor("darkgrey")|string }}
+        {{ rgbcolor("darkgreen")|string }}
+        {{ rgbcolor("darkkhaki")|string }}
+        {{ rgbcolor("darkmagenta")|string }}
+        {{ rgbcolor("darkolivegreen")|string }}
+        {{ rgbcolor("darkorange")|string }}
+        {{ rgbcolor("darkorchid")|string }}
+        {{ rgbcolor("darkred")|string }}
+        {{ rgbcolor("darksalmon")|string }}
+        {{ rgbcolor("darkseagreen")|string }}
+        {{ rgbcolor("darkslateblue")|string }}
+        {{ rgbcolor("darkslategray")|string }}
+        {{ rgbcolor("darkslategrey")|string }}
+        {{ rgbcolor("darkturquoise")|string }}
+        {{ rgbcolor("darkviolet")|string }}
+        {{ rgbcolor("deeppink")|string }}
+        {{ rgbcolor("deepskyblue")|string }}
+        {{ rgbcolor("dimgray")|string }}
+        {{ rgbcolor("dimgrey")|string }}
+        {{ rgbcolor("dodgerblue")|string }}
+        {{ rgbcolor("firebrick")|string }}
+        {{ rgbcolor("floralwhite")|string }}
+        {{ rgbcolor("forestgreen")|string }}
+        {{ rgbcolor("fuchsia")|string }}
+        {{ rgbcolor("gainsboro")|string }}
+        {{ rgbcolor("ghostwhite")|string }}
+        {{ rgbcolor("gold")|string }}
+        {{ rgbcolor("goldenrod")|string }}
+        {{ rgbcolor("gray")|string }}
+        {{ rgbcolor("grey")|string }}
+        {{ rgbcolor("green")|string }}
+        {{ rgbcolor("greenyellow")|string }}
+        {{ rgbcolor("honeydew")|string }}
+        {{ rgbcolor("hotpink")|string }}
+        {{ rgbcolor("indianred")|string }}
+        {{ rgbcolor("indigo")|string }}
+        {{ rgbcolor("ivory")|string }}
+        {{ rgbcolor("khaki")|string }}
+        {{ rgbcolor("lavender")|string }}
+        {{ rgbcolor("lavenderblush")|string }}
+        {{ rgbcolor("lawngreen")|string }}
+        {{ rgbcolor("lemonchiffon")|string }}
+        {{ rgbcolor("lightblue")|string }}
+        {{ rgbcolor("lightcoral")|string }}
+        {{ rgbcolor("lightcyan")|string }}
+        {{ rgbcolor("lightgoldenrodyellow")|string }}
+        {{ rgbcolor("lightgray")|string }}
+        {{ rgbcolor("lightgrey")|string }}
+        {{ rgbcolor("lightgreen")|string }}
+        {{ rgbcolor("lightpink")|string }}
+        {{ rgbcolor("lightsalmon")|string }}
+        {{ rgbcolor("lightseagreen")|string }}
+        {{ rgbcolor("lightskyblue")|string }}
+        {{ rgbcolor("lightslategray")|string }}
+        {{ rgbcolor("lightslategrey")|string }}
+        {{ rgbcolor("lightsteelblue")|string }}
+        {{ rgbcolor("lightyellow")|string }}
+        {{ rgbcolor("lime")|string }}
+        {{ rgbcolor("limegreen")|string }}
+        {{ rgbcolor("linen")|string }}
+        {{ rgbcolor("magenta")|string }}
+        {{ rgbcolor("maroon")|string }}
+        {{ rgbcolor("mediumaquamarine")|string }}
+        {{ rgbcolor("mediumblue")|string }}
+        {{ rgbcolor("mediumorchid")|string }}
+        {{ rgbcolor("mediumpurple")|string }}
+        {{ rgbcolor("mediumseagreen")|string }}
+        {{ rgbcolor("mediumslateblue")|string }}
+        {{ rgbcolor("mediumspringgreen")|string }}
+        {{ rgbcolor("mediumturquoise")|string }}
+        {{ rgbcolor("mediumvioletred")|string }}
+        {{ rgbcolor("midnightblue")|string }}
+        {{ rgbcolor("mintcream")|string }}
+        {{ rgbcolor("mistyrose")|string }}
+        {{ rgbcolor("moccasin")|string }}
+        {{ rgbcolor("navajowhite")|string }}
+        {{ rgbcolor("navy")|string }}
+        {{ rgbcolor("oldlace")|string }}
+        {{ rgbcolor("olive")|string }}
+        {{ rgbcolor("olivedrab")|string }}
+        {{ rgbcolor("orange")|string }}
+        {{ rgbcolor("orangered")|string }}
+        {{ rgbcolor("orchid")|string }}
+        {{ rgbcolor("palegoldenrod")|string }}
+        {{ rgbcolor("palegreen")|string }}
+        {{ rgbcolor("paleturquoise")|string }}
+        {{ rgbcolor("palevioletred")|string }}
+        {{ rgbcolor("papayawhip")|string }}
+        {{ rgbcolor("peachpuff")|string }}
+        {{ rgbcolor("peru")|string }}
+        {{ rgbcolor("pink")|string }}
+        {{ rgbcolor("plum")|string }}
+        {{ rgbcolor("powderblue")|string }}
+        {{ rgbcolor("purple")|string }}
+        {{ rgbcolor("red")|string }}
+        {{ rgbcolor("rosybrown")|string }}
+        {{ rgbcolor("royalblue")|string }}
+        {{ rgbcolor("saddlebrown")|string }}
+        {{ rgbcolor("salmon")|string }}
+        {{ rgbcolor("sandybrown")|string }}
+        {{ rgbcolor("seagreen")|string }}
+        {{ rgbcolor("seashell")|string }}
+        {{ rgbcolor("sienna")|string }}
+        {{ rgbcolor("silver")|string }}
+        {{ rgbcolor("skyblue")|string }}
+        {{ rgbcolor("slateblue")|string }}
+        {{ rgbcolor("slategray")|string }}
+        {{ rgbcolor("slategrey")|string }}
+        {{ rgbcolor("snow")|string }}
+        {{ rgbcolor("springgreen")|string }}
+        {{ rgbcolor("steelblue")|string }}
+        {{ rgbcolor("tan")|string }}
+        {{ rgbcolor("teal")|string }}
+        {{ rgbcolor("thistle")|string }}
+        {{ rgbcolor("tomato")|string }}
+        {{ rgbcolor("turquoise")|string }}
+        {{ rgbcolor("violet")|string }}
+        {{ rgbcolor("wheat")|string }}
+        {{ rgbcolor("white")|string }}
+        {{ rgbcolor("whitesmoke")|string }}
+        {{ rgbcolor("yellow")|string }}
+        {{ rgbcolor("yellowgreen")|string }}
+    "testname": |-
+        color map with rgbcolor
+-   "data": |
+        {}
+    "desc": |-
+        It takes input in the form of a hex color code value and converts that value to a RGB value i.e.(Decimal value).
+    "expected": |+
+        [0, 0, 0]
+        [0, 0, 0]
+        [0, 0, 0]
+        [0, 0, 0]
+        [0, 0, 0]
+        [0, 0, 0]
+
+    "name": |-
+        test_64_09_invalid_input_with_rgbcolor_test.test
+    "template": |
+        {{ rgbcolor([480, 235, 125])|string }}
+        {{ rgbcolor("#xga")|string }}
+        {{ rgbcolor("xga")|string }}
+        {{ rgbcolor("#x20g11")|string }}
+        {{ rgbcolor("x20g11")|string }}
+        {{ rgbcolor("thousand")|string }}
+    "testname": |-
+        invalid input with rgbcolor

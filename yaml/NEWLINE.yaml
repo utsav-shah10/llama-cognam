@@ -1,0 +1,1512 @@
+"dependency":
+-   "bases":
+        "base": |
+            <html>
+            <body>
+            {% block content %}<p>Parent Content</p>{% endblock %}
+            </body>
+            </html>
+        "block_scope": |
+            <!DOCTYPE html>
+            <html>
+                <head>
+                    {% block head %}
+                        <link rel="stylesheet" href="style.css" />
+                        <title>{% block title %}{% endblock %} - My Webpage</title>
+                    {% endblock %}
+                </head>
+                <body>
+                    <div id="content">{% block content %}{% endblock %}</div>
+                    <div id="footer">
+                        {% block footer %}
+                            &copy; Copyright 2011 by <a href="http://domain.invalid/">you</a>.
+                        {% endblock %}
+                    </div>
+                </body>
+            </html>
+        "block_scope2": |
+            {% block one %}{% endblock %}
+            {% block two %}{% endblock %}
+        "block_scoping2": |
+            {% set value=100 %}
+
+            {% block first %}
+            --first block--
+            {% set value=45 %}
+            {{ value }}
+            {% endblock %}
+
+            {% block second %}
+            --second block--
+            {% set value=25 %}
+            {{value}}
+            {% endblock %}
+
+            {% block third %}
+            --third block--
+            {% set value=35 %}
+            {{value}}
+            {% endblock %}
+        "block_scoping3": |
+            {% set value=100 %}
+
+            {% block first %}
+            --first block--
+            {{ value }}
+            {{ variable }}
+            {% endblock %}
+
+            {% block second %}
+            --second block--
+            {% set variable=25 %}
+            {% endblock %}
+
+            {% block third %}
+            --third block--
+            {% set value=35 %}
+            {{value}}
+            {% set variable=45%}
+            {% endblock %}
+        "block_scoping3_01": |
+            {% set value=100 %}
+
+            {% block first %}
+            --first block--
+            {{ value }}
+            {{ variable }}
+            {% endblock %}
+        "block_scoping3_02": |
+            {% set variable=25 %}
+            {% block second %}
+            --second block--
+            {% endblock %}
+        "block_scoping3_03": |
+            {% set value=35 %}
+            {% block third %}
+            --third block--
+            {{value}}
+            {% endblock %}
+        "block_scoping_new": |
+            {% set value = "base" %}
+            {% block container %}{% endblock %}
+        "block_scoping_test": |
+            {% set variable=100 %}
+
+            {% block first %}
+            {{ variable }}
+            {% endblock %}
+
+            {% block second %}
+            {% set variable=25 %}
+            {% endblock %}
+
+            {% block third %}
+            {% set variable=45%}
+            {% endblock %}
+        "block_scoping_test_01": |
+            {% set variable=100 %}
+
+            {% block first %}
+            {{ variable }}
+            {% endblock %}
+        "block_scoping_test_02": |
+            {% set variable=100 %}
+
+            {% block second %}
+            {% endblock %}
+        "block_scoping_test_03": |
+            {% set variable=100 %}
+
+            {% block third %}
+            {% endblock %}
+        "check": |
+            <html>
+            <body>
+
+
+            {% block first %}
+            {% endblock %}
+
+
+            </body>
+            </html>
+        "check_child_scope": |
+            <html>
+            <body>
+            {% block content %}
+            {% set greeting = 'Hello !' %}
+            {{ greeting }} this is the parent
+            {% endblock %}
+            </body>
+            </html>
+        "extend_using_nestedBlock": |
+            <html>
+            <head>
+            {% block content %}
+            {{ "This is Root's content" }}
+            {% endblock %}
+            </head>
+            <body>
+            {% block inner %}
+            {{ "This is from Root's inner" }}
+            {% endblock %}
+            </body>
+            </html>
+        "inner": |
+            <html>
+            {% block content %}
+            <body>
+            {% block inner%}{% endblock %}
+            </body>
+            {% endblock %}
+            </html>
+        "macro": |
+            {% macro parent_macro() %}<p>Parent Macro</p>{% endmacro %}
+            {% block content %}{% endblock %}
+        "main_base": |
+            {% block container %}
+            base container base
+            {% block outer %}
+            base outer base
+            {% block inner1 %}
+            base inner base
+            {% endblock %}
+            {% endblock %}
+            {% endblock %}
+        "mid_base1": |
+            {% extends "bases/main_base.html" %}
+            {% block outer %}
+            block outer mid1
+            {% block inner2 %}
+            block inner2 mid1
+            {% parent %}
+            {% endblock %}
+            {% endblock %}
+        "mid_base2": |
+            {% extends "bases/main_base.html" %}
+            {% block inner1 %}
+            block inner1 mid2
+            {% endblock %}
+        "multiple": |
+            {% extends bases.base|template %}
+            {% block content %}
+            <p>This is content from the template "multiple.html"</p>
+            {% endblock %}
+        "out": |+
+            {% block first_block %}
+            {% endblock %}
+            {% block second_block %}
+            {% set value=200 %}
+            {% endblock %}
+            {% block third_block %}
+            {{ value}}
+            {% endblock %}
+            {% block variable_block %}
+            Hello {{ var }}
+            {% endblock %}
+
+        "parent": |
+            {% set val=45 %}
+            {% block variable_block %}
+            {{ val }}
+            {% endblock %}
+            {% block new_block %}
+
+            this is parent block
+            {% endblock %}
+        "parent2": |
+            {% set val=45 %}
+            {% block variable_block %}
+            {{ val }}
+            {% endblock %}
+
+            {% block new_block %}
+            this is parent block
+            {% endblock %}
+        "parent3": |
+            {% set val=45 %}
+            {% block variable_block %}
+            {% print val %}
+            {% endblock %}
+            {% block new_block %}
+
+            this is parent block
+            {% endblock %}
+        "parent4": |
+            {% set val=45 %}
+            {% block variable_block %}
+            {% print val %}
+            {% endblock %}
+
+            {% block new_block %}
+
+            this is parent block
+            {% endblock %}
+        "parent_autoescape2": |
+            {% autoescape false %}
+            <html>
+            {% block test %}{% set parenthtml = "<h1>Parent</h1>" %}{{ parenthtml }}{% endblock %}
+            </html>
+            {% endautoescape %}
+        "parent_template": |
+            {% block k %}
+            {% set var = 'parent' %}
+            {% endblock %}
+        "parent_template2": |
+            {% set val = 'parent' %}{% block k %}{% set val = 'inner' %}{% endblock %}{{ val }}
+        "path": |-
+            bases/base.html
+        "path2": |
+            bases/base.html
+        "root": |
+            {% set value=15 %}
+            {% block new_block %}
+            {{ var }}
+            {% endblock %}
+        "super": |
+            {% block variable_block %}
+            {{ var }}
+            parent block
+            {% endblock %}
+        "test_bases_eof": "{% block content %}{% endblock %}\r\n"
+        "value_set": |
+            {% set value = 20 %}
+            {% block test %}
+            {{ value }}
+            {% endblock %}
+    "includes":
+        "chain": |
+            {% include includes.with|template with { "argument" : argument, "value" : 42 } only %}
+        "child": |
+            {{ upper('string was in lower') }}
+        "child2": |
+            {% set value = 25 %}
+            Included Template
+        "colormacro": |4
+
+            {% macro avgcolor(color1, color2) -%}
+                {%- set color1 = rgbcolor(color1) -%}
+                {%- set color2 = rgbcolor(color2) -%}
+                {%- set coloravg = [
+                    mean([color1[0], color2[0]]),
+                    mean([color1[1], color2[1]]),
+                    mean([color1[2], color2[2]])
+                ] -%}
+                {{ hexcolor(coloravg) }}
+            {%- endmacro %}
+
+            {% macro lighten(color, fraction) -%}
+                {%- set color = rgbcolor(color) -%}
+                {%- set add_white = 255 * fraction -%}
+                {%- set new_r = color[0] + add_white -%}
+                {%- set new_g = color[1] + add_white -%}
+                {%- set new_b = color[2] + add_white -%}
+                {%- if new_r > 255 %}{% set new_r = 255 %}{% endif -%}
+                {%- if new_g > 255 %}{% set new_g = 255 %}{% endif -%}
+                {%- if new_b > 255 %}{% set new_b = 255 %}{% endif -%}
+                {{ hexcolor([new_r, new_g, new_b]) }}
+            {%- endmacro %}
+
+            {% macro darken(color, fraction) -%}
+                {%- set color = rgbcolor(color) -%}
+                {%- set darkcolor = [
+                    color[0] - (color[0] * fraction),
+                    color[1] - (color[1] * fraction),
+                    color[2] - (color[2] * fraction),
+                ] -%}
+                {{ hexcolor(darkcolor) }}
+            {%- endmacro %}
+        "eof_test": |+
+            This included file contains a extra new line at the EOF given by user apart from hidden newline character.
+
+        "eof_test10": |
+            this is a new file
+            this is a new file
+        "eof_test11": |-
+            this is a new file
+        "eof_test2": |
+            This included file contains hidden newline character only at the EOF.
+        "eof_test3": "This included file contains a tab given by user apart from a\
+            \ hidden newline character at the EOF.\t\n"
+        "eof_test4": "This included file contains a Carriage return and newline as\
+            \ used in windows os ('\\r\\n') at the EOF.\r\n"
+        "eof_test5": "This included file contains a Carriage return as used in Mac\
+            \ os ('\\r') at the EOF.\r"
+        "eof_test6": "This included file contains multiple Carriage return as used\
+            \ in Mac os ('\\r\\r') at the EOF.\r\r"
+        "eof_test7": |-
+            this included file is created by echo command of linux.
+        "eof_test8": |-
+            this included file is contains comment tags at the EOF.{# #}
+        "eof_test9": |
+            This included file contains newline character at the EOF.
+        "example_file": |-
+            path file is created by echo command of linux
+        "example_file2": |
+            path file is created by Text Editor tool
+        "faker": |
+            FAKER!
+        "forautoescape": |
+            <h1>autoescape</h1>
+        "has_hello": |
+            {% macro hello() %}
+            Hello included!
+            {% endmacro %}
+        "has_macro": |
+            {% macro from_inside(var) %}{{var}}{% endmacro %}
+            {% print from_inside(42) %}
+        "include_path": |-
+            include/example_file.html
+        "include_path2": |
+            include/example_file2.html
+        "macro_call": |+
+            {% print hello("hello world") %}
+
+        "macro_call2": |
+            {% macro test() %}
+               "hello this included file macro"
+            {% endmacro %}
+        "macro_within_macro": |
+            {% macro test() %}
+            {% print hello() %}
+            "this is included macro"
+            {% endmacro %}
+            {% print test() %}
+        "macro_within_macro2": |
+            {% macro test() %}
+            {% print hello() %}
+            "this is included macro"
+            {% endmacro %}
+        "macro_within_macro3": |
+            {% print hello() %}
+            {% macro test() %}
+            "this is included macro"
+            {% endmacro %}
+            {% print test() %}
+        "module": "{% macro macro1() %}\r\nmacro1 imported!\r\n{% endmacro %}\r\n\
+            {% macro macro2() %}\r\nmacro2 imported!\r\n{% endmacro %}\r\n"
+        "name_snippet": |+
+            {% set greeting = "< in-built filter e is used >" %}
+            {{ greeting|e }}
+            {% print round(10.6) %}
+
+            {% macro hello() %}
+            "this is user functions"
+            {% endmacro %}
+            {% print hello() %}
+
+        "new_macro_call": |+
+            {{ hello("hello world") }}
+
+        "new_macro_within_macro2": |
+            {% macro test() %}
+            {{ hello() }}
+            "this is included macro"
+            {% endmacro %}
+        "newline_test": |
+            This is included File.
+        "newline_test2": |
+            This is included File.
+
+            {% set var = "Hello World!" %}
+            {% print var %} After include Tag new Line goes Here--->
+        "scope": |
+            {% set defined_outside = "inside" %}
+            {% set defined_inside = "inside" %}
+        "scope2": |
+            {% set value = 24 %}
+            {{ variable }}
+        "scope_test": |
+            These parens contain a variable from external scope: ({{ variable }})
+        "string": |
+            This text is loaded as a string.
+        "template": |
+            {% set var = 22 %}
+        "value_call": |
+            {{ value }}
+        "variable": |
+            This text is included via the context as a variable.
+        "with": |
+            There are two values that are added to the context: {{ argument }}, {{ value }}.
+"overview": "If any named statement tag is immediately followed by a newline character,\
+    \ that character is removed from the template (with the exception of endverbatim\
+    \ tags).Unlike all other statements, any newline character that appears after\
+    \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag) is\
+    \ not removed and will remain in-place after render (provided explicit whitespace\
+    \ elimination is not used).  A verbatim statement\u2019s code segment must not\
+    \ contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim %}\u201D\
+    . "
+"tests":
+-   "data": |
+        {}
+    "desc": |-
+        It removes new line.
+    "expected": |+
+        Hello!
+        10 is spelled as TEN
+
+    "name": |-
+        test_15_02_remove _new_line.test
+    "template": |
+        Hello!
+        {% set value=10 %}
+        {% print value %}
+         is spelled as TEN
+    "testname": |-
+        remove newline
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. "
+    "expected": |+
+        Here Loop's started
+
+          1
+
+          2
+
+          3
+
+          4
+
+        Here loop's Ended
+
+
+    "name": |-
+        test_26_00_newlines_after_for_and_endfor_tags.test
+    "template": |+
+        {%set list = [1,2,3,4] %}
+        Here Loop's started
+        {% for i in list %}
+
+          {{ i }}
+        {% endfor %}
+
+        Here loop's Ended
+
+    "testname": |-
+        newlines case1
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. "
+    "expected": |+
+        Here Loop's started
+          1
+          2
+          3
+          4
+
+        Here loop's Ended
+
+
+    "name": |-
+        test_26_01_newlines_after_for_and_endfor_tags.test
+    "template": |+
+        {%set list = [1,2,3,4] %}
+        Here Loop's started
+        {% for i in list %}
+          {{ i }}
+        {% endfor %}
+
+        Here loop's Ended
+
+    "testname": |-
+        newlines case2
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. "
+    "expected": |+
+        Here Loop's started
+
+          1
+          2
+          3
+          4
+        Here loop's Ended
+
+
+    "name": |-
+        test_26_02_newlines_after_for_and_endfor_tags.test
+    "template": |+
+        {%set list = [1,2,3,4] %}
+        Here Loop's started
+        {% for i in list %}
+
+          {% print i %}
+        {% endfor %}
+
+        Here loop's Ended
+
+    "testname": |-
+        newlines case3
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. "
+    "expected": |+
+        Here Loop's started
+          1  2  3  4
+        Here loop's Ended
+
+
+    "name": |-
+        test_26_03_newlines_after_for_and_endfor_tags.test
+    "template": |+
+        {%set list = [1,2,3,4] %}
+        Here Loop's started
+        {% for i in list %}
+          {% print i %}
+        {% endfor %}
+
+        Here loop's Ended
+
+    "testname": |-
+        newlines case4
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. "
+    "expected": |+
+        Here if's started
+
+          hello world
+
+        Here if's Ended
+
+
+    "name": |-
+        test_27_01_newlines_after_if_and_endif_tags.test
+    "template": |+
+        {%set var="hello world" %}
+        Here if's started
+        {% if var %}
+
+          {{ var }}
+        {% endif %}
+
+        Here if's Ended
+
+    "testname": |-
+        newlines case5
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. "
+    "expected": |+
+        Here if's started
+          hello world
+
+        Here if's Ended
+
+
+    "name": |-
+        test_27_02_newlines_after_if_and_endif_tags.test
+    "template": |+
+        {%set var="hello world" %}
+        Here if's started
+        {% if var %}
+          {{ var }}
+        {% endif %}
+
+        Here if's Ended
+
+    "testname": |-
+        newlines case6
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. "
+    "expected": |+
+        Here if's started
+
+          hello world
+        Here if's Ended
+
+
+    "name": |-
+        test_27_03_newlines_after_if_and_endif_tags.test
+    "template": |+
+        {%set var="hello world" %}
+        Here if's started
+        {% if var %}
+
+          {% print var %}
+        {% endif %}
+
+        Here if's Ended
+
+    "testname": |-
+        newlines case7
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. "
+    "expected": |+
+        Here if's started
+          hello world
+        Here if's Ended
+
+
+    "name": |-
+        test_27_04_newlines_after_if_and_endif_tags.test
+    "template": |+
+        {%set var="hello world" %}
+        Here if's started
+        {% if var %}
+          {% print var %}
+        {% endif %}
+
+        Here if's Ended
+
+    "testname": |-
+        newlines case8
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. Any newline character that appears after the end of the {{ }}\
+        \ is not removed."
+    "expected": |+
+        parent tag is about to call
+
+        45
+
+        here parent tag is called
+
+        This is Child Block
+
+
+    "name": |-
+        test_28_00_newlines_after_parent_and_block_tags.test
+    "template": |+
+        {% extends bases.parent|template %}
+
+        {% block variable_block %}
+        parent tag is about to call
+
+        {% parent %}
+
+        here parent tag is called
+        {% endblock %}
+
+        {% block new_block %}
+
+        This is Child Block
+
+        {% endblock %}
+
+    "testname": |-
+        newlines case9
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. Any newline character that appears after the end of the {{ }}\
+        \ is not removed."
+    "expected": |+
+        parent tag is about to call
+        45
+
+        here parent tag is called
+        This is Child Block
+
+    "name": |-
+        test_28_01_newlines_after_parent_and_block_tags.test
+    "template": |+
+        {% extends bases.parent|template %}
+
+        {% block variable_block %}
+        parent tag is about to call
+        {% parent %}
+
+        here parent tag is called
+        {% endblock %}
+
+        {% block new_block %}
+        This is Child Block
+        {% endblock %}
+
+    "testname": |-
+        newlines case10
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. Any newline character that appears after the end of the {{ }}\
+        \ is not removed."
+    "expected": |+
+        parent tag is about to call
+        45
+        here parent tag is called
+        This is Child Block
+
+    "name": |-
+        test_28_02_newlines_after_parent_and_block_tags.test
+    "template": |+
+        {% extends bases.parent|template %}
+
+        {% block variable_block %}
+        parent tag is about to call
+        {% parent %}
+        here parent tag is called
+        {% endblock %}
+
+        {% block new_block %}
+        This is Child Block
+        {% endblock %}
+
+    "testname": |-
+        newlines case11
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. Any newline character that appears after the end of the {{ }}\
+        \ is not removed."
+    "expected": |+
+        parent tag is about to call
+
+        45
+
+        here parent tag is called
+
+
+        This is Child Block
+
+
+    "name": |-
+        test_28_03_newlines_after_parent_and_block_tags.test
+    "template": |+
+        {% extends bases.parent2|template %}
+
+        {% block variable_block %}
+        parent tag is about to call
+
+        {% parent %}
+
+        here parent tag is called
+        {% endblock %}
+
+        {% block new_block %}
+
+        This is Child Block
+
+        {% endblock %}
+
+    "testname": |-
+        newlines case12
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. Any newline character that appears after the end of the {{ }}\
+        \ is not removed."
+    "expected": |+
+        parent tag is about to call
+        45
+
+        here parent tag is called
+
+        This is Child Block
+
+
+    "name": |-
+        test_28_04_newlines_after_parent_and_block_tags.test
+    "template": |+
+        {% extends bases.parent2|template %}
+
+        {% block variable_block %}
+        parent tag is about to call
+        {% parent %}
+
+        here parent tag is called
+        {% endblock %}
+
+        {% block new_block %}
+        This is Child Block
+
+        {% endblock %}
+
+    "testname": |-
+        newlines case13
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. Any newline character that appears after the end of the {{ }}\
+        \ is not removed."
+    "expected": |+
+        parent tag is about to call
+        45
+        here parent tag is called
+
+        This is Child Block
+
+    "name": |-
+        test_28_05_newlines_after_parent_and_block_tags.test
+    "template": |+
+        {% extends bases.parent2|template %}
+
+        {% block variable_block %}
+        parent tag is about to call
+        {% parent %}
+        here parent tag is called
+        {% endblock %}
+
+        {% block new_block %}
+        This is Child Block
+        {% endblock %}
+
+    "testname": |-
+        newlines case14
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. Any newline character that appears after the end of the {{ }}\
+        \ is not removed."
+    "expected": |+
+        parent tag is about to call
+
+        45
+        here parent tag is called
+
+        This is Child Block
+
+
+    "name": |-
+        test_28_06_newlines_after_parent_and_block_tags.test
+    "template": |+
+        {% extends bases.parent3|template %}
+
+        {% block variable_block %}
+        parent tag is about to call
+
+        {% parent %}
+
+        here parent tag is called
+        {% endblock %}
+
+        {% block new_block %}
+
+        This is Child Block
+
+        {% endblock %}
+
+    "testname": |-
+        newlines case15
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. Any newline character that appears after the end of the {{ }}\
+        \ is not removed."
+    "expected": |+
+        parent tag is about to call
+        45
+        here parent tag is called
+        This is Child Block
+
+    "name": |-
+        test_28_07_newlines_after_parent_and_block_tags.test
+    "template": |+
+        {% extends bases.parent3|template %}
+
+        {% block variable_block %}
+        parent tag is about to call
+        {% parent %}
+
+        here parent tag is called
+        {% endblock %}
+
+        {% block new_block %}
+        This is Child Block
+        {% endblock %}
+
+    "testname": |-
+        newlines case16
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. Any newline character that appears after the end of the {{ }}\
+        \ is not removed."
+    "expected": |+
+        parent tag is about to call
+        45->here parent tag is called
+        This is Child Block
+
+    "name": |-
+        test_28_08_newlines_after_parent_and_block_tags.test
+    "template": |+
+        {% extends bases.parent3|template %}
+
+        {% block variable_block %}
+        parent tag is about to call
+        {% parent %}
+        ->here parent tag is called
+        {% endblock %}
+
+        {% block new_block %}
+        This is Child Block
+        {% endblock %}
+
+    "testname": |-
+        newlines case17
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. Any newline character that appears after the end of the {{ }}\
+        \ is not removed."
+    "expected": |+
+        parent tag is about to call
+
+        45
+        here parent tag is called
+
+
+        This is Child Block
+
+
+    "name": |-
+        test_28_09_newlines_after_parent_and_block_tags.test
+    "template": |+
+        {% extends bases.parent4|template %}
+
+        {% block variable_block %}
+        parent tag is about to call
+
+        {% parent %}
+
+        here parent tag is called
+        {% endblock %}
+
+        {% block new_block %}
+
+        This is Child Block
+
+        {% endblock %}
+
+    "testname": |-
+        newlines case18
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. Any newline character that appears after the end of the {{ }}\
+        \ is not removed."
+    "expected": |+
+        parent tag is about to call
+        45
+        here parent tag is called
+
+        This is Child Block
+
+    "name": |-
+        test_28_10_newlines_after_parent_and_block_tags.test
+    "template": |+
+        {% extends bases.parent4|template %}
+
+        {% block variable_block %}
+        parent tag is about to call
+        {% parent %}
+
+        here parent tag is called
+        {% endblock %}
+
+        {% block new_block %}
+        This is Child Block
+        {% endblock %}
+
+    "testname": |-
+        newlines case19
+-   "data": |
+        {}
+    "desc": |-
+        {#comment #} It doens't effect template but just remove comment.
+    "expected": |+
+        <---- here
+
+
+    "name": |-
+        test_29_00_newlines_after_comment_tag.test
+    "template": "{#\n\nHere is \nthe \ncommet lies in \nbetween the\n comment tags\
+        \ #}<---- here\n\n"
+    "testname": |-
+        newlines case20
+-   "data": |
+        {}
+    "desc": |-
+        {#comment #} It doens't effect template but just remove comment.
+    "expected": |+
+        Comment tags starts after one line below
+
+        <---- here
+
+        Comment tags ends before one line above
+
+    "name": |-
+        test_29_01_newlines_after_comment_tag.test
+    "template": "Comment tags starts after one line below\n\n{#\n\nHere is \nthe \n\
+        commet lies in \nbetween the\n comment tags #}<---- here\n\nComment tags ends\
+        \ before one line above\n"
+    "testname": |-
+        newlines case21
+-   "data": |
+        {}
+    "desc": |-
+        {#comment #} It doens't effect template but just remove comment.
+    "expected": |+
+        Comment tags starts just after this line below
+        <---- here
+        Comment tags ends just before this line above
+
+    "name": |-
+        test_29_02_newlines_after_comment_tag.test
+    "template": "Comment tags starts just after this line below\n{#\n\nHere is \n\
+        the \ncommet lies in \nbetween the\n comment tags #}<---- here\nComment tags\
+        \ ends just before this line above\n"
+    "testname": |-
+        newlines case22
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. "
+    "expected": |+
+        Here is the Print tag value.
+        Print tag Test
+        Here is the variable expression value.
+        variable expression Test
+
+        End of the above Example
+
+    "name": |-
+        test_29_03_newlines_after_print_tag.test
+    "template": |
+        {% set var="Print tag Test" %}
+        {% set var2="variable expression Test" %}
+        Here is the Print tag value.
+        {% print var %}
+
+        Here is the variable expression value.
+        {{ var2 }}
+
+        End of the above Example
+    "testname": |-
+        newlines case23
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. "
+    "expected": |+
+        Here is the Print tag value.
+        Print tag Test
+
+        Here is the variable expression value.
+        variable expression Test
+
+        End of the above Example
+
+    "name": |-
+        test_29_04_newlines_after_print_tag.test
+    "template": |
+        {% set var="Print tag Test" %}
+        {% set var2="variable expression Test" %}
+        Here is the Print tag value.
+        {% print var %}
+
+
+        Here is the variable expression value.
+        {{ var2 }}
+
+        End of the above Example
+    "testname": |-
+        newlines case24
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. "
+    "expected": |+
+        Here is the Print tag value.
+        Print tag Test-------line After Print tag---------------
+
+        Here is the variable expression value.
+        variable expression Test
+        -------line After variable expression-----
+
+
+    "name": |-
+        test_29_05_newlines_after_print_tag.test
+    "template": |+
+        {% set var="Print tag Test" %}
+        {% set var2="variable expression Test" %}
+        Here is the Print tag value.
+        {% print var %}
+        -------line After Print tag---------------
+
+        Here is the variable expression value.
+        {{ var2 }}
+        -------line After variable expression-----
+
+    "testname": |-
+        newlines case25
+-   "data": |
+        {}
+    "desc": "If any named statement tag is immediately followed by a newline character,\
+        \ that character is removed from the template (with the exception of endverbatim\
+        \ tags).Unlike all other statements, any newline character that appears after\
+        \ the end of the verbatim statement (i.e. after the {% endverbatim %} tag)\
+        \ is not removed and will remain in-place after render (provided explicit\
+        \ whitespace elimination is not used).  A verbatim statement\u2019s code segment\
+        \ must not contain the substrings \u201C{% endraw %}\u201D or \u201C{% endverbatim\
+        \ %}\u201D. "
+    "expected": |+
+        Variable "var" Set Here---> ------Line After Set Tag---------
+
+        Set tag Test
+        ---line after variable expression-----
+
+
+    "name": |-
+        test_29_07_newlines_after_set_tag.test
+    "template": |+
+        Variable "var" Set Here---> {% set var="Set tag Test" %}
+        ------Line After Set Tag---------
+
+        {{var}}
+        ---line after variable expression-----
+
+    "testname": |-
+        newlines case26
+-   "data": |
+        {}
+    "desc": "On render, a verbatim statement returns the unparsed, unrendered and\
+        \ unmodified contents of its code segment. Unlike all other statements, any\
+        \ newline character that appears after the end of the verbatim statement (i.e.\
+        \ after the {% endverbatim %} tag) is not removed and will remain in-place\
+        \ after render (provided explicit whitespace elimination is not used).  A\
+        \ verbatim statement\u2019s code segment must not contain the substrings \u201C\
+        {% endraw %}\u201D or \u201C{% endverbatim %}\u201D."
+    "expected": |+
+        Verbatim tag Starts--->
+        ------Line After Verbatim Tag---------
+        {{var}}
+        ---line after variable expression-----
+        Here Verbatim Tag End---->
+        ----Line After EndVerbatim tag----
+
+    "name": |-
+        test_31_01_newlines_after_verbatim_and_endverbatim_tags.test
+    "template": |
+        {% set var="Set tag Test" %}
+        Verbatim tag Starts--->{% verbatim %}
+        ------Line After Verbatim Tag---------
+        {{var}}
+        ---line after variable expression-----
+        Here Verbatim Tag End---->{% endverbatim %}
+        ----Line After EndVerbatim tag----
+    "testname": |-
+        newlines case27
+-   "data": |
+        {}
+    "desc": "On render, a verbatim statement returns the unparsed, unrendered and\
+        \ unmodified contents of its code segment. Unlike all other statements, any\
+        \ newline character that appears after the end of the verbatim statement (i.e.\
+        \ after the {% endverbatim %} tag) is not removed and will remain in-place\
+        \ after render (provided explicit whitespace elimination is not used).  A\
+        \ verbatim statement\u2019s code segment must not contain the substrings \u201C\
+        {% endraw %}\u201D or \u201C{% endverbatim %}\u201D."
+    "expected": |+
+        Verbatim tag Starts--->
+        ------Line After Verbatim Tag---------
+        {{var}}
+        ---line after variable expression-----
+        {% print var %}
+        ---line after Print Tag inside Verbatim Tag-----
+        Here Verbatim Tag End---->
+        ----Line After EndVerbatim tag----
+
+    "name": |-
+        test_31_03_newlines_after_verbatim_and_endverbatim_tags.test
+    "template": |
+        {% set var="Set tag Test" %}
+        Verbatim tag Starts--->{% verbatim %}
+        ------Line After Verbatim Tag---------
+        {{var}}
+        ---line after variable expression-----
+        {% print var %}
+        ---line after Print Tag inside Verbatim Tag-----
+        Here Verbatim Tag End---->{% endverbatim %}
+        ----Line After EndVerbatim tag----
+    "testname": |-
+        newlines case28
+-   "data": |
+        {}
+    "desc": |-
+        If any named statement tag is immediately followed by a newline character, that character is removed from the template (with the exception of endverbatim tags).
+    "expected": "---> line before macro starts --->line after macro ends \n\nmacro\
+        \ called Here ---> --->line after macro tag \n\nHelloo! this is a macro test\
+        \ function\n\n\n\n"
+    "name": |-
+        test_33_00_newlines_after_macro_and_endmacro_tags.test
+    "template": "---> line before macro starts {% macro test_func() %}\n--->line after\
+        \ macro tag \n\nHelloo! this is a macro test function\n\n{% endmacro%}\n--->line\
+        \ after macro ends \n\nmacro called Here ---> {% print test_func() %}\n\n"
+    "testname": |-
+        newlines case29
+-   "data": |
+        {}
+    "desc": |-
+        If any named statement tag is immediately followed by a newline character, that character is removed from the template (with the exception of endverbatim tags).
+    "expected": |+
+        <html>
+        <body>
+
+
+        I am first block inside child
+
+
+        </body>
+        </html>
+
+    "name": |-
+        test_34_00_newline_after_extends_tag.test
+    "template": |+
+        {% extends "bases/check.html" %}
+        {% block first %}
+        I am first block inside child
+        {% endblock %}
+
+    "testname": |-
+        newlines case30
+-   "data": |+
+        {}
+
+    "desc": "The include statement is used to transclude templates into other templates.\
+        \  An include statement contains a first expression (\u201Ctemplate expression\u201D\
+        ) that specifies the template being transcluded, and an optional second expression\
+        \ (\u201Ccontext expression\u201D) that specifies default values that are\
+        \ added to the context of that template when it is rendered. If any named\
+        \ statement tag is immediately followed by a newline character, that character\
+        \ is removed from the template (with the exception of endverbatim tags)."
+    "expected": |+
+        this included file is created by echo command of linux.Line after include tag.
+
+
+    "name": |-
+        test_36_06_eof_test_with_echo_command_for_newline_for_include.test
+    "template": |+
+        {% include includes.eof_test7|template %}
+        Line after include tag.
+
+    "testname": |-
+        newlines case31
+-   "data": |+
+        {}
+
+    "desc": "The include statement is used to transclude templates into other templates.\
+        \  An include statement contains a first expression (\u201Ctemplate expression\u201D\
+        ) that specifies the template being transcluded, and an optional second expression\
+        \ (\u201Ccontext expression\u201D) that specifies default values that are\
+        \ added to the context of that template when it is rendered. If any named\
+        \ statement tag is immediately followed by a newline character, that character\
+        \ is removed from the template (with the exception of endverbatim tags)."
+    "expected": |+
+        this included file is contains comment tags at the EOF.Line after include tag.
+
+
+    "name": |-
+        test_36_07_eof_test_with_comment_tag_for_newline_for_include.test
+    "template": |+
+        {% include includes.eof_test8|template %}
+        Line after include tag.
+
+    "testname": |-
+        newlines case32
+-   "data": |+
+        {}
+
+    "desc": "The include statement is used to transclude templates into other templates.\
+        \  An include statement contains a first expression (\u201Ctemplate expression\u201D\
+        ) that specifies the template being transcluded, and an optional second expression\
+        \ (\u201Ccontext expression\u201D) that specifies default values that are\
+        \ added to the context of that template when it is rendered. If any named\
+        \ statement tag is immediately followed by a newline character, that character\
+        \ is removed from the template (with the exception of endverbatim tags)."
+    "expected": |+
+        this is a new fileLine after include tag.
+
+
+    "name": |-
+        test_36_08_eof_test_with_echo_command_for_newline_for_include.test
+    "template": |+
+        {% include includes.eof_test11|template %}
+        Line after include tag.
+
+    "testname": |-
+        newlines case33
+-   "data": |
+        { "value" : "Contents of include\n" }
+    "desc": "The include statement is used to transclude templates into other templates.\
+        \  An include statement contains a first expression (\u201Ctemplate expression\u201D\
+        ) that specifies the template being transcluded, and an optional second expression\
+        \ (\u201Ccontext expression\u201D) that specifies default values that are\
+        \ added to the context of that template when it is rendered. If any named\
+        \ statement tag is immediately followed by a newline character, that character\
+        \ is removed from the template (with the exception of endverbatim tags)."
+    "expected": |+
+        Contents of include
+        . After include.
+
+    "name": |-
+        test_36_09_template_string_include_test.test
+    "template": |
+        {% include "{{ value }}"|template %}. After include.
+    "testname": |-
+        newlines case34
+-   "data": |+
+        {}
+
+    "desc": "The include statement is used to transclude templates into other templates.\
+        \  An include statement contains a first expression (\u201Ctemplate expression\u201D\
+        ) that specifies the template being transcluded, and an optional second expression\
+        \ (\u201Ccontext expression\u201D) that specifies default values that are\
+        \ added to the context of that template when it is rendered. If any named\
+        \ statement tag is immediately followed by a newline character, that character\
+        \ is removed from the template (with the exception of endverbatim tags)."
+    "expected": |+
+        inline template without newline.Line after include tag.
+
+
+    "name": |-
+        test_36_61_eof_test_with_inline_for_newline_for_include.test
+    "template": |+
+        {% include "inline template without newline."|template %}
+        Line after include tag.
+
+    "testname": |-
+        newlines case35

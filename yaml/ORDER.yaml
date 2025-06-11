@@ -1,0 +1,230 @@
+"overview": "These binary operations have as an input a list and either another list\
+    \ or an object. The resulting type depends on the type of the operation. All lists\
+    \ and objects must relate to the same entity. Intersect :The result is a list\
+    \ containing elements that appear in both parameters. But they are in order. "
+"tests":
+-   "data": "{\n  \"listA\": [1,2,3,\"a\",\"b\",\"c\"],\n  \"listB\": [\"x\",\"y\"\
+        ,\"z\",\"a\",9,8,7,1],\n  \"listC\": [\"z\",\"y\",\"x\",\"m\"],\n  \"listD\"\
+        : [{\"a\":1,\"b\":2,\"c\":3 },{ \"b\":3, \"d\":4,\"c\":1, \"a\":2 }],\n  \"\
+        listE\": [{ \"c\":1, \"a\":2, \"b\":3, \"d\":4 }] \n}\n"
+    "desc": "These binary operations have as an input a list and either another list\
+        \ or an object. The resulting type depends on the type of the operation. All\
+        \ lists and objects must relate to the same entity. Intersect :The result\
+        \ is a list containing elements that appear in both parameters. But they are\
+        \ in order. "
+    "expected": |+
+        [1, 'a']
+        ['a', 1]
+        ['x', 'y', 'z']
+        ['z', 'y', 'x']
+        [{'a': 2, 'b': 3, 'c': 1, 'd': 4}]
+        [{'a': 2, 'b': 3, 'c': 1, 'd': 4}]
+
+    "name": |-
+        test_68_01_order.test
+    "template": |
+        {{ intersection(listA, listB)|string }}
+        {{ intersection(listB, listA)|string }}
+        {{ intersection(listB, listC)|string }}
+        {{ intersection(listC, listB)|string }}
+        {{ intersection(listD, listE)|string }}
+        {{ intersection(listE, listD)|string }}
+    "testname": |-
+        order type1
+-   "data": "{\n  \"listA\": [1,2,3,\"a\",\"b\",\"c\"],\n  \"listB\": [\"x\",\"y\"\
+        ,\"z\",\"a\",9,8,7,1],\n  \"listC\": [\"z\",\"y\",\"x\",\"m\"],\n  \"listD\"\
+        : [{ \"a\":1, \"b\":2, \"c\":3 }],\n  \"listE\": [{ \"c\":1, \"a\":2, \"b\"\
+        :3, \"d\":4 },{ \"a\":1, \"b\":2, \"c\":3 }] \n}\n"
+    "desc": "These binary operations have as an input a list and either another list\
+        \ or an object. The resulting type depends on the type of the operation. All\
+        \ lists and objects must relate to the same entity. Intersect :The result\
+        \ is a list containing elements that appear in both parameters. But they are\
+        \ in certain order. "
+    "expected": |+
+        [1, 2, 3, 'a', 'b', 'c', 'x', 'y', 'z', 9, 8, 7]
+        ['x', 'y', 'z', 'a', 9, 8, 7, 1, 2, 3, 'b', 'c']
+        ['x', 'y', 'z', 'a', 9, 8, 7, 1, 'm']
+        ['z', 'y', 'x', 'm', 'a', 9, 8, 7, 1]
+        [{'a': 1, 'b': 2, 'c': 3}, {'a': 2, 'b': 3, 'c': 1, 'd': 4}]
+        [{'a': 2, 'b': 3, 'c': 1, 'd': 4}, {'a': 1, 'b': 2, 'c': 3}]
+
+    "name": |-
+        test_68_02_order.test
+    "template": |
+        {{ union(listA, listB)|string }}
+        {{ union(listB, listA)|string }}
+        {{ union(listB, listC)|string }}
+        {{ union(listC, listB)|string }}
+        {{ union(listD, listE)|string }}
+        {{ union(listE, listD)|string }}
+    "testname": |-
+        order type2
+-   "data": "{\n  \"listA\": [1,2,3,\"a\",\"b\",\"c\"],\n  \"listB\": [\"x\",\"y\"\
+        ,\"z\",\"a\",9,8,7,1],\n  \"listC\": [\"z\",\"y\",\"x\",\"m\"],\n  \"listD\"\
+        : [{ \"a\":1, \"b\":2, \"c\":3 }],\n  \"listE\": [{ \"c\":1, \"a\":2, \"b\"\
+        :3, \"d\":4 }] \n}\n"
+    "desc": "These binary operations have as an input a list and either another list\
+        \ or an object. The resulting type depends on the type of the operation. All\
+        \ lists and objects must relate to the same entity. Intersect :The result\
+        \ is a list containing elements that appear in both parameters. But they are\
+        \ in certain order. "
+    "expected": |+
+        [2, 3, 'b', 'c']
+        ['x', 'y', 'z', 9, 8, 7]
+        ['a', 9, 8, 7, 1]
+        ['m']
+        [{'a': 1, 'b': 2, 'c': 3}]
+        [{'a': 2, 'b': 3, 'c': 1, 'd': 4}]
+
+    "name": |-
+        test_68_03_order.test
+    "template": |
+        {{ complement(listA, listB)|string }}
+        {{ complement(listB, listA)|string }}
+        {{ complement(listB, listC)|string }}
+        {{ complement(listC, listB)|string }}
+        {{ complement(listD, listE)|string }}
+        {{ complement(listE, listD)|string }}
+    "testname": |-
+        order type3
+-   "data": "{\n  \"listA\": [1,2,3,\"a\",\"b\",\"c\"],\n  \"listB\": [\"x\",\"y\"\
+        ,\"z\",\"a\",9,8,7,1],\n  \"listC\": [\"z\",\"y\",\"x\",\"m\"],\n  \"listD\"\
+        : [{ \"a\":1, \"b\":2, \"c\":3 }],\n  \"listE\": [{ \"c\":1, \"a\":2, \"b\"\
+        :3, \"d\":4 }] \n}\n"
+    "desc": "These binary operations have as an input a list and either another list\
+        \ or an object. The resulting type depends on the type of the operation. All\
+        \ lists and objects must relate to the same entity. Intersect :The result\
+        \ is a list containing elements that appear in both parameters. But they are\
+        \ in certain order. "
+    "expected": |+
+        [2, 3, 'b', 'c', 'x', 'y', 'z', 9, 8, 7]
+        ['x', 'y', 'z', 9, 8, 7, 2, 3, 'b', 'c']
+        ['a', 9, 8, 7, 1, 'm']
+        ['m', 'a', 9, 8, 7, 1]
+        [{'a': 1, 'b': 2, 'c': 3}, {'a': 2, 'b': 3, 'c': 1, 'd': 4}]
+        [{'a': 2, 'b': 3, 'c': 1, 'd': 4}, {'a': 1, 'b': 2, 'c': 3}]
+
+    "name": |-
+        test_68_04_order.test
+    "template": |
+        {{ difference(listA, listB)|string }}
+        {{ difference(listB, listA)|string }}
+        {{ difference(listB, listC)|string }}
+        {{ difference(listC, listB)|string }}
+        {{ difference(listD, listE)|string }}
+        {{ difference(listE, listD)|string }}
+    "testname": |-
+        order type4
+-   "data": "{\n  \"listA\": [{\"two\": [\"two\"],\"one\": 1},\"string\",22],\n  \"\
+        listB\": [{ \"two\" : 2, \"one\": 1 } , true, null ] \n}\n"
+    "desc": "These binary operations have as an input a list and either another list\
+        \ or an object. The resulting type depends on the type of the operation. All\
+        \ lists and objects must relate to the same entity. Intersect :The result\
+        \ is a list containing elements that appear in both parameters. But they are\
+        \ in certain order. "
+    "expected": |+
+        [[{'one': 1, 'two': ['two']}, {'one': 1, 'two': 2}], [{'one': 1, 'two': ['two']}, true], [{'one': 1, 'two': ['two']}, null], ['string', {'one': 1, 'two': 2}], ['string', true], ['string', null], [22, {'one': 1, 'two': 2}], [22, true], [22, null]]
+        [[{'one': 1, 'two': 2}, {'one': 1, 'two': ['two']}], [{'one': 1, 'two': 2}, 'string'], [{'one': 1, 'two': 2}, 22], [true, {'one': 1, 'two': ['two']}], [true, 'string'], [true, 22], [null, {'one': 1, 'two': ['two']}], [null, 'string'], [null, 22]]
+
+    "name": |-
+        test_68_05_order.test
+    "template": |
+        {{ product(listA,listB)|string }}
+        {{ product(listB,listA)|string }}
+    "testname": |-
+        order type5
+-   "data": |
+        {
+           "listA" : [ [1,2,3] ],
+           "listB" : [ [3,2,1] ],
+           "listC" : [ { "two" : 2, "one": 1 } ],
+           "listD" : [ { "c":1, "a":2, "b":3 } ],
+           "listE" : [ "string", 22 ]
+        }
+    "desc": "These binary operations have as an input a list and either another list\
+        \ or an object. The resulting type depends on the type of the operation. All\
+        \ lists and objects must relate to the same entity. Intersect :The result\
+        \ is a list containing elements that appear in both parameters. But they are\
+        \ in certain order. "
+    "expected": "function first output of listA = [1, 2, 3] \nfunction first output\
+        \ of listB = [3, 2, 1] \nfunction first output of listC = {'one': 1, 'two':\
+        \ 2} \nfunction first output of listD = {'a': 2, 'b': 3, 'c': 1} \nfunction\
+        \ first output of listE = string\n"
+    "name": |-
+        test_68_06_order.test
+    "template": "function first output of listA = {% print first(listA)|string %}\
+        \ \nfunction first output of listB = {% print first(listB)|string %} \nfunction\
+        \ first output of listC = {% print first(listC)|string %} \nfunction first\
+        \ output of listD = {% print first(listD)|string %} \nfunction first output\
+        \ of listE = {% print first(listE)|string %}\n"
+    "testname": |-
+        order type6
+-   "data": |
+        {
+           "listA" : [ 99, 22, 999 ],
+           "listB" : ["one", "two", "three"],
+           "listC" : [ { "two" : 2, "one": 1 }, "string", "null" ],
+           "listD" : [ { "c":1, "a":2, "b":3 }, true, false ]
+        }
+    "desc": "These binary operations have as an input a list and either another list\
+        \ or an object. The resulting type depends on the type of the operation. All\
+        \ lists and objects must relate to the same entity. Intersect :The result\
+        \ is a list containing elements that appear in both parameters. But they are\
+        \ in certain order. "
+    "expected": "99 \none \n{'one': 1, 'two': 2} \n{'a': 2, 'b': 3, 'c': 1} \n999\
+        \ \nthree \nnull \nfalse\n"
+    "name": |-
+        test_68_07_order.test
+    "template": "{% print first(listA)|string %} \n{% print first(listB)|string %}\
+        \ \n{% print first(listC)|string %} \n{% print first(listD)|string %} \n{%\
+        \ print last(listA)|string %} \n{% print last(listB)|string %} \n{% print\
+        \ last(listC)|string %} \n{% print last(listD)|string %}\n"
+    "testname": |-
+        order type7
+-   "data": |
+        {
+          "listA": ["string",22, {"b": ["two"],"a": 1}],
+          "listB": [{ "b" : 2, "a": 1 }],
+          "listC": ["string"],
+          "listD": [{ "z": null, "b" : 2, "a": 1}]
+        }
+    "desc": "These binary operations have as an input a list and either another list\
+        \ or an object. The resulting type depends on the type of the operation. All\
+        \ lists and objects must relate to the same entity. Intersect :The result\
+        \ is a list containing elements that appear in both parameters. But they are\
+        \ in certain order. "
+    "expected": "{'a': 1, 'b': ['two']} \n{'a': 1, 'b': 2} \nstring \n{'a': 1, 'b':\
+        \ 2, 'z': null}\n"
+    "name": |-
+        test_68_08_order.test
+    "template": "{% print last(listA)|string %} \n{% print last(listB)|string %} \n\
+        {% print last(listC)|string %} \n{% print last(listD)|string %}\n"
+    "testname": |-
+        order type8
+-   "data": |
+        {}
+    "desc": "These binary operations have as an input a list and either another list\
+        \ or an object. The resulting type depends on the type of the operation. All\
+        \ lists and objects must relate to the same entity. Intersect :The result\
+        \ is a list containing elements that appear in both parameters. But they are\
+        \ in certain order. "
+    "expected": |+
+        cold
+        hot
+        cold
+        hot
+        cold
+        hot
+        cold
+        hot
+        cold
+        hot
+
+    "name": |-
+        test_68_10_order.test
+    "template": |
+        {% for i in series(0,10,3) %}
+        {{ cycle(['cold', 'hot'], i) }}
+        {% endfor %}
+    "testname": |-
+        order type9

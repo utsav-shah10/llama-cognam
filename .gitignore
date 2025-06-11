@@ -1,1 +1,5 @@
 models/
+model/
+myenv/
+adapters/
+adapters_*/

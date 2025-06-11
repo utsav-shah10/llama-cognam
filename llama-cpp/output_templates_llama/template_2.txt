@@ -1,0 +1,9 @@
+Prompt: 
+  Input a boolean value:
+
+Output: 
+  {% if input %}
+    True
+  {% else %}
+    False
+  {% endif %}

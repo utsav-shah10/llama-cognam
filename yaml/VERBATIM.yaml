@@ -1,0 +1,30 @@
+"overview": "On render, a verbatim statement returns the unparsed, unrendered and\
+    \ unmodified contents of its code segment. Unlike all other statements, any newline\
+    \ character that appears after the end of the verbatim statement (i.e. after the\
+    \ {% endverbatim %} tag) is not removed and will remain in-place after render\
+    \ (provided explicit whitespace elimination is not used).  A verbatim statement\u2019\
+    s code segment must not contain the substrings \u201C{% endraw %}\u201D or \u201C\
+    {% endverbatim %}\u201D.  "
+"tests":
+-   "data": |
+        {}
+    "desc": "On render, a verbatim statement returns the unparsed, unrendered and\
+        \ unmodified contents of its code segment. Unlike all other statements, any\
+        \ newline character that appears after the end of the verbatim statement (i.e.\
+        \ after the {% endverbatim %} tag) is not removed and will remain in-place\
+        \ after render (provided explicit whitespace elimination is not used).  A\
+        \ verbatim statement\u2019s code segment must not contain the substrings \u201C\
+        {% endraw %}\u201D or \u201C{% endverbatim %}\u201D.  "
+    "expected": |4+
+
+            {% verbatim %}
+
+
+    "name": |-
+        test_49_10_nested_verbatim.test
+    "template": |
+        {% verbatim %}
+            {% verbatim %}
+        {% endverbatim %}
+    "testname": |-
+        nested verbatim

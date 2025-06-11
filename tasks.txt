@@ -1,1 +1,16 @@
-a if else template which prints "Hello"
+Write a jinja template to print "Hello World" and 42.
+Write a jinja template to print boolean value
+Write a jinja template to render "Hello World" and 42.
+Write a jinja template to render boolean value
+Write a jinja template to set 'msg' variable to "Hi" if condition is true else set 'msg' variable to "Hello". Print it after conditional block
+write a valid jinja template to convert variable named "name" to lower and print it
+write a valid jinja template to convert variable named "name" to upper and print it
+write a valid jinja template to truncate the number "num" and print it
+write a valid jinja template to set "Website" as title and render it.
+write a valid jinja template to set "Website" as title and print it.
+write a valid jinja template to convert variable named "num" to string and set it to variable str.
+Create a Jinja2 template expression that takes a list named listA = [1, 2, 3] and formats it into the string:
+"one(1), two(2), three(3)"
+Use the string filter method to substitute list elements into the placeholders "one(%s), two(%s), three(%s)".
+write a jinja template which adds two strings : "a" and "b" and render the result
+write a jinja template which adds two strings : "a" and "b" and print the result

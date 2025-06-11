@@ -1,0 +1,96 @@
+"overview": |-
+    Concate:
+    Concatenation is the operation of joining two character strings/variables together.
+    add(+):
+    Adds two objects together. Usually the objects are numbers, but if both are strings or lists, you can concatenate them this way. This, however, is not the preferred way to concatenate strings! For string concatenation, have a look-see at the ~ operator.
+    slice:
+    In slice operation returns the selected elements in an array, as a new array object.
+"tests":
+-   "data": |
+        {}
+    "desc": |-
+        Concatenation is the operation of joining two character strings/variables together.
+    "expected": |
+        ab
+    "name": |-
+        test_45_00_concatination_operator.test
+    "template": |
+        {% print 'a' ~ 'b' %}
+    "testname": |-
+        concatination operator
+-   "data": |
+        {}
+    "desc": |-
+        Adds two objects together. Usually the objects are numbers, but if both are strings or lists, you can concatenate them this way. This, however, is not the preferred way to concatenate strings! For string concatenation, have a look-see at the ~ operator.
+    "expected": |+
+        $3
+
+    "name": |-
+        test_45_02_addition_operator.test
+    "template": |+
+        ${% print 1 + 2 %}
+
+    "testname": |-
+        addition operator
+-   "data": |
+        {}
+    "desc": "Subtract the second number from the first one. "
+    "expected": |
+        1
+        4
+    "name": |-
+        test_45_03_subtraction_operator.test
+    "template": |
+        {% print 2 - 1 %}
+
+        {% print 5.0 - 1 %}
+    "testname": |-
+        subtraction operator
+-   "data": |
+        {}
+    "desc": "Multiply the left operand with the right one. "
+    "expected": |
+        2
+        5
+    "name": |-
+        test_45_04_multiplication_operator.test
+    "template": |
+        {% print 2 * 1 %}
+
+        {% print 5.0 * 1 %}
+    "testname": |-
+        multiplication operator
+-   "data": |
+        {}
+    "desc": |-
+        Divide two numbers and return the truncated integer result.
+    "expected": |
+        2
+        2
+        2.5
+        2.5
+    "name": |-
+        test_45_05_division_operator.test
+    "template": |
+        {% print 4 / 2 %}
+
+        {% print 4.0 / 2 %}
+
+        {% print 5 / 2 %}
+
+        {% print 5.0 / 2 %}
+    "testname": |-
+        division operator
+-   "data": |
+        {}
+    "desc": |-
+        In slice operation returns the selected elements in an array, as a new array object.
+    "expected": |+
+        3
+
+    "name": |-
+        test_45_09_slice_operation.test
+    "template": |
+        {% set v = [1,2,3] %}{{ v[2] }}
+    "testname": |-
+        slice operation

@@ -1,0 +1,11 @@
+huggingface_hub[cli]
+bitsandbytes 
+transformers 
+peft 
+accelerate
+scipy 
+einops 
+evaluate 
+trl 
+rouge_score
+datasets

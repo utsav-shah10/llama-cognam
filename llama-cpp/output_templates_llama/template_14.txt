@@ -1,0 +1,8 @@
+Prompt: 
+ Output: 
+
+{% for item in list %}
+  one({{ item }}), 
+  two({{ item }}), 
+  three({{ item }})
+{% endfor %}

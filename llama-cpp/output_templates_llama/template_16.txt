@@ -1,0 +1,7 @@
+Prompt: 
+Template: 
+
+{% set a = "a" %}
+{% set b = "b" %}
+{% set result = a ~ b %}
+{{ result }}

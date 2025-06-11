@@ -1,0 +1,1076 @@
+"dependency":
+-   "bases":
+        "base": |
+            <html>
+            <body>
+            {% block content %}<p>Parent Content</p>{% endblock %}
+            </body>
+            </html>
+        "block_scope": |
+            <!DOCTYPE html>
+            <html>
+                <head>
+                    {% block head %}
+                        <link rel="stylesheet" href="style.css" />
+                        <title>{% block title %}{% endblock %} - My Webpage</title>
+                    {% endblock %}
+                </head>
+                <body>
+                    <div id="content">{% block content %}{% endblock %}</div>
+                    <div id="footer">
+                        {% block footer %}
+                            &copy; Copyright 2011 by <a href="http://domain.invalid/">you</a>.
+                        {% endblock %}
+                    </div>
+                </body>
+            </html>
+        "block_scope2": |
+            {% block one %}{% endblock %}
+            {% block two %}{% endblock %}
+        "block_scoping2": |
+            {% set value=100 %}
+
+            {% block first %}
+            --first block--
+            {% set value=45 %}
+            {{ value }}
+            {% endblock %}
+
+            {% block second %}
+            --second block--
+            {% set value=25 %}
+            {{value}}
+            {% endblock %}
+
+            {% block third %}
+            --third block--
+            {% set value=35 %}
+            {{value}}
+            {% endblock %}
+        "block_scoping3": |
+            {% set value=100 %}
+
+            {% block first %}
+            --first block--
+            {{ value }}
+            {{ variable }}
+            {% endblock %}
+
+            {% block second %}
+            --second block--
+            {% set variable=25 %}
+            {% endblock %}
+
+            {% block third %}
+            --third block--
+            {% set value=35 %}
+            {{value}}
+            {% set variable=45%}
+            {% endblock %}
+        "block_scoping3_01": |
+            {% set value=100 %}
+
+            {% block first %}
+            --first block--
+            {{ value }}
+            {{ variable }}
+            {% endblock %}
+        "block_scoping3_02": |
+            {% set variable=25 %}
+            {% block second %}
+            --second block--
+            {% endblock %}
+        "block_scoping3_03": |
+            {% set value=35 %}
+            {% block third %}
+            --third block--
+            {{value}}
+            {% endblock %}
+        "block_scoping_new": |
+            {% set value = "base" %}
+            {% block container %}{% endblock %}
+        "block_scoping_test": |
+            {% set variable=100 %}
+
+            {% block first %}
+            {{ variable }}
+            {% endblock %}
+
+            {% block second %}
+            {% set variable=25 %}
+            {% endblock %}
+
+            {% block third %}
+            {% set variable=45%}
+            {% endblock %}
+        "block_scoping_test_01": |
+            {% set variable=100 %}
+
+            {% block first %}
+            {{ variable }}
+            {% endblock %}
+        "block_scoping_test_02": |
+            {% set variable=100 %}
+
+            {% block second %}
+            {% endblock %}
+        "block_scoping_test_03": |
+            {% set variable=100 %}
+
+            {% block third %}
+            {% endblock %}
+        "check": |
+            <html>
+            <body>
+
+
+            {% block first %}
+            {% endblock %}
+
+
+            </body>
+            </html>
+        "check_child_scope": |
+            <html>
+            <body>
+            {% block content %}
+            {% set greeting = 'Hello !' %}
+            {{ greeting }} this is the parent
+            {% endblock %}
+            </body>
+            </html>
+        "extend_using_nestedBlock": |
+            <html>
+            <head>
+            {% block content %}
+            {{ "This is Root's content" }}
+            {% endblock %}
+            </head>
+            <body>
+            {% block inner %}
+            {{ "This is from Root's inner" }}
+            {% endblock %}
+            </body>
+            </html>
+        "inner": |
+            <html>
+            {% block content %}
+            <body>
+            {% block inner%}{% endblock %}
+            </body>
+            {% endblock %}
+            </html>
+        "macro": |
+            {% macro parent_macro() %}<p>Parent Macro</p>{% endmacro %}
+            {% block content %}{% endblock %}
+        "main_base": |
+            {% block container %}
+            base container base
+            {% block outer %}
+            base outer base
+            {% block inner1 %}
+            base inner base
+            {% endblock %}
+            {% endblock %}
+            {% endblock %}
+        "mid_base1": |
+            {% extends "bases/main_base.html" %}
+            {% block outer %}
+            block outer mid1
+            {% block inner2 %}
+            block inner2 mid1
+            {% parent %}
+            {% endblock %}
+            {% endblock %}
+        "mid_base2": |
+            {% extends "bases/main_base.html" %}
+            {% block inner1 %}
+            block inner1 mid2
+            {% endblock %}
+        "multiple": |
+            {% extends bases.base|template %}
+            {% block content %}
+            <p>This is content from the template "multiple.html"</p>
+            {% endblock %}
+        "out": |+
+            {% block first_block %}
+            {% endblock %}
+            {% block second_block %}
+            {% set value=200 %}
+            {% endblock %}
+            {% block third_block %}
+            {{ value}}
+            {% endblock %}
+            {% block variable_block %}
+            Hello {{ var }}
+            {% endblock %}
+
+        "parent": |
+            {% set val=45 %}
+            {% block variable_block %}
+            {{ val }}
+            {% endblock %}
+            {% block new_block %}
+
+            this is parent block
+            {% endblock %}
+        "parent2": |
+            {% set val=45 %}
+            {% block variable_block %}
+            {{ val }}
+            {% endblock %}
+
+            {% block new_block %}
+            this is parent block
+            {% endblock %}
+        "parent3": |
+            {% set val=45 %}
+            {% block variable_block %}
+            {% print val %}
+            {% endblock %}
+            {% block new_block %}
+
+            this is parent block
+            {% endblock %}
+        "parent4": |
+            {% set val=45 %}
+            {% block variable_block %}
+            {% print val %}
+            {% endblock %}
+
+            {% block new_block %}
+
+            this is parent block
+            {% endblock %}
+        "parent_autoescape2": |
+            {% autoescape false %}
+            <html>
+            {% block test %}{% set parenthtml = "<h1>Parent</h1>" %}{{ parenthtml }}{% endblock %}
+            </html>
+            {% endautoescape %}
+        "parent_template": |
+            {% block k %}
+            {% set var = 'parent' %}
+            {% endblock %}
+        "parent_template2": |
+            {% set val = 'parent' %}{% block k %}{% set val = 'inner' %}{% endblock %}{{ val }}
+        "path": |-
+            bases/base.html
+        "path2": |
+            bases/base.html
+        "root": |
+            {% set value=15 %}
+            {% block new_block %}
+            {{ var }}
+            {% endblock %}
+        "super": |
+            {% block variable_block %}
+            {{ var }}
+            parent block
+            {% endblock %}
+        "test_bases_eof": "{% block content %}{% endblock %}\r\n"
+        "value_set": |
+            {% set value = 20 %}
+            {% block test %}
+            {{ value }}
+            {% endblock %}
+    "includes":
+        "chain": |
+            {% include includes.with|template with { "argument" : argument, "value" : 42 } only %}
+        "child": |
+            {{ upper('string was in lower') }}
+        "child2": |
+            {% set value = 25 %}
+            Included Template
+        "colormacro": |4
+
+            {% macro avgcolor(color1, color2) -%}
+                {%- set color1 = rgbcolor(color1) -%}
+                {%- set color2 = rgbcolor(color2) -%}
+                {%- set coloravg = [
+                    mean([color1[0], color2[0]]),
+                    mean([color1[1], color2[1]]),
+                    mean([color1[2], color2[2]])
+                ] -%}
+                {{ hexcolor(coloravg) }}
+            {%- endmacro %}
+
+            {% macro lighten(color, fraction) -%}
+                {%- set color = rgbcolor(color) -%}
+                {%- set add_white = 255 * fraction -%}
+                {%- set new_r = color[0] + add_white -%}
+                {%- set new_g = color[1] + add_white -%}
+                {%- set new_b = color[2] + add_white -%}
+                {%- if new_r > 255 %}{% set new_r = 255 %}{% endif -%}
+                {%- if new_g > 255 %}{% set new_g = 255 %}{% endif -%}
+                {%- if new_b > 255 %}{% set new_b = 255 %}{% endif -%}
+                {{ hexcolor([new_r, new_g, new_b]) }}
+            {%- endmacro %}
+
+            {% macro darken(color, fraction) -%}
+                {%- set color = rgbcolor(color) -%}
+                {%- set darkcolor = [
+                    color[0] - (color[0] * fraction),
+                    color[1] - (color[1] * fraction),
+                    color[2] - (color[2] * fraction),
+                ] -%}
+                {{ hexcolor(darkcolor) }}
+            {%- endmacro %}
+        "eof_test": |+
+            This included file contains a extra new line at the EOF given by user apart from hidden newline character.
+
+        "eof_test10": |
+            this is a new file
+            this is a new file
+        "eof_test11": |-
+            this is a new file
+        "eof_test2": |
+            This included file contains hidden newline character only at the EOF.
+        "eof_test3": "This included file contains a tab given by user apart from a\
+            \ hidden newline character at the EOF.\t\n"
+        "eof_test4": "This included file contains a Carriage return and newline as\
+            \ used in windows os ('\\r\\n') at the EOF.\r\n"
+        "eof_test5": "This included file contains a Carriage return as used in Mac\
+            \ os ('\\r') at the EOF.\r"
+        "eof_test6": "This included file contains multiple Carriage return as used\
+            \ in Mac os ('\\r\\r') at the EOF.\r\r"
+        "eof_test7": |-
+            this included file is created by echo command of linux.
+        "eof_test8": |
+            this included file is contains comment tags at the EOF.{# #}
+        "eof_test9": |
+            This included file contains newline character at the EOF.
+        "example_file": |-
+            path file is created by echo command of linux
+        "example_file2": |
+            path file is created by Text Editor tool
+        "faker": |
+            FAKER!
+        "forautoescape": |
+            <h1>autoescape</h1>
+        "has_hello": |
+            {% macro hello() %}
+            Hello included!
+            {% endmacro %}
+        "has_macro": |
+            {% macro from_inside(var) %}{{var}}{% endmacro %}
+            {% print from_inside(42) %}
+        "include_path": |-
+            include/example_file.html
+        "include_path2": |
+            include/example_file2.html
+        "macro_call": |+
+            {% print hello("hello world") %}
+
+        "macro_call2": |
+            {% macro test() %}
+               "hello this included file macro"
+            {% endmacro %}
+        "macro_within_macro": |
+            {% macro test() %}
+            {% print hello() %}
+            "this is included macro"
+            {% endmacro %}
+            {% print test() %}
+        "macro_within_macro2": |
+            {% macro test() %}
+            {% print hello() %}
+            "this is included macro"
+            {% endmacro %}
+        "macro_within_macro3": |
+            {% print hello() %}
+            {% macro test() %}
+            "this is included macro"
+            {% endmacro %}
+            {% print test() %}
+        "module": "{% macro macro1() %}\r\nmacro1 imported!\r\n{% endmacro %}\r\n\
+            {% macro macro2() %}\r\nmacro2 imported!\r\n{% endmacro %}\r\n"
+        "name_snippet": |+
+            {% set greeting = "< in-built filter e is used >" %}
+            {{ greeting|e }}
+            {% print round(10.6) %}
+
+            {% macro hello() %}
+            "this is user functions"
+            {% endmacro %}
+            {% print hello() %}
+
+        "new_macro_call": |+
+            {{ hello("hello world") }}
+
+        "new_macro_within_macro2": |
+            {% macro test() %}
+            {{ hello() }}
+            "this is included macro"
+            {% endmacro %}
+        "newline_test": |
+            This is included File.
+        "newline_test2": |
+            This is included File.
+
+            {% set var = "Hello World!" %}
+            {% print var %} After include Tag new Line goes Here--->
+        "scope": |
+            {% set defined_outside = "inside" %}
+            {% set defined_inside = "inside" %}
+        "scope2": |
+            {% set value = 24 %}
+            {{ variable }}
+        "scope_test": |
+            These parens contain a variable from external scope: ({{ variable }})
+        "string": |
+            This text is loaded as a string.
+        "template": |
+            {% set var = 22 %}
+        "value_call": |
+            {{ value }}
+        "variable": |
+            This text is included via the context as a variable.
+        "with": |
+            There are two values that are added to the context: {{ argument }}, {{ value }}.
+"overview": |-
+    They are useful to put often used HTML idioms into reusable elements to not repeat yourself.
+    The macro can then be called like a function in the namespace.
+"tests":
+-   "data": |
+        {}
+    "desc": |-
+        Macros are different: the only external objects automatically accessible from inside a macro are built-in functions, user functions, and whatever other macros were defined inside the same scope.  Inside a macro, you can also import macros from other files, but the only way that a macro can get access to outside variables is for them to be passed in as arguments.
+    "expected": |4+
+           "hello this included file macro"
+
+    "name": |-
+        test_20_04_macro_in_imported_call_in_master.test
+    "template": |
+        {% import includes.macro_call2|template as macro_file %}
+        {% print macro_file.test() %}
+    "testname": |-
+        macro in import
+-   "data": |
+        {}
+    "desc": "In order to give a macro access to any macros defined in other files,\
+        \ the import tag or the from...import tag must be used inside the macro\u2019\
+        s body.  However, macros defined within the same scope (sibling macros) are\
+        \ automatically imported into the each other\u2019s body scope.  When a macro\
+        \ is invoked, its \u201Cmacro\u201D scope will automatically be given access\
+        \ to these sibling macros, without any explicit import being required. "
+    "expected": |+
+        "this is templates first macro"
+        "This is Second Macro"
+
+    "name": |-
+        test_20_07_define_macro_in_master_call_it_in_second_macro_in_master.test
+    "template": |
+        {% macro first_macro()%}
+        "this is templates first macro"
+        {% endmacro %}
+        {% macro second_macro() %}
+        {% print first_macro() %}
+        "This is Second Macro"
+        {% endmacro %}
+        {% print second_macro() %}
+    "testname": |-
+        macro call in master
+-   "data": |
+        {}
+    "desc": "Names defined inside parent or ancestor scopes are available for use\
+        \ within child or descendant scopes, but not vice-versa. "
+    "expected": |+
+        hello world
+
+    "name": |-
+        test_20_33_set_value_in_master_call_in_imported.test
+    "template": |
+        {% set value = "hello world" %}
+        {% include includes.value_call|template %}
+    "testname": |-
+        master  imported
+-   "data": |+
+        {}
+
+    "desc": "In order to give a macro access to any macros defined in other files,\
+        \ the import tag or the from...import tag must be used inside the macro\u2019\
+        s body.  However, macros defined within the same scope (sibling macros) are\
+        \ automatically imported into the each other\u2019s body scope.  When a macro\
+        \ is invoked, its \u201Cmacro\u201D scope will automatically be given access\
+        \ to these sibling macros, without any explicit import being required. "
+    "expected": |+
+        Hello included!
+
+
+    "name": |-
+        test_20_52_macro_import_additional_tests_for_20_05.test
+    "template": |
+        {% macro hello() %}
+        Hello container!
+        {% endmacro %}
+        {% import includes.has_hello|template as has_hello %}
+        {{has_hello.hello() }}
+    "testname": |-
+        macro import additional test
+-   "data": |+
+        {}
+
+    "desc": "In order to give a macro access to any macros defined in other files,\
+        \ the import tag or the from...import tag must be used inside the macro\u2019\
+        s body.  However, macros defined within the same scope (sibling macros) are\
+        \ automatically imported into the each other\u2019s body scope.  When a macro\
+        \ is invoked, its \u201Cmacro\u201D scope will automatically be given access\
+        \ to these sibling macros, without any explicit import being required. "
+    "expected": |+
+        Hello container!
+
+        Hello included!
+
+
+    "name": |-
+        test_20_54_macro_import_additional_tests_for_20_05.test
+    "template": |
+        {% macro hello() %}
+        Hello container!
+        {% endmacro %}
+        {% from includes.has_hello|template import hello as hello2 %}
+        {{ hello() }}
+        {{ hello2() }}
+    "testname": |-
+        macro import additional test
+-   "data": |
+        {}
+    "desc": |-
+        Macros are different: the only external objects automatically accessible from inside a macro are built-in functions, user functions, and whatever other macros were defined inside the same scope.  Inside a macro, you can also import macros from other files, but the only way that a macro can get access to outside variables is for them to be passed in as arguments.
+    "expected": |+
+        2
+        4
+        6
+        8
+        10
+        12
+        14
+        16
+        18
+        20
+        22
+        24
+        26
+        28
+        30
+        32
+        34
+        36
+        38
+        40
+        42
+        44
+        46
+        48
+        50
+        50
+
+
+
+    "name": |-
+        test_25_00_macro_recursive.test
+    "template": |+
+        {% macro Recursive_macro(value) %}
+        {{ value}}
+        {% if value==50 %}
+        {{ value }}
+        {% else %}
+        {% set value=value+2 %}
+        {% print Recursive_macro(value) %}
+        {% endif %}
+        {% endmacro %}
+        {{ Recursive_macro(2) }}
+
+    "testname": |-
+        macro recursive
+-   "data": |
+        {}
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        m1
+        m2
+        m3
+
+    "name": |-
+        test_30_01_macro.test
+    "template": |
+        {% block content %}
+        {% macro m1() %}
+        m1
+        {% endmacro %}
+        {% print m1() %}
+        {% macro m2() %}
+        m2
+        {% endmacro %}
+        {% print m2() %}
+        {% macro m3() %}
+        m3
+        {% endmacro %}
+        {% print m3() %}
+        {% endblock %}
+    "testname": |-
+        macro case 1
+-   "data": |+
+        {}
+
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        I'm in m2
+        I'm in m2a
+        I'm in m2a1
+        I'm in m2a2
+        I'm in m2b
+        I'm in m1
+
+
+    "name": |-
+        test_30_02_macro.test
+    "template": |+
+        {% block content %}
+        {% macro m1() %}
+        I'm in m1
+        {% endmacro %}
+        {% macro m2() %}
+        I'm in m2
+        {% macro m2b() %}
+        I'm in m2b
+        {% endmacro %}
+        {% macro m2a() %}
+        I'm in m2a
+        {% macro m2a2() %}
+        I'm in m2a2
+        {% endmacro %}
+        {% macro m2a1() %}
+        I'm in m2a1
+        {% print m2a2() %}
+        {% print m2b() %}
+        {% print m1() %}
+        {% endmacro %}
+        {% print m2a1() %}
+        {% endmacro %}
+        {% print m2a() %}
+        {% endmacro %}
+        {% print m2() %}
+        {% endblock %}
+
+    "testname": |-
+        macro case 2
+-   "data": |
+        {}
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        I'm in m1
+        I'm in m2
+        I'm in m3
+
+    "name": |-
+        test_30_03_macro.test
+    "template": |
+        {% block content %}
+        {% macro m1() %}
+        I'm in m1
+        {% endmacro %}
+        {% macro m2() %}
+        I'm in m2
+        {% endmacro %}
+        {% macro m3() %}
+        I'm in m3
+        {% endmacro %}
+        {% print m1() %}
+        {% print m2() %}
+        {% print m3() %}
+        {% endblock %}
+    "testname": |-
+        macro case 3
+-   "data": |+
+        {}
+
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        I'm in m2
+        I'm in m2a
+        I'm in m2a1
+        I'm in m2a2
+        I'm in m2b
+        I'm in m1
+
+
+    "name": |-
+        test_30_04_macro.test
+    "template": |+
+        {% block content %}
+        {% macro m1()%}
+        I'm in m1
+        {% endmacro%}
+        {% macro m2()%}
+        I'm in m2
+        {% macro m2b()%}
+        I'm in m2b
+        {% endmacro %}
+        {% macro m2a() %}
+        I'm in m2a
+        {% macro m2a2() %}
+        I'm in m2a2
+        {% endmacro %}
+        {% macro m2a1() %}
+        I'm in m2a1
+        {% print m2a2() %}
+        {% print m2b() %}
+        {% print m1() %}
+        {% endmacro %}
+        {% print m2a1() %}
+        {% endmacro %}
+        {% print m2a() %}
+        {% endmacro %}
+        {% print m2() %}
+        {% endblock %}
+
+    "testname": |-
+        macro case 4
+-   "data": |
+        {}
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        I'm in m2
+        I'm in m2a
+        I'm in m2a1
+        I'm in m2a2
+        I'm in m2b
+        I'm in m1
+        I'm in m3
+
+
+    "name": |-
+        test_30_05_macro.test
+    "template": |+
+        {% block content %}
+        {% macro m1() %}
+        I'm in m1
+        {% endmacro %}
+        {% macro m3()%}
+        I'm in m3
+        {% macro m3a() %}
+        I'm in m3a
+        {% endmacro %}
+        {% macro m3b() %}
+        I'm in m3b
+        {% endmacro %}
+        {% endmacro %}
+        {% macro m2() %}
+        I'm in m2
+        {% macro m2b() %}
+        I'm in m2b
+        {% endmacro %}
+        {% macro m2a() %}
+        I'm in m2a
+        {% macro m2a2() %}
+        I'm in m2a2
+        {% endmacro %}
+        {% macro m2a1()%}
+        I'm in m2a1
+        {% print m2a2() %}
+        {% print m2b() %}
+        {% print m1() %}
+        {% print m3() %}
+        {% endmacro %}
+        {% print m2a1() %}
+        {% endmacro %}
+        {% print m2a() %}
+        {% endmacro %}
+        {% print m2() %}
+        {% endblock %}
+
+    "testname": |-
+        macro case 5
+-   "data": |
+        {}
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        I'm in m1
+        I'm in m2
+
+    "name": |-
+        test_30_06_macro.test
+    "template": |
+        {% block content %}
+        {% macro m1() %}
+        I'm in m1
+        {% endmacro %}
+        {% print m1() %}
+        {% macro m2() %}
+        I'm in m2
+        {% endmacro %}
+        {% print m2() %}
+        {% endblock %}
+    "testname": |-
+        macro case 6
+-   "data": |
+        {}
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        I'm in m1
+        I'm in m2
+
+    "name": |-
+        test_30_07_macro.test
+    "template": |
+        {% block content %}
+        {% macro m1() %}
+        I'm in m1
+        {% endmacro %}
+        {% macro m2() %}
+        I'm in m2
+        {% endmacro %}
+        {% print m1() %}
+        {% print m2() %}
+        {% endblock %}
+    "testname": |-
+        macro case 7
+-   "data": |
+        {}
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        I'm in m1
+
+        I'm in m2
+
+
+    "name": |-
+        test_30_10_macro_new_test.test
+    "template": |
+        {% block content %}
+        {% macro m1() %}
+        I'm in m1
+        {% endmacro %}
+        {% macro m2() %}
+        I'm in m2
+        {% endmacro %}
+        {{ m1() }}
+        {{ m2() }}
+        {% endblock %}
+    "testname": |-
+        macro case 8
+-   "data": |
+        {}
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        I'm in m2
+
+        I'm in m1
+
+
+    "name": |-
+        test_30_11_macro_new_test.test
+    "template": |
+        {% macro m1() %}
+        I'm in m1
+        {% endmacro %}
+        {% macro m2() %}
+        I'm in m2
+        {% endmacro %}
+        {{ m2() }}
+        {{ m1() }}
+    "testname": |-
+        macro case 9
+-   "data": |
+        {}
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        I'm in m1
+        I'm in m1a
+        I'm in m2
+
+
+
+
+    "name": |-
+        test_30_12_macro_new_test.test
+    "template": |
+        {% macro m1() %}
+        I'm in m1
+        {% macro m1a() %}
+        I'm in m1a
+        {{ m2() }}
+        {% endmacro %}
+        {{m1a()}}
+        {% endmacro %}
+        {% macro m2() %}
+        I'm in m2
+        {% endmacro %}
+        {{ m1() }}
+    "testname": |-
+        macro case 10
+-   "data": |
+        {"value": "Macro Argument Value"}
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        macro result: Macro Argument Value
+
+    "name": |-
+        test_54_00_concat_macro_result.test
+    "template": |
+        {% macro my_macro(args) %}
+        {{ args }}
+        {% endmacro %}
+        {% print "macro result: " ~ my_macro(value) %}
+    "testname": |-
+        concat macro result
+-   "data": |
+        {"value": "Macro Argument Value"}
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        Macro Argument Value
+
+
+    "name": |-
+        test_54_01_macro_result_store_in_variable.test
+    "template": |
+        {% macro my_macro(args) %}
+        {{ args }}
+        {% endmacro %}
+        {% set var = my_macro(value) %}{{ var }}
+    "testname": |-
+        macro in variable
+-   "data": |
+        {"value": "expected"}
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        TRUE
+
+    "name": |-
+        test_54_02_macro_if_else.test
+    "template": |
+        {% macro my_macro(args) %}{{ args }}{% endmacro %}
+        {% if my_macro(value) == "expected" %}
+        TRUE
+        {% else %}
+        FALSE
+        {% endif %}
+    "testname": |-
+        macro if else
+-   "data": |
+        {}
+    "desc": "A macro statement declares a macro object, and adds that object to the\
+        \ current environment.  A macro object is comprised of its name, the name\
+        \ and number of its arguments, and the partial template contained within the\
+        \ statement that declared it. A macro is similar to a function in that its\
+        \ segment is rendered via a call expression, in the form <macro name>(<arguments>).\
+        \   However, unlike as with a function, calling a macro will always return\
+        \ a safe string type.  Furthermore, a macro\u2019s argument types are not\
+        \ specifically enumerated, and must be inferred."
+    "expected": |+
+        RED: 255; GREEN: 255; BLUE: 255;
+
+    "name": |-
+        test_54_04_macro_outputs_color.test
+    "template": |
+        {% macro macro_outputing_hex() %}#FFFFFF{% endmacro %}
+        {% set color = rgbcolor(macro_outputing_hex()) %}
+        RED: {{ color.0 }}; GREEN: {{ color[1] }}; BLUE: {{ last(color) }};
+    "testname": |-
+        macro outputs color
+-   "data": |
+        {"base" : "{% macro hello(name) %}Hello {{ name|default('World') }}!{% endmacro %}<html>{% block content %}{% print hello() %}{% endblock %}</html>"}
+    "desc": |-
+        Test case to check the behaviour when a macro is called without arguments
+    "expected": |
+        <html>Hello World!<br/>Nice to meet you!</html>
+    "name": |-
+        test_54_05_macro_calling_without_arg.test
+    "template": |
+        {% extends base|template %}{% block content %}{% parent %}
+        {% set message = '<br/>Nice to meet you!' %}{{- message -}}{% endblock %}
+    "testname": |-
+        macro calling without args

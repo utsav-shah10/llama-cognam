@@ -1,0 +1,41 @@
+"dependency":
+-   "bases":
+        "base": |
+            <html>
+            <body>
+            {% block content %}<p>Parent Content</p>{% endblock %}
+            </body>
+            </html>
+        "check": |
+            <html>
+            <body>
+
+
+            {% block first %}
+            {% endblock %}
+
+
+            </body>
+            </html>
+    "includes":
+        "chain": |
+            {% include includes.with|template with { "argument" : argument, "value" : 42 } only %}
+        "with": |
+            There are two values that are added to the context: {{ argument }}, {{ value }}.
+"overview": |-
+    The include statement is useful to include a template and return the rendered contents of that file into the current namespace.
+    Included templates have access to the variables of the active context by default.
+"tests":
+-   "data": |
+        {}
+    "desc": |-
+        The include tag allows you to include the content from another file stored in the include folder. You can create chain by including one another.
+    "expected": |+
+        There are two values that are added to the context: 22, 42.
+
+    "name": |-
+        test_08_07_include_chain.test
+    "template": |
+        {% include includes.chain|template with { "argument" : 22 } only %}
+    "testname": |-
+        include chain

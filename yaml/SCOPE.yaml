@@ -1,0 +1,930 @@
+"dependency":
+-   "bases":
+        "base": |
+            <html>
+            <body>
+            {% block content %}<p>Parent Content</p>{% endblock %}
+            </body>
+            </html>
+        "block_scope": |
+            <!DOCTYPE html>
+            <html>
+                <head>
+                    {% block head %}
+                        <link rel="stylesheet" href="style.css" />
+                        <title>{% block title %}{% endblock %} - My Webpage</title>
+                    {% endblock %}
+                </head>
+                <body>
+                    <div id="content">{% block content %}{% endblock %}</div>
+                    <div id="footer">
+                        {% block footer %}
+                            &copy; Copyright 2011 by <a href="http://domain.invalid/">you</a>.
+                        {% endblock %}
+                    </div>
+                </body>
+            </html>
+        "block_scope2": |
+            {% block one %}{% endblock %}
+            {% block two %}{% endblock %}
+        "block_scoping2": |
+            {% set value=100 %}
+
+            {% block first %}
+            --first block--
+            {% set value=45 %}
+            {{ value }}
+            {% endblock %}
+
+            {% block second %}
+            --second block--
+            {% set value=25 %}
+            {{value}}
+            {% endblock %}
+
+            {% block third %}
+            --third block--
+            {% set value=35 %}
+            {{value}}
+            {% endblock %}
+        "block_scoping3": |
+            {% set value=100 %}
+
+            {% block first %}
+            --first block--
+            {{ value }}
+            {{ variable }}
+            {% endblock %}
+
+            {% block second %}
+            --second block--
+            {% set variable=25 %}
+            {% endblock %}
+
+            {% block third %}
+            --third block--
+            {% set value=35 %}
+            {{value}}
+            {% set variable=45%}
+            {% endblock %}
+        "block_scoping3_01": |
+            {% set value=100 %}
+
+            {% block first %}
+            --first block--
+            {{ value }}
+            {{ variable }}
+            {% endblock %}
+        "block_scoping3_02": |
+            {% set variable=25 %}
+            {% block second %}
+            --second block--
+            {% endblock %}
+        "block_scoping3_03": |
+            {% set value=35 %}
+            {% block third %}
+            --third block--
+            {{value}}
+            {% endblock %}
+        "block_scoping_new": |
+            {% set value = "base" %}
+            {% block container %}{% endblock %}
+        "block_scoping_test": |
+            {% set variable=100 %}
+
+            {% block first %}
+            {{ variable }}
+            {% endblock %}
+
+            {% block second %}
+            {% set variable=25 %}
+            {% endblock %}
+
+            {% block third %}
+            {% set variable=45%}
+            {% endblock %}
+        "block_scoping_test_01": |
+            {% set variable=100 %}
+
+            {% block first %}
+            {{ variable }}
+            {% endblock %}
+        "block_scoping_test_02": |
+            {% set variable=100 %}
+
+            {% block second %}
+            {% endblock %}
+        "block_scoping_test_03": |
+            {% set variable=100 %}
+
+            {% block third %}
+            {% endblock %}
+        "check": |
+            <html>
+            <body>
+
+
+            {% block first %}
+            {% endblock %}
+
+
+            </body>
+            </html>
+        "check_child_scope": |
+            <html>
+            <body>
+            {% block content %}
+            {% set greeting = 'Hello !' %}
+            {{ greeting }} this is the parent
+            {% endblock %}
+            </body>
+            </html>
+        "extend_using_nestedBlock": |
+            <html>
+            <head>
+            {% block content %}
+            {{ "This is Root's content" }}
+            {% endblock %}
+            </head>
+            <body>
+            {% block inner %}
+            {{ "This is from Root's inner" }}
+            {% endblock %}
+            </body>
+            </html>
+        "inner": |
+            <html>
+            {% block content %}
+            <body>
+            {% block inner%}{% endblock %}
+            </body>
+            {% endblock %}
+            </html>
+        "macro": |
+            {% macro parent_macro() %}<p>Parent Macro</p>{% endmacro %}
+            {% block content %}{% endblock %}
+        "main_base": |
+            {% block container %}
+            base container base
+            {% block outer %}
+            base outer base
+            {% block inner1 %}
+            base inner base
+            {% endblock %}
+            {% endblock %}
+            {% endblock %}
+        "mid_base1": |
+            {% extends "bases/main_base.html" %}
+            {% block outer %}
+            block outer mid1
+            {% block inner2 %}
+            block inner2 mid1
+            {% parent %}
+            {% endblock %}
+            {% endblock %}
+        "mid_base2": |
+            {% extends "bases/main_base.html" %}
+            {% block inner1 %}
+            block inner1 mid2
+            {% endblock %}
+        "multiple": |
+            {% extends bases.base|template %}
+            {% block content %}
+            <p>This is content from the template "multiple.html"</p>
+            {% endblock %}
+        "out": |+
+            {% block first_block %}
+            {% endblock %}
+            {% block second_block %}
+            {% set value=200 %}
+            {% endblock %}
+            {% block third_block %}
+            {{ value}}
+            {% endblock %}
+            {% block variable_block %}
+            Hello {{ var }}
+            {% endblock %}
+
+        "parent": |
+            {% set val=45 %}
+            {% block variable_block %}
+            {{ val }}
+            {% endblock %}
+            {% block new_block %}
+
+            this is parent block
+            {% endblock %}
+        "parent2": |
+            {% set val=45 %}
+            {% block variable_block %}
+            {{ val }}
+            {% endblock %}
+
+            {% block new_block %}
+            this is parent block
+            {% endblock %}
+        "parent3": |
+            {% set val=45 %}
+            {% block variable_block %}
+            {% print val %}
+            {% endblock %}
+            {% block new_block %}
+
+            this is parent block
+            {% endblock %}
+        "parent4": |
+            {% set val=45 %}
+            {% block variable_block %}
+            {% print val %}
+            {% endblock %}
+
+            {% block new_block %}
+
+            this is parent block
+            {% endblock %}
+        "parent_autoescape2": |
+            {% autoescape false %}
+            <html>
+            {% block test %}{% set parenthtml = "<h1>Parent</h1>" %}{{ parenthtml }}{% endblock %}
+            </html>
+            {% endautoescape %}
+        "parent_template": |
+            {% block k %}
+            {% set var = 'parent' %}
+            {% endblock %}
+        "parent_template2": |
+            {% set val = 'parent' %}{% block k %}{% set val = 'inner' %}{% endblock %}{{ val }}
+        "path": |-
+            bases/base.html
+        "path2": |
+            bases/base.html
+        "root": |
+            {% set value=15 %}
+            {% block new_block %}
+            {{ var }}
+            {% endblock %}
+        "super": |
+            {% block variable_block %}
+            {{ var }}
+            parent block
+            {% endblock %}
+        "test_bases_eof": "{% block content %}{% endblock %}\r\n"
+        "value_set": |
+            {% set value = 20 %}
+            {% block test %}
+            {{ value }}
+            {% endblock %}
+    "includes":
+        "chain": |
+            {% include includes.with|template with { "argument" : argument, "value" : 42 } only %}
+        "child": |
+            {{ upper('string was in lower') }}
+        "child2": |
+            {% set value = 25 %}
+            Included Template
+        "colormacro": |4
+
+            {% macro avgcolor(color1, color2) -%}
+                {%- set color1 = rgbcolor(color1) -%}
+                {%- set color2 = rgbcolor(color2) -%}
+                {%- set coloravg = [
+                    mean([color1[0], color2[0]]),
+                    mean([color1[1], color2[1]]),
+                    mean([color1[2], color2[2]])
+                ] -%}
+                {{ hexcolor(coloravg) }}
+            {%- endmacro %}
+
+            {% macro lighten(color, fraction) -%}
+                {%- set color = rgbcolor(color) -%}
+                {%- set add_white = 255 * fraction -%}
+                {%- set new_r = color[0] + add_white -%}
+                {%- set new_g = color[1] + add_white -%}
+                {%- set new_b = color[2] + add_white -%}
+                {%- if new_r > 255 %}{% set new_r = 255 %}{% endif -%}
+                {%- if new_g > 255 %}{% set new_g = 255 %}{% endif -%}
+                {%- if new_b > 255 %}{% set new_b = 255 %}{% endif -%}
+                {{ hexcolor([new_r, new_g, new_b]) }}
+            {%- endmacro %}
+
+            {% macro darken(color, fraction) -%}
+                {%- set color = rgbcolor(color) -%}
+                {%- set darkcolor = [
+                    color[0] - (color[0] * fraction),
+                    color[1] - (color[1] * fraction),
+                    color[2] - (color[2] * fraction),
+                ] -%}
+                {{ hexcolor(darkcolor) }}
+            {%- endmacro %}
+        "eof_test": |+
+            This included file contains a extra new line at the EOF given by user apart from hidden newline character.
+
+        "eof_test10": |
+            this is a new file
+            this is a new file
+        "eof_test11": |-
+            this is a new file
+        "eof_test2": |
+            This included file contains hidden newline character only at the EOF.
+        "eof_test3": "This included file contains a tab given by user apart from a\
+            \ hidden newline character at the EOF.\t\n"
+        "eof_test4": "This included file contains a Carriage return and newline as\
+            \ used in windows os ('\\r\\n') at the EOF.\r\n"
+        "eof_test5": "This included file contains a Carriage return as used in Mac\
+            \ os ('\\r') at the EOF.\r"
+        "eof_test6": "This included file contains multiple Carriage return as used\
+            \ in Mac os ('\\r\\r') at the EOF.\r\r"
+        "eof_test7": |-
+            this included file is created by echo command of linux.
+        "eof_test8": |
+            this included file is contains comment tags at the EOF.{# #}
+        "eof_test9": |
+            This included file contains newline character at the EOF.
+        "example_file": |-
+            path file is created by echo command of linux
+        "example_file2": |
+            path file is created by Text Editor tool
+        "faker": |
+            FAKER!
+        "forautoescape": |
+            <h1>autoescape</h1>
+        "has_hello": |
+            {% macro hello() %}
+            Hello included!
+            {% endmacro %}
+        "has_macro": |
+            {% macro from_inside(var) %}{{var}}{% endmacro %}
+            {% print from_inside(42) %}
+        "include_path": |-
+            include/example_file.html
+        "include_path2": |
+            include/example_file2.html
+        "macro_call": |+
+            {% print hello("hello world") %}
+
+        "macro_call2": |
+            {% macro test() %}
+               "hello this included file macro"
+            {% endmacro %}
+        "macro_within_macro": |
+            {% macro test() %}
+            {% print hello() %}
+            "this is included macro"
+            {% endmacro %}
+            {% print test() %}
+        "macro_within_macro2": |
+            {% macro test() %}
+            {% print hello() %}
+            "this is included macro"
+            {% endmacro %}
+        "macro_within_macro3": |
+            {% print hello() %}
+            {% macro test() %}
+            "this is included macro"
+            {% endmacro %}
+            {% print test() %}
+        "module": "{% macro macro1() %}\r\nmacro1 imported!\r\n{% endmacro %}\r\n\
+            {% macro macro2() %}\r\nmacro2 imported!\r\n{% endmacro %}\r\n"
+        "name_snippet": |+
+            {% set greeting = "< in-built filter e is used >" %}
+            {{ greeting|e }}
+            {% print round(10.6) %}
+
+            {% macro hello() %}
+            "this is user functions"
+            {% endmacro %}
+            {% print hello() %}
+
+        "new_macro_call": |+
+            {{ hello("hello world") }}
+
+        "new_macro_within_macro2": |
+            {% macro test() %}
+            {{ hello() }}
+            "this is included macro"
+            {% endmacro %}
+        "newline_test": |
+            This is included File.
+        "newline_test2": |
+            This is included File.
+
+            {% set var = "Hello World!" %}
+            {% print var %} After include Tag new Line goes Here--->
+        "scope": |
+            {% set defined_outside = "inside" %}
+            {% set defined_inside = "inside" %}
+        "scope2": |
+            {% set value = 24 %}
+            {{ variable }}
+        "scope_test": |
+            These parens contain a variable from external scope: ({{ variable }})
+        "string": |
+            This text is loaded as a string.
+        "template": |
+            {% set var = 22 %}
+        "value_call": |
+            {{ value }}
+        "variable": |
+            This text is included via the context as a variable.
+        "with": |
+            There are two values that are added to the context: {{ argument }}, {{ value }}.
+"overview": |-
+    Blocks can be nested for more complex layouts. However, per default blocks may not access variables from outer scopes.
+    When overriding a block, the scoped modifier does not have to be provided.
+"tests":
+-   "data": |
+        {}
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa. Names defined inside a scope are unavailable after the scope exits--they are local to that scope
+    "expected": |+
+        Included Template
+
+
+    "name": |-
+        test_18_01_set_value_in_included_read_in_master.test
+    "template": |
+        {% include includes.child2|template %}
+        {{ value }}
+    "testname": |-
+        value read in master
+-   "data": |
+        {}
+    "desc": |-
+        Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |
+        define variable in block first
+        define variable in block second
+    "name": |-
+        test_24_00_block_scoping.test
+    "template": |
+        {% block first_block %}
+        {% set var = "define variable in block first" %}
+        {% print var%}
+        {% endblock %}
+
+        {% block second_block %}
+        {% set var= "define variable in block second" %}
+        {% print var %}
+        {% endblock %}
+    "testname": |-
+        block scoping case1
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |+
+        <!DOCTYPE html>
+        <html>
+            <head>
+                                <link rel="stylesheet" href="style.css" />
+                    <title>Index - My Webpage</title>
+                    <style type="text/css">
+                .important { color: #336699; }
+            </style>
+            </head>
+            <body>
+                <div id="content">    <h1>Index</h1>
+            <p class="important">
+                Welcome to my awesome homepage.
+            </p>
+        </div>
+                <div id="footer">
+                                    &copy; Copyright 2011 by <a href="http://domain.invalid/">you</a>.
+                            </div>
+            </body>
+        </html>
+
+    "name": |-
+        test_24_03_block_scoping.test
+    "template": |
+        {% extends "bases/block_scope.html" %}
+
+        {% block title %}Index{% endblock %}
+        {% block head %}
+            {% parent %}
+            <style type="text/css">
+                .important { color: #336699; }
+            </style>
+        {% endblock %}
+        {% block content %}
+            <h1>Index</h1>
+            <p class="important">
+                Welcome to my awesome homepage.
+            </p>
+        {% endblock %}
+    "testname": |-
+        block scoping case3
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |4+
+
+        100
+
+        --second block--
+        25
+        100
+
+        --third block--
+        35
+
+    "name": |-
+        test_24_05_block_scoping.test
+    "template": |
+        {% extends "bases/block_scoping2.html" %}
+
+        {% block first%}
+        {{ value }}
+        {% endblock %}
+
+        {% block second %}
+        {% parent %}
+        {{ value }}
+        {% endblock %}
+    "testname": |-
+        block scoping case4
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |+
+        outer
+        inner
+        outer
+
+
+    "name": |-
+        test_24_10_new_block_scope_test.test
+    "template": |+
+        {% block container %}
+        {% set value = "outer" %}
+        {{ value }}
+        {% block inner %}
+        {% set value = "inner" %}
+        {{ value }}
+        {% endblock %}
+        {{ value }}
+        {% endblock %}
+
+    "testname": |-
+        block scoping case7
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |+
+        outer
+        inner
+        outer
+
+    "name": |-
+        test_24_12_new_block_scope_test.test
+    "template": |
+        {% extends "bases/block_scoping_new.html" %}
+        {% block container %}
+        {% set value = "outer" %}
+        {{ value }}
+        {% block inner %}
+        {% set value = "inner" %}
+        {{ value }}
+        {% endblock %}
+        {{ value }}
+        {% endblock %}
+    "testname": |-
+        block scoping case8
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": "Inside Macro \n\n\n\n\n"
+    "name": |-
+        test_24_15_new_block_scope_test.test
+    "template": "{% macro setval() %}\nInside Macro \n{% set val = 22 %}\n{% endmacro\
+        \ %}\n{{ setval() }}\n{{ val }}\n\n"
+    "testname": |-
+        block scoping case9
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |+
+        Inside Macro
+
+        44
+
+    "name": |-
+        test_24_16_new_block_scope_test.test
+    "template": |
+        {% macro setval() %}
+        Inside Macro
+        {% set val = 22 %}
+        {% endmacro %}
+        {% set val = 44 %}
+        {{ setval() }}
+        {{ val }}
+    "testname": |-
+        block scoping case10
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |4+
+
+
+    "name": |-
+        test_24_17_new_block_scope_test.test
+    "template": |
+        {% include "include/template.html" %}
+        {{ var }}
+    "testname": |-
+        block scoping case11
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |+
+        44
+
+    "name": |-
+        test_24_18_new_block_scope_test.test
+    "template": |
+        {% set var = 44 %}
+        {% include "include/template.html" %}
+        {{ var }}
+    "testname": |-
+        block scoping case12
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |+
+        child
+
+    "name": |-
+        test_24_19_new_block_scope_test.test
+    "template": |
+        {% extends "bases/parent_template.html" %}
+        {% block k %}
+        {% set var = 'child' %}
+        {% parent %}
+        {{ var }}
+        {% endblock %}
+    "testname": |-
+        block scoping case13
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |4+
+
+
+    "name": |-
+        test_24_20_new_block_scope_test.test
+    "template": |
+        {% extends "bases/parent_template.html" %}
+        {% block k %}
+        {% parent %}
+        {{ var }}
+        {% endblock %}
+    "testname": |-
+        block scoping case14
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |+
+        parent
+
+    "name": |-
+        test_24_21_new_block_scope_test.test
+    "template": |+
+        {% extends "bases/parent_template2.html" %}
+        {% block k %}
+        {% set val = 'child' %}
+        {% endblock %}
+
+    "testname": |-
+        block scoping case15
+-   "data": |+
+        {"var": 43}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |4+
+
+        43
+        21
+        10
+        5
+        2
+        1
+
+
+
+
+
+
+
+
+    "name": |-
+        test_24_22_new_block_scope_test_recursive_macro.test
+    "template": |+
+        {% macro hexto(h) %}
+        {{ h }}
+        {% if h >= 2 %}
+        {{ hexto(h//2) }}
+        {% endif %}
+        {% endmacro %}
+
+        {{ hexto(var) }}
+
+    "testname": "scope recursive macro "
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |+
+        base container base
+        block outer mid1
+        block inner2 test1
+
+    "name": |-
+        test_24_23_new_block_scope_nested_extends.test
+    "template": |
+        {% extends "bases/mid_base1.html" %}
+        {% block inner2 %}
+        block inner2 test1
+        {% endblock %}
+    "testname": |-
+        scope nested extends
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |+
+        base container base
+        block outer test2
+        block inner1 mid2
+
+    "name": |-
+        test_24_24_new_block_scope_nested_extends.test
+    "template": |
+        {% extends "bases/mid_base2.html" %}
+        {% block outer %}
+        block outer test2
+        {% block inner1 %}
+        {% parent %}
+        {% endblock %}
+        {% endblock %}
+    "testname": |-
+        scope nested extends
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |+
+        block container test3
+        base container base
+        base outer base
+        block inner1 test3
+
+    "name": |-
+        test_24_25_new_block_scope_nested_extends.test
+    "template": |
+        {% extends "bases/main_base.html" %}
+        {% block container %}
+        block container test3
+        {% parent %}
+        {% endblock %}
+        {% block inner1 %}
+        block inner1 test3
+        {% endblock %}
+    "testname": |-
+        scope nested extends
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |4+
+
+        --second block--
+        100
+
+    "name": |-
+        test_24_27_new_block_scope_splited_test_for_2nd_block_for_test_24_14.test
+    "template": |+
+        {% extends "bases/block_scoping_test_02.html" %}
+
+        {% block second %}
+        --second block--
+        {% parent %}
+        {{ variable }}
+        {% endblock %}
+
+    "testname": |-
+        scope splited case1
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |4+
+
+        --third block--
+        100
+        100
+
+    "name": |-
+        test_24_28_new_block_scope_splited_test_for_3rd_block_for_test_24_14.test
+    "template": |+
+        {% extends "bases/block_scoping_test_03.html" %}
+
+        {% block third %}
+        --third block--
+        {{ variable }}
+        {% parent %}
+        {{ variable }}
+        {% endblock %}
+
+    "testname": |-
+        scope splited case2
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |+
+        --second block--
+        25
+
+    "name": |-
+        test_24_62_block_scoping.test
+    "template": |+
+        {% extends "bases/block_scoping3_02.html" %}
+
+        {% block second %}
+        {% parent %}
+        {{ variable }}
+        {% endblock %}
+
+
+    "testname": |-
+        block scoping
+-   "data": |+
+        {}
+
+    "desc": |-
+        Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa.
+        Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only. Names defined inside a scope are unavailable after the scope exits--they are local to that scope.
+    "expected": |+
+        --third block--
+        35
+
+
+    "name": |-
+        test_24_63_block_scoping.test
+    "template": |+
+        {% extends "bases/block_scoping3_03.html" %}
+
+        {% block third %}
+        {% parent %}
+        {{variable}}
+        {% endblock %}
+
+
+
+    "testname": |-
+        block scoping

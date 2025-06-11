@@ -1,0 +1,8 @@
+Prompt: 
+Template: 
+
+{% if value %}
+    True
+{% else %}
+    False
+{% endif %}

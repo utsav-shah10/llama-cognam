@@ -1,0 +1,5 @@
+Prompt: 
+ Output: 
+
+{% set name = 'John Doe' %}
+{{ name.upper() }}

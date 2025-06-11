@@ -1,0 +1,50 @@
+"overview": "Delimiters are augmented by whitespace removal indicators, in the form\
+    \ of the minus sign (i.e. \u201C-\u201D)."
+"tests":
+-   "data": |
+        {}
+    "desc": "Delimiters are augmented by whitespace removal indicators, in the form\
+        \ of the minus sign (i.e. \u201C-\u201D)."
+    "expected": |4+
+
+        30
+
+        40
+        40
+
+        50
+
+    "name": |-
+        test_22_00_whitespace.test
+    "template": |
+        {%set var = 30 %}
+
+        {{ var }}
+
+        {% set value = 40 %}
+        {% print value %}
+
+        {% print value %}
+
+
+        {% set obj = 50 -%}
+
+
+                  {{ obj }}
+    "testname": |-
+        whitespace basic
+-   "data": |
+        {}
+    "desc": "Delimiters are augmented by whitespace removal indicators, in the form\
+        \ of the minus sign (i.e. \u201C-\u201D)."
+    "expected": |
+        1234
+    "name": |-
+        test_22_03_whitespace.test
+    "template": |
+        {%set list = [1,2,3,4] %}
+        {% for i in list -%}
+          {{ i }}
+        {%- endfor %}
+    "testname": |-
+        whitespace

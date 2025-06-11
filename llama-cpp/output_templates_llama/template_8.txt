@@ -1,0 +1,8 @@
+Prompt: 
+ Output: 
+
+{% if num|length > 5 %}
+    {{ num|slice(0,5) }}
+{% else %}
+    {{ num }}
+{% endif %}

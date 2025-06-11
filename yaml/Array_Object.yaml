@@ -1,0 +1,147 @@
+"dependency":
+  -   "bases":
+        "extend_using_nestedBlock": |
+          <html>
+          <head>
+          {% block content %}
+          {{ "This is Root's content" }}
+          {% endblock %}
+          </head>
+          <body>
+          {% block inner %}
+          {{ "This is from Root's inner" }}
+          {% endblock %}
+          </body>
+          </html>
+        "parent_autoescape2": |
+          {% autoescape false %}
+          <html>
+          {% block test %}{% set parenthtml = "<h1>Parent</h1>" %}{{ parenthtml }}{% endblock %}
+          </html>
+          {% endautoescape %}
+      "includes":
+        "scope_test": |
+          These parens contain a variable from external scope: ({{ variable }})
+        "temp": |
+          Some Random Text
+        "name_snippet": |+
+          {% set greeting = "< in-built filter e is used >" %}
+          {{ greeting|e }}
+          {% print round(10.6) %}
+          
+          {% macro hello() %}
+          "this is user functions"
+          {% endmacro %}
+          {% print hello() %}
+        "chain": |
+          {% include includes.with|template with { "argument" : argument, "value" : 42 } only %}
+        "with": |
+          There are one value that is added to the context:, {{ value }}.
+        "image_test": |
+          <img src="{{image()}}">
+        "colormacro": |4
+
+            {% macro avgcolor(color1, color2) -%}
+                {%- set color1 = rgbcolor(color1) -%}
+                {%- set color2 = rgbcolor(color2) -%}
+                {%- set coloravg = [
+                    mean([color1[0], color2[0]]),
+                    mean([color1[1], color2[1]]),
+                    mean([color1[2], color2[2]])
+                ] -%}
+                {{ hexcolor(coloravg) }}
+            {%- endmacro %}
+
+            {% macro lighten(color, fraction) -%}
+                {%- set color = rgbcolor(color) -%}
+                {%- set add_white = 255 * fraction -%}
+                {%- set new_r = color[0] + add_white -%}
+                {%- set new_g = color[1] + add_white -%}
+                {%- set new_b = color[2] + add_white -%}
+                {%- if new_r > 255 %}{% set new_r = 255 %}{% endif -%}
+                {%- if new_g > 255 %}{% set new_g = 255 %}{% endif -%}
+                {%- if new_b > 255 %}{% set new_b = 255 %}{% endif -%}
+                {{ hexcolor([new_r, new_g, new_b]) }}
+            {%- endmacro %}
+
+            {% macro darken(color, fraction) -%}
+                {%- set color = rgbcolor(color) -%}
+                {% set c1 = color[0] %}
+                {% set c2 = color[1] %}
+                {% set c3 = color[2] %}
+                {%- set darkcolor = [
+                    c1 - (c1 * fraction),
+                    c2 - (c2 * fraction),
+                    c3 - (c3 * fraction)
+                ] -%}
+                {{ hexcolor(darkcolor) }}
+            {%- endmacro %}
+            
+"overview": ""
+"tests":
+-   "data": |
+      {
+        "listA": [1, 2, 3, null, false, true]
+      }
+    "desc": |-
+      Simple conditional tag, which evalutes its body if the supplied condition is true.The if statement controls conditional branching. The body of an if statement is executed if the value of the expression is True.
+    "expected": |+
+      {'a': 1, 'b': 2}
+      1
+
+    "name": |-
+      test_03_01_Object_filter.test
+    "template": |
+      {% set items = {'a':1 , 'b': 2 } %}
+      {% set val = items|string %}
+      {{ val }}
+      {% set obj = val|object %}
+      {{ obj["a"] }}
+    "testname": |-
+        print different type5
+-   "data": |
+      {}
+    "desc": |-
+      Simple conditional tag, which evalutes its body if the supplied condition is true.The if statement controls conditional branching. The body of an if statement is executed if the value of the expression is True.
+    "expected": |+
+        [1,2,3]
+        2
+
+    "name": |-
+      test_03_02_Array_filter.test
+    "template": |
+      {% set items = "[1,2,3]" %}
+      {{ items }}
+      {% set value = items|array %}
+      {{ value[1]}}
+    "testname": |-
+        filters testing
+-   "data": |
+      {
+          "listA": [1, 2, 3, null, false, true]
+      }
+    "desc": |-
+      Simple conditional tag, which evalutes its body if the supplied condition is true.The if statement controls conditional branching. The body of an if statement is executed if the value of the expression is True.
+    "expected": |+
+      1
+      {'a': 1, 'b': 2}
+      2
+      [1, 2, 3, null, false, true]
+      3
+      
+    "name": |-
+      test_03_03_Array&Object_filter.test
+    "template": |
+      {% set items = {'a':1 , 'b': 2 } %}
+      {% set val = items|string %}
+      {{ items["a"] }}
+      {{ val }}
+      {% set obj = val|object %}
+      {{ obj["b"] }}
+      {% set val1 = listA|string %}
+      {{ val1 }}
+      {% set val2 = val1|array %}
+      {{ val2[2]}}
+    "testname": |-
+        filters testing
+

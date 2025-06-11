@@ -1,0 +1,179 @@
+"overview": "Rounding operation that applies on a number. "
+"tests":
+-   "data": |
+        {}
+    "desc": |-
+        Return the ceiling of x as a float, the smallest integer value greater than or equal to x. 'Ceil' always rounds up.
+    "expected": |
+        input first function ceil output = 6
+        input second function ceil output = 11
+        input third function ceil output = 101
+    "name": |-
+        test_14_07_ceil.test
+    "template": |
+        input first function ceil output = {% print ceil(5.1) %}
+
+        input second function ceil output = {% print ceil(10.20) %}
+
+        input third function ceil output = {% print ceil(100.68) %}
+    "testname": |-
+        ceil
+-   "data": |
+        {}
+    "desc": |-
+        Return the floor of x as a float, the largest integer value less than or equal to x. 'Floor' always rounds down.
+    "expected": |
+        input first function floor output = 5
+        input second function floor output = 50
+        input third function floor output = 0
+    "name": |-
+        test_14_08_floor.test
+    "template": |
+        input first function floor output = {% print floor(5.9) %}
+
+        input second function floor output = {% print floor(50.1) %}
+
+        input third function floor output = {% print floor(0.9) %}
+    "testname": |-
+        floor
+-   "data": |
+        {}
+    "desc": |-
+        Return the floating point value number rounded to ndigits digits after the decimal point. If ndigits is omitted, it defaults to zero. The result is a floating point number. Values are rounded to the closest multiple of 10 to the power minus ndigits; if two multiples are equally close, rounding is done away from 0 (so, for example, round(0.5) is 1.0 and round(-0.5) is -1.0).
+    "expected": |
+        input 1st 5.20 function round output = 5
+        input 2nd 15.5 function round output = 16
+        input 3rd 89.7 function round output = 90
+    "name": |-
+        test_14_14_round.test
+    "template": |
+        input 1st 5.20 function round output = {% print round(5.20) %}
+
+        input 2nd 15.5 function round output = {% print round(15.5) %}
+
+        input 3rd 89.7 function round output = {% print round(89.7) %}
+    "testname": |-
+        round
+-   "data": |
+        { "list" : [4.0]}
+    "desc": "{{ <expression> }} is semantically equivalent to {% print <expression>\
+        \ %}.  The statement represented by an expression tag is a print statement.\
+        \ It print statement outputs the results of its expression having been evaluated. "
+    "expected": |+
+        4
+
+    "name": |-
+        test_47_04_number_operation.test
+    "template": |
+        {{ list[0] }}
+    "testname": |-
+        number operation 1
+-   "data": |
+        {}
+    "desc": "{{ <expression> }} is semantically equivalent to {% print <expression>\
+        \ %}.  The statement represented by an expression tag is a print statement.\
+        \ It print statement outputs the results of its expression having been evaluated. "
+    "expected": "5\n5\n5 \n5\n"
+    "name": |-
+        test_47_05_number_operation.test
+    "template": "{{ '5.0'|number }}\n{% set var = \"5.0\"|number %}\n{{ var}}\n{%\
+        \ print var%} \n{% print '5.0'|number %}\n"
+    "testname": |-
+        number operation 2
+-   "data": |
+        {}
+    "desc": "{{ <expression> }} is semantically equivalent to {% print <expression>\
+        \ %}.  The statement represented by an expression tag is a print statement.\
+        \ It print statement outputs the results of its expression having been evaluated. "
+    "expected": |+
+        7
+
+    "name": |-
+        test_47_06_number_operation.test
+    "template": |
+        {{ round(7.2) }}
+    "testname": |-
+        number operation 3
+-   "data": |
+        {}
+    "desc": "{{ <expression> }} is semantically equivalent to {% print <expression>\
+        \ %}.  The statement represented by an expression tag is a print statement.\
+        \ It print statement outputs the results of its expression having been evaluated. "
+    "expected": |+
+        9
+
+    "name": |-
+        test_47_07_number_operation.test
+    "template": |
+        {{ 4.5 * 2 }}
+    "testname": |-
+        number operation 4
+-   "data": |
+        {}
+    "desc": |-
+        round(value, precision=0)
+        Round the number to a given precision. The first parameter specifies the precision (default is 0), the second the rounding method.
+    "expected": |
+        round with zero parameter : 3
+        round with one parameter : 3
+        round with one parameter : 2.6
+        round with one parameter : 2.65
+        round with one parameter : 2.646442
+    "name": |-
+        test_65_00_new_round_test.test
+    "template": |
+        round with zero parameter : {% print round(2.646442) %}
+
+        round with one parameter : {% print round(2.646442,0) %}
+
+        round with one parameter : {% print round(2.646442,1) %}
+
+        round with one parameter : {% print round(2.645442,2) %}
+
+        round with one parameter : {% print round(2.646442,8) %}
+    "testname": |-
+        new round type1
+-   "data": |
+        {}
+    "desc": |-
+        round(value, precision=0)
+        Round the number to a given precision. The first parameter specifies the precision (default is 0), the second the rounding method.
+    "expected": |
+        round with zero parameter : 4
+        round with one parameter : 4
+        round with one parameter : 3.6
+        round with one parameter : 3.57
+    "name": |-
+        test_65_01_new_round_test.test
+    "template": |
+        round with zero parameter : {% print round(3.56789) %}
+
+        round with one parameter : {% print round(3.56789,0) %}
+
+        round with one parameter : {% print round(3.56789,1) %}
+
+        round with one parameter : {% print round(3.56789,2) %}
+    "testname": |-
+        new round type2
+-   "data": |
+        {}
+    "desc": |-
+        round(value, precision=0)
+        Round the number to a given precision. The first parameter specifies the precision (default is 0), the second the rounding method.
+    "expected": |
+        round with zero parameter : 5
+        round with one parameter : 5
+        round with one parameter : 5.4
+        round with one parameter : 5.43
+    "name": |-
+        test_65_02_new_round_test.test
+    "template": |
+        round with zero parameter : {% print round(5.43254) %}
+
+        round with one parameter : {% print round(5.43254,0) %}
+
+        round with one parameter : {% print round(5.43254,1) %}
+
+        round with one parameter : {% print round(5.43254,2) %}
+    "testname": |-
+        new round type3

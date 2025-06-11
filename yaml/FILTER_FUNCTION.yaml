@@ -1,0 +1,138 @@
+"overview": "These Blended special functions each have specific functionality.cheakout\
+    \ in descrition of individual function. "
+"dependency":
+  -   "bases":
+        "extend_using_nestedBlock": |
+          <html>
+          <head>
+          {% block content %}
+          {{ "This is Root's content" }}
+          {% endblock %}
+          </head>
+          <body>
+          {% block inner %}
+          {{ "This is from Root's inner" }}
+          {% endblock %}
+          </body>
+          </html>
+        "parent_autoescape2": |
+          {% autoescape false %}
+          <html>
+          {% block test %}{% set parenthtml = "<h1>Parent</h1>" %}{{ parenthtml }}{% endblock %}
+          </html>
+          {% endautoescape %}
+      "includes":
+        "scope_test": |
+          These parens contain a variable from external scope: ({{ variable }})
+        "temp": |
+          Some Random Text
+        "name_snippet": |+
+          {% set greeting = "< in-built filter e is used >" %}
+          {{ greeting|e }}
+          {% print round(10.6) %}
+         
+          {% macro hello() %}
+          "this is user functions"
+          {% endmacro %}
+          {% print hello() %}
+        "chain": |
+          {% include includes.with|template with { "argument" : argument, "value" : 42 } only %}
+        "with": |
+          There are one value that is added to the context: {{ value }}.
+        "image_test": |
+          <img src="{{image()}}">
+        "colormacro": |4
+
+
+            {% macro avgcolor(color1, color2) -%}
+                {%- set color1 = rgbcolor(color1) -%}
+                {%- set color2 = rgbcolor(color2) -%}
+                {%- set coloravg = [
+                    mean([color1[0], color2[0]]),
+                    mean([color1[1], color2[1]]),
+                    mean([color1[2], color2[2]])
+                ] -%}
+                {{ hexcolor(coloravg) }}
+            {%- endmacro %}
+
+
+            {% macro lighten(color, fraction) -%}
+                {%- set color = rgbcolor(color) -%}
+                {%- set add_white = 255 * fraction -%}
+                {%- set new_r = color[0] + add_white -%}
+                {%- set new_g = color[1] + add_white -%}
+                {%- set new_b = color[2] + add_white -%}
+                {%- if new_r > 255 %}{% set new_r = 255 %}{% endif -%}
+                {%- if new_g > 255 %}{% set new_g = 255 %}{% endif -%}
+                {%- if new_b > 255 %}{% set new_b = 255 %}{% endif -%}
+                {{ hexcolor([new_r, new_g, new_b]) }}
+            {%- endmacro %}
+
+
+            {% macro darken(color, fraction) -%}
+                {%- set color = rgbcolor(color) -%}
+                {% set c1 = color[0] %}
+                {% set c2 = color[1] %}
+                {% set c3 = color[2] %}
+                {%- set darkcolor = [
+                    c1 - (c1 * fraction),
+                    c2 - (c2 * fraction),
+                    c3 - (c3 * fraction)
+                ] -%}
+                {{ hexcolor(darkcolor) }}
+            {%- endmacro %}
+ 
+"tests":
+-   "data": |
+        {}
+    "desc": " Escaped strings are introduced by applying the escape filter (alias\
+        \ e) to string objects. "
+    "expected": |+
+        87828...
+
+    "name": |-
+        test_40_01_truncate.test
+    "template": |
+        {{truncate("87828818272872", 5)}}
+    "testname": |-
+        length
+-   "data": |
+        {}
+    "desc": " Escaped strings are introduced by applying the escape filter (alias\
+        \ e) to string objects. "
+    "expected": |+
+        gaura...
+
+    "name": |-
+        test_40_02_truncate.test
+    "template": |
+        {{truncate("gaurav", 5)}}
+    "testname": |-
+        length
+-   "data": |
+        {}
+    "desc": " Escaped strings are introduced by applying the escape filter (alias\
+        \ e) to string objects. "
+    "expected": |+
+        blendedl***
+
+    "name": |-
+        test_40_03_truncate.test
+    "template": |
+        {{truncate("blendedlangpython", 8, '***')}}
+    "testname": |-
+        length
+-   "data": |
+        {}
+    "desc": " Escaped strings are introduced by applying the escape filter (alias\
+        \ e) to string objects."
+    "expected": |+
+        ['blended', 'lang', 'python']
+
+    "name": |-
+        test_40_04_split.test
+    "template": |
+        {% set value = "blended-lang-python"|split("-") %}
+        {% print value|string %}
+    "testname": |-
+        length

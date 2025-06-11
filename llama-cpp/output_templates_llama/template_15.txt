@@ -1,0 +1,5 @@
+Prompt: 
+Input: "a" and "b"
+
+Output: 
+{{ "a" + "b" }}

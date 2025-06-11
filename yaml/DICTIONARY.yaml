@@ -1,0 +1,425 @@
+"overview": |-
+    Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+"tests":
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_01_new_dict_items.test
+    "template": |
+        {% set dict = {'a':1, 'items':2} %}{{ dict.items }}
+    "testname": "dict "
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_02_new_dict_items.test
+    "template": |
+        {% set dict = {'a':1, 'items':2} %}{{ dict["items"] }}
+    "testname": |-
+        dict items
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_03_new_dict_values.test
+    "template": |
+        {% set dict = {'a':1, 'values':2} %}{{ dict.values }}
+    "testname": |-
+        dict values basic test
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_04_new_dict_values.test
+    "template": |
+        {% set dict = {'a':1, 'values':2} %}{{ dict["values"] }}
+    "testname": |-
+        dict values
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_05_new_dict_keys.test
+    "template": |
+        {% set dict = {'a':1, 'keys':2} %}{{ dict.keys }}
+    "testname": |-
+        dict keys basic test
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_06_new_dict_keys.test
+    "template": |
+        {% set dict = {'a':1, 'keys':2} %}{{ dict["keys"] }}
+    "testname": |-
+        dict keys
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_07_new_dict_get.test
+    "template": |
+        {% set dict = {'a':1, 'get':2} %}{{ dict.get }}
+    "testname": |-
+        dict get basic test
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_08_new_dict_get.test
+    "template": |
+        {% set dict = {'a':1, 'get':2} %}{{ dict["get"] }}
+    "testname": |-
+        dict get
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_09_new_dict_has_key.test
+    "template": |
+        {% set dict = {'a':1, 'has_key':2} %}{{ dict.has_key }}
+    "testname": |-
+        dict has key basic test
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_10_new_dict_has_key.test
+    "template": |
+        {% set dict = {'a':1, 'has_key':2} %}{{ dict["has_key"] }}
+    "testname": |-
+        dict has key
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_11_new_dict_pop.test
+    "template": |
+        {% set dict = {'a':1, 'pop':2} %}{{ dict.pop }}
+    "testname": |-
+        dict pop basic test
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_12_new_dict_pop.test
+    "template": |
+        {% set dict = {'a':1, 'pop':2} %}{{ dict["pop"] }}
+    "testname": |-
+        dict pop
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_13_new_dict_popitem.test
+    "template": |
+        {% set dict = {'a':1, 'popitem':2} %}{{ dict.popitem }}
+    "testname": |-
+        dict popitem basic test
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_14_new_dict_popitem.test
+    "template": |
+        {% set dict = {'a':1, 'popitem':2} %}{{ dict["popitem"] }}
+    "testname": |-
+        dict popitem
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_15_new_dict_setdefault.test
+    "template": |
+        {% set dict = {'a':1, 'setdefault':2} %}{{ dict.setdefault }}
+    "testname": "set default basic test "
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_16_new_dict_setdefault.test
+    "template": |
+        {% set dict = {'a':1, 'setdefault':2} %}{{ dict["setdefault"] }}
+    "testname": |-
+        dict set default
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_17_new_dict_update.test
+    "template": |
+        {% set dict = {'a':1, 'update':2} %}{{ dict.update }}
+    "testname": |-
+        dict update basic test
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_18_new_dict_update.test
+    "template": |
+        {% set dict = {'a':1, 'update':2} %}{{ dict["update"] }}
+    "testname": |-
+        dict update
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_19_new_dict_iteritems.test
+    "template": |
+        {% set dict = {'a':1, 'iteritems':2} %}{{ dict.iteritems }}
+    "testname": |-
+        dict iteritems basic test
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_20_new_dict_iteritems.test
+    "template": |
+        {% set dict = {'a':1, 'iteritems':2} %}{{ dict["iteritems"] }}
+    "testname": |-
+        dict iteritems
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_21_new_dict_itervalues.test
+    "template": |
+        {% set dict = {'a':1, 'itervalues':2} %}{{ dict.itervalues }}
+    "testname": |-
+        dict itervalues basic test
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_22_new_dict_ itervalues.test
+    "template": |
+        {% set dict = {'a':1, 'itervalues':2} %}{{ dict["itervalues"] }}
+    "testname": |-
+        dict itervalues
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_23_new_dict_iterkeys.test
+    "template": |
+        {% set dict = {'a':1, 'iterkeys':2} %}{{ dict.iterkeys }}
+    "testname": |-
+        dict iterkeys basic test
+-   "data": |
+        {}
+    "desc": |-
+        Pair lists can be introduced by applying the items filter to dictionary objects. Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+    "expected": |+
+        2
+
+    "name": |-
+        test_53_24_new_dict_ iterkeys.test
+    "template": |
+        {% set dict = {'a':1, 'iterkeys':2} %}{{ dict["iterkeys"] }}
+    "testname": |-
+        dict iterkeys
+-   "data": |
+        { "container" : { "defined" : "valueA" } }
+    "desc": |-
+        String interpolation (#{expression}) allows any valid expression to appear within a double-quoted string. The result of evaluating that expression is inserted into the string:"STRING" .
+    "expected": |
+        valueA
+    "name": |-
+        test_55_00_string_interpolation_type1_case1.test
+    "template": |
+        {%- if container.undefined -%}
+        {{ container.undefined }}
+        {%- else -%}
+        {{ container.defined }}
+        {%- endif -%}
+    "testname": |-
+        string interpolation type1
+-   "data": |
+        { "container" : { "defined" : "valueA" } }
+    "desc": |-
+        String interpolation (#{expression}) allows any valid expression to appear within a double-quoted string. The result of evaluating that expression is inserted into the string:"STRING" .
+    "expected": |
+        valueA
+    "name": |-
+        test_55_01_string_interpolation_type1_case2.test
+    "template": |
+        {%- if container.undefined -%}
+        {{ container.undefined }}
+        {%- else -%}
+        {{ container.defined }}
+        {%- endif -%}
+    "testname": |-
+        string interpolation type2
+-   "data": |
+        { "container" : { "defined" : "valueA" } }
+    "desc": |-
+        String interpolation (#{expression}) allows any valid expression to appear within a double-quoted string. The result of evaluating that expression is inserted into the string:"STRING" .
+    "expected": |
+        valueA
+    "name": |-
+        test_55_02_string_interpolation_type1_case3.test
+    "template": |
+        {%- if container.undefined -%}
+        {{ container.undefined }}
+        {%- else -%}
+        {{ container.defined }}
+        {%- endif -%}
+    "testname": |-
+        string interpolation type3
+-   "data": |
+        { "container" : { "defined" : "valueA" } }
+    "desc": |-
+        String interpolation (#{expression}) allows any valid expression to appear within a double-quoted string. The result of evaluating that expression is inserted into the string:"STRING" .
+    "expected": |
+        valueA
+    "name": |-
+        test_55_03_string_interpolation_type2_case1.test
+    "template": |
+        {%- if container.undefined -%}
+        {{ container.undefined }}
+        {%- else -%}
+        {{ container.defined }}
+        {%- endif -%}
+    "testname": |-
+        string interpolation type4
+-   "data": |
+        { "container" : { "defined" : "valueA" } }
+    "desc": |-
+        String interpolation (#{expression}) allows any valid expression to appear within a double-quoted string. The result of evaluating that expression is inserted into the string:"STRING" .
+    "expected": |
+        valueA
+    "name": |-
+        test_55_04_string_interpolation_type2_case2.test
+    "template": |
+        {%- if container.undefined -%}
+        {{ container.undefined }}
+        {%- else -%}
+        {{ container.defined }}
+        {%- endif -%}
+    "testname": |-
+        string interpolation type5
+-   "data": |
+        { "container" : { "defined" : "valueA" } }
+    "desc": |-
+        String interpolation (#{expression}) allows any valid expression to appear within a double-quoted string. The result of evaluating that expression is inserted into the string:"STRING" .
+    "expected": |
+        valueA
+    "name": |-
+        test_55_05_string_interpolation_type2_case3.test
+    "template": |
+        {%- if container.undefined -%}
+        {{ container.undefined }}
+        {%- else -%}
+        {{ container.defined }}
+        {%- endif -%}
+    "testname": |-
+        string interpolation type6
+-   "data": |
+        { "container" : { "defined" : "valueA" } }
+    "desc": |-
+        String interpolation (#{expression}) allows any valid expression to appear within a double-quoted string. The result of evaluating that expression is inserted into the string:"STRING" .
+    "expected": |
+        valueA
+    "name": |-
+        test_55_08_string_interpolation_type3_case3.test
+    "template": |
+        {%- if container.undefined -%}
+        {{ container.undefined }}
+        {%- else -%}
+        {{ container.defined }}
+        {%- endif -%}
+    "testname": |-
+        string interpolation type7

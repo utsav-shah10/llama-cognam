@@ -1,0 +1,4 @@
+huggingface_hub
+huggingface_hub[cli]
+mlx-lm
+pandas

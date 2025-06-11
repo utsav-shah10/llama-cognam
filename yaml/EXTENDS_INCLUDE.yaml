@@ -1,0 +1,44 @@
+"dependency":
+-   "bases":
+        "base": |
+            <html>
+            <body>
+            {% block content %}<p>Parent Content</p>{% endblock %}
+            </body>
+            </html>
+    "includes":
+        "base": |
+            base template
+        "template": |
+            block template
+        "home": |
+            {% include includes.base|template with {
+                'includes': includes
+            } only %}
+            {% ifblock content_1 %}
+                {% block content_1 %}
+                {% endblock %}
+            {% endifblock %}
+"overview": |-
+    Decision making is anticipation of conditions occurring while execution of the program and specifying actions taken according to the conditions.Decision structures evaluate multiple expressions which produce TRUE or FALSE as outcome. You need to determine which action to take and which statements to execute if outcome is TRUE or FALSE otherwise.An if statement can be followed by an optional else statement, which executes when the boolean expression is FALSE.
+"tests":
+-   "data": |
+        {
+          "true_condition": true,
+          "false_condition": false
+        }
+    "desc": |-
+        Simple conditional tag, which evalutes its body if the supplied condition is true.
+    "expected": |+
+        base template
+            block template
+
+    "name": |-
+        test_03_00_if_basic.test
+    "template": |
+            {% extends includes.home|template %}
+            {% block content_1 %}
+            {% include includes.template|template %}
+            {% endblock %}
+    "testname": |-
+        if

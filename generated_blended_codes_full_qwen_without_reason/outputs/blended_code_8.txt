@@ -1,5 +1,5 @@
 Task : Render 'Status' and number 200. Jinja Template : {{'Status'}} {{ 200 }}. Blended Template :
 
-{{'Status'}} {{ 200 }}
+{{ 'Status' }} {{ 200 }}
 
 ==correct

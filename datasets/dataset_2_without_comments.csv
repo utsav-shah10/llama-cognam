@@ -1,4 +1,4 @@
-Rule,prompt,jinja,blended,Blended Reasoning
+Rule,prompt,jinja,blended,reasoning
 Print statement in Blended only accepts string or number as input,"Write a jinja template to print ""Hello World"" and 42.","{{ ""Hello World"" }}   
 {{ 42 }}             ","{% print ""Hello World"" %}   
 {% print 42 %}             ",Print statement can be used to print only string and numbers.

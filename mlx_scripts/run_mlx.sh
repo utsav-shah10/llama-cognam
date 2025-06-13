@@ -5,8 +5,8 @@
     --fine-tune-type full \
     --batch-size 4\
     --iters 100 \
+    --adapter-path adapters_qwen_without_reason
 # --num-layers 8\
-# --adapter-path adapters_phi_4
 
 
 # Qwen3-8B-4bit-DWQ-053125

@@ -24,7 +24,14 @@ def generate_blended_code(
     for i, prompt_line in enumerate(prompts):
         # Clean up the prompt line (remove leading/trailing whitespace, especially newlines)
         prompt = prompt_line.strip()
-        final_prompt = f"Instruction: Convert the provided Jinja template to its equivalent Blended template. Blended is a variant of Jinja with strict type checking and scoping rules. Do not include any other text, just provide translated code. {prompt}"
+
+        # reasoning prompt
+
+        # final_prompt = f"Instruction: As an expert in code conversion, your task is to convert the provided Jinja template to its equivalent Blended template. Additionally, you must thoroughly explain the reasoning behind the specific conversion choices, demonstrating a deep understanding of Blended's strict type checking and scoping rules. Blended is a variant of Jinja with strict type checking and scoping rules. Do not include any other text, just provide translated code and below its reason. {prompt}"
+
+        # without reasoning
+
+        final_prompt = f"Instruction: As an expert in code conversion, your task is to convert the provided Jinja template to its equivalent Blended template. Blended is a variant of Jinja with strict type checking and scoping rules. Do not include any other text, just provide translated code. {prompt}"
 
         # Skip empty lines in the input file
         if not prompt:
@@ -99,13 +106,13 @@ def generate_blended_code(
 if __name__ == "__main__":
     # Define your input file and output directory
     input_file = "../jinja_prompts.txt"
-    output_directory = "../generated_blended_codes_full_qwen"
+    output_directory = "../generated_blended_codes_full_qwen_without_reason/outputs"
 
     generate_blended_code(
         input_prompts_file=input_file,
         output_dir=output_directory,
         model_name="Qwen/Qwen2.5-Coder-3B-Instruct", # Replace with your model if different
-        adapter_path="../adapters" # Replace with the actual path to your adapter weights
+        adapter_path="../adapters_qwen_without_reason" # Replace with the actual path to your adapter weights
     )
 
     # with open("full_output.txt", 'w') as f:

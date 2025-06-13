@@ -1,0 +1,3 @@
+Task : Convert 'hello world' to uppercase and print it. Jinja Template : {{'hello world' | upper}}. Blended Template :
+
+{% print upper("hello world") %}

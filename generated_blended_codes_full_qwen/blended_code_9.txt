@@ -1,5 +1,0 @@
-Task : Render boolean false. Jinja Template : {{ false }}. Blended Template :
-
-Blended Template : Blended cannot be generated
-
-== correct! Recognised it correctly. 

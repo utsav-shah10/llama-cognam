@@ -9,12 +9,25 @@ def format_dataset(df):
         prompt_text = row['prompt']
         jinja_code = row['jinja']
         blended_code = row['blended']
+
+        # reasoning didn't work well
+        
+        # reasoning = row['reasoning']
+        # prompt = (
+        #     f"Instruction: As an expert in code conversion, your task is to convert the provided Jinja template to its equivalent Blended template. "
+        #     f"Additionally, you must thoroughly explain the reasoning behind the specific conversion choices, demonstrating a deep understanding of Blended's strict type checking and scoping rules. "
+        #     f"Blended is a variant of Jinja with strict type checking and scoping rules.\n\n"
+        #     f"### Task Description:\n{prompt_text}\n\n"
+        #     f"### Jinja Template:\n{jinja_code}\n\n"
+        #     f"### Blended Template:\n{blended_code}\n\n"
+        #     f"### Reasoning for equivalent Blended code :\n{reasoning}"
+        # )
         prompt = (
-            f"Instruction: Convert the provided Jinja template to its equivalent Blended template. "
+            f"Instruction: As an expert in code conversion, your task is to convert the provided Jinja template to its equivalent Blended template. "
             f"Blended is a variant of Jinja with strict type checking and scoping rules.\n\n"
             f"### Task Description:\n{prompt_text}\n\n"
             f"### Jinja Template:\n{jinja_code}\n\n"
-            f"### Blended Template:\n{blended_code}"
+            f"### Blended Template:\n{blended_code}\n\n"
         )
 
 

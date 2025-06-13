@@ -1,0 +1,3 @@
+Task : Convert string 'utsav' to uppercase and render it. Jinja Template : {{'utsav' | upper}}. Blended Template :
+
+{{ upper("utsav") }}

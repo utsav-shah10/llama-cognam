@@ -1,0 +1,5 @@
+Task : Render 'Hello world'. Jinja Template : {{'Hello world'}}. Blended Template :
+
+Blended Template : {{'Hello world'}}
+
+== correct

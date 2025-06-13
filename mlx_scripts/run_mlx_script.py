@@ -99,13 +99,13 @@ def generate_blended_code(
 if __name__ == "__main__":
     # Define your input file and output directory
     input_file = "../jinja_prompts.txt"
-    output_directory = "../generated_blended_codes_3"
+    output_directory = "../generated_blended_codes_full_qwen"
 
     generate_blended_code(
         input_prompts_file=input_file,
         output_dir=output_directory,
-        model_name="../model/fine-tuned_Phi", # Replace with your model if different
-        adapter_path="../adapters_phi_3" # Replace with the actual path to your adapter weights
+        model_name="Qwen/Qwen2.5-Coder-3B-Instruct", # Replace with your model if different
+        adapter_path="../adapters" # Replace with the actual path to your adapter weights
     )
 
     # with open("full_output.txt", 'w') as f:

@@ -1,12 +1,12 @@
  python -m mlx_lm.lora \
-    --model model/fine-tuned_Phi \
+    --model Qwen/Qwen2.5-Coder-3B-Instruct \
     --data fine-tune/data/dataset_2 \
     --train \
-    --fine-tune-type lora \
+    --fine-tune-type full \
     --batch-size 4\
-    --num-layers 20\
-    --iters 1000 \
-    --adapter-path adapters_phi_3
+    --iters 100 \
+# --num-layers 8\
+# --adapter-path adapters_phi_4
 
 
 # Qwen3-8B-4bit-DWQ-053125

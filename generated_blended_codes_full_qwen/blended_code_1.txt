@@ -1,0 +1,5 @@
+Task : Print 'Hello world'. Jinja Template : {{'Hello world'}}. Blended Template :
+
+Blended Template : {% print('Hello world') %}
+
+== correct

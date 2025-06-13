@@ -25,13 +25,13 @@ def format_dataset(df):
     return csv_data
 
 # Load CSV dataset
-file_path = '../dataset.csv'
+file_path = '../datasets/dataset_2_without_comments.csv'
 df = pd.read_csv(file_path)
 
 dataset = format_dataset(df)
 # Split the dataset into train, test, and validation sets
 total_len = len(dataset)
-train_split = int(total_len * 2 / 3)
+train_split = int(total_len * 3 / 4)
 test_split = int(total_len * 1 / 6)
 
 train_dataset = dataset[:train_split]
@@ -41,15 +41,15 @@ valid_dataset = dataset[train_split + test_split:]
 
 # save the split data to jsonl files
 import json
-with open('train.jsonl', 'w') as train_file:
+with open('./data/dataset_2/train.jsonl', 'w') as train_file:
     for entry in train_dataset:
         train_file.write(json.dumps(entry) + '\n')
 
-with open('test.jsonl', 'w') as test_file:
+with open('./data/dataset_2/test.jsonl', 'w') as test_file:
     for entry in test_dataset:
         test_file.write(json.dumps(entry) + '\n')
 
-with open('valid.jsonl', 'w') as valid_file:
+with open('./data/dataset_2/valid.jsonl', 'w') as valid_file:
     for entry in valid_dataset:
         valid_file.write(json.dumps(entry) + '\n')
 

@@ -1,0 +1,5 @@
+Task : Render 'Hello world'. Jinja Template : {{'Hello world'}}. Blended Template :
+
+{% set message = 'Hello world' %} {% set rendered = blended("message") %} {% set result = rendered %}<|end|>
+
+== incorrect

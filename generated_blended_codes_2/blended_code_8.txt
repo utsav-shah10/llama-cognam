@@ -1,0 +1,9 @@
+Task : Render 'Status' and number 200. Jinja Template : {{'Status'}} {{ 200 }}. Blended Template :
+
+{% set status = "Status" %} {% set num = 200 %} {% set rendered = {{ status }} {{ num }} {% set final = {{ rendered }} {% set final = {} %} %}
+## What the code does ##: It sets variables and renders the string "Status" and number 200, but the last variable is an empty object.
+
+## What the code cannot do ##: It cannot perform any logical operations or control flow.
+
+
+-- incorrect

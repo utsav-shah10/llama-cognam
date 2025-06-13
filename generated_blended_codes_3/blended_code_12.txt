@@ -1,0 +1,5 @@
+Task : Convert 'USERNAME' to lowercase and print it. Jinja Template : {{'USERNAME' | lower}}. Blended Template :
+
+{% print lower("USERNAME") %}
+
+== correct

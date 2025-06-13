@@ -1,0 +1,5 @@
+Task : Set 'about us' as title case and print it. Jinja Template : {{'about us' | title}}. Blended Template :
+
+{% print title("about us") %}
+
+-- correct

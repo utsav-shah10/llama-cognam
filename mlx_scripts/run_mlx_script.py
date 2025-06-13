@@ -6,7 +6,7 @@ def generate_blended_code(
     output_dir: str,
     model_name: str = "mlx-community/Phi-3.5-mini-instruct-4bit",
     max_tokens: int = 750,
-    adapter_path: str = "adapters_phi"
+    adapter_path: str = "adapters_phi_2"
 ):
     
     # Create the output directory if it doesn't exist
@@ -73,6 +73,8 @@ def generate_blended_code(
             # Remove the <|end|> token if the model appends it, as it's not part of the desired code.
             if generated_code.endswith("<|end|>"):
                 generated_code = generated_code[:-len("<|end|>")].strip()
+            
+            generated_code = prompt + "\n\n" + generated_code
 
             # Save the generated code to a file
             with open(output_filename, 'w', encoding='utf-8') as outfile:
@@ -96,14 +98,14 @@ def generate_blended_code(
 # --- Example Usage ---
 if __name__ == "__main__":
     # Define your input file and output directory
-    input_file = "jinja_prompts.txt"
-    output_directory = "generated_blended_codes"
+    input_file = "../jinja_prompts.txt"
+    output_directory = "../generated_blended_codes_3"
 
     generate_blended_code(
         input_prompts_file=input_file,
         output_dir=output_directory,
-        model_name="mlx-community/Phi-3.5-mini-instruct-4bit", # Replace with your model if different
-        adapter_path="adapters_phi" # Replace with the actual path to your adapter weights
+        model_name="../model/fine-tuned_Phi", # Replace with your model if different
+        adapter_path="../adapters_phi_3" # Replace with the actual path to your adapter weights
     )
 
     # with open("full_output.txt", 'w') as f:

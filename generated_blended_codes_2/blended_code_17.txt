@@ -1,0 +1,6 @@
+Task : Set 'home page' as title case and render it. Jinja Template : {{'home page' | title}}. Blended Template :
+
+title("home page")<|end|>
+
+-- incorrect
+function usage is correct but it has not rendered anything

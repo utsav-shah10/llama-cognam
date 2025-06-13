@@ -1,0 +1,7 @@
+Task : Set 'status' variable to 'active' if user_online is true else set 'status' to 'inactive'. Render it after conditional block. Jinja Template : {% if user_online %}{% set status = 'active' %}{% else %}{% set status = 'inactive' %}{% endif %} {{ status }}. Blended Template :
+
+{% set status = 'inactive' %}<|end|>
+{% set status = 'active' if user_online else status %}
+{% set status %}<|end|> overflowetag
+
+== incorrect

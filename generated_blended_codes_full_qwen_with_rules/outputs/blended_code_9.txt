@@ -1,0 +1,3 @@
+Task : Render boolean false. Jinja Template : {{ false }}. Blended Template :
+
+{{ false }}

@@ -1,0 +1,3 @@
+Task : Print 'Hello world'. Jinja Template : {{'Hello world'}}. Blended Template :
+
+{{"Hello world"}}

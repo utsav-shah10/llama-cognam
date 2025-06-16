@@ -1,0 +1,3 @@
+Task : Truncate 3.14159 and print it. Jinja Template : {{ 3.14159 | truncate }}. Blended Template :
+
+{{ truncate(3.14159) }}

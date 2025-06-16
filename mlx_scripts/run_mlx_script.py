@@ -31,7 +31,7 @@ def generate_blended_code(
 
         # without reasoning
 
-        final_prompt = f"Instruction: As an expert in code conversion, your task is to convert the provided Jinja template to its equivalent Blended template. Blended is a variant of Jinja with strict type checking and scoping rules. Do not include any other text, just provide translated code. {prompt}"
+        final_prompt = f"Instruction: Convert the following Jinja template to its Blended equivalent, applying the language's specific conversion rules. Blended is a variant of Jinja with strict type checking and scoping rules. Do not include any other text, just provide translated code. {prompt}"
 
         # Skip empty lines in the input file
         if not prompt:
@@ -106,13 +106,13 @@ def generate_blended_code(
 if __name__ == "__main__":
     # Define your input file and output directory
     input_file = "../jinja_prompts.txt"
-    output_directory = "../generated_blended_codes_full_qwen_without_reason/outputs"
+    output_directory = "../generated_blended_codes_full_qwen_with_rules/outputs"
 
     generate_blended_code(
         input_prompts_file=input_file,
         output_dir=output_directory,
         model_name="Qwen/Qwen2.5-Coder-3B-Instruct", # Replace with your model if different
-        adapter_path="../adapters_qwen_without_reason" # Replace with the actual path to your adapter weights
+        adapter_path="../adapters_qwen_with_rules" # Replace with the actual path to your adapter weights
     )
 
     # with open("full_output.txt", 'w') as f:

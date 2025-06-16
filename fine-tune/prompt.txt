@@ -1,1 +1,0 @@
-Convert the following Jinja template to equivalent Blended template. Task : write a valid jinja template to convert variable named \"name\" to upper and print it. Equivalent Jinja Template : {{ name | upper }}"

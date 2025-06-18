@@ -1,0 +1,50 @@
+Display the result of truncating the number 9.8765
+Convert the value of variable "country" to uppercase and show it
+Show the number of items in the list variable "orders"
+Convert the string "blue" to an RGB color using the rgbcolor function and display it
+Output the message "Hello there"
+Show the integer 1024
+Print the value stored in variable "username"
+Render the value of variable "subtotal"
+Turn the string "HELLO" into lowercase and print it
+Change "flask" to uppercase and display it
+Convert the variable "department" to title case and print it
+Cast the number 300 to a string and save it in variable "price_str"
+Merge the strings "Start" and "Now" and display the result
+Join the variables "first_name" and "last_name" with a dash and print it
+Display the string "Initialization complete"
+Show the number -42
+Transform "FEATURES" to lowercase and print it
+Convert "machine learning" to title case and display it
+Truncate the variable "total_balance" and render the result
+Convert 99 into a string and assign it to "final_score"
+Combine "Mr." with the value of variable "surname" and print it
+Concatenate "Happy" and "Birthday" and show the result
+Assign "Pass" to "result" if "score" is above 50, else "Fail", and display it
+Set "level" to "advanced" if "experience" > 5, else "beginner", then print it
+If "admin" is true, set "role" to "manager", otherwise "staff", then render it
+Change the variable "file_title" to lowercase and append .md, then print it
+Convert "DASHBOARD VIEW" to title case and append " Panel", then render it
+If "warnings" > 10, assign "high" to "risk", else "low", then convert to uppercase and display it
+Set "subscription" to "pro" if "accounts" > 50, else "basic", and print "Type: " + subscription
+Turn variable "log_name" into lowercase and assign "log_file" as log_name + ".log", then display it
+If "delivery_time" < 2, assign "fast" to "mode", else "slow", then print "Mode: " + mode
+Combine "Invoice " with "invoice_id" and " for " with "client_name", then display the result
+Convert the variable "company" to uppercase, then assign "header_text" as company + " INC." and print it
+If "deadline" is "today", set "urgency" to "high", else "normal", then render "Urgency: " + urgency
+Truncate "payment" and concatenate " USD" to it, then print "Amount Due: " + result
+Convert "update notes" to title case, add " Available", and show the result
+Apply the floor function to variable "price" and print the result
+Calculate the average of the list stored in "scores" and display it
+Create a range from 1 to "max_val" and assign it to "range_data", then print "Range generated"
+Transform the list "hex_colors" using rgbcolor function and print "RGB Values: " + result
+Combine "Report_" with today's date (variable "date") and print the result
+Assign "approved" to "status" if "credit_score" >= 700, else "rejected", and render it
+Print "User:" followed by the value in "user_id"
+Display "Session started at " followed by variable "start_time"
+Set "label" to "hot" if "temperature" > 30, else "cold", and print it
+Turn "doc_title" to lowercase, append ".pdf" and display the filename
+Convert "emergency alert" to uppercase and print it
+Join "Chapter" with "chapter_number" and " - " with "chapter_title", then print
+If "items_left" < 10, assign "Low Stock" to "inventory_status", else "In Stock" and display it
+Render the square of variable "side_length" and label it as "Area"

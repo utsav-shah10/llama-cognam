@@ -5,14 +5,16 @@ import re
 from openpyxl import load_workbook, Workbook
 from openpyxl.styles import Font, PatternFill, Border, Side
 from openpyxl.utils.dataframe import dataframe_to_rows
+import sys
+
 
 def parse_prompt(prompt_line):
     """
     Parse the prompt line to extract Task, Jinja Template, and Blended Template.
-    Expected format: "Task : <task_description>. Jinja Template : <jinja_code>. Blended Template : "
+    Expected format: "Task: <task_description>, Jinja Template: <jinja_code>, Blended Template: "
     """
     # Use regex to extract the components
-    pattern = r"Task\s*:\s*(.*?)\s*,\s*Jinja\s+Template\s*:\s*(.*?)\s*,\s*Blended\s+Template\s*:\s*"
+    pattern = r"Task*:\s*(.*?)\s*,\s*Jinja\s+Template*:\s*(.*?)\s*,\s*Blended\s+Template*:*"
     match = re.match(pattern, prompt_line.strip())
     
     if match:
@@ -23,7 +25,7 @@ def parse_prompt(prompt_line):
         # Fallback: if pattern doesn't match, return the whole prompt as task
         return prompt_line.strip(), "", ""
 
-def get_model_sheet_name(model_name, adapter_path):
+def get_model_sheet_name(model_name, adapter_path, text_file):
     """
     Generate a sheet name based on model name and adapter path.
     """
@@ -34,7 +36,7 @@ def get_model_sheet_name(model_name, adapter_path):
     adapter_short = os.path.basename(adapter_path) if adapter_path else "no_adapter"
     
     # Create sheet name (Excel sheet names have 31 char limit)
-    sheet_name = f"{model_short}_{adapter_short}"
+    sheet_name = f"{model_short}_{text_file}"
     if len(sheet_name) > 31:
         sheet_name = sheet_name[:31]
     
@@ -153,8 +155,10 @@ def generate_blended_code(
     # Initialize Excel manager
     excel_manager = ExcelManager(excel_file)
 
+    input_file_name = os.path.basename(input_prompts_file)
+
     # Generate sheet name for this model/adapter combination
-    sheet_name = get_model_sheet_name(model_name, adapter_path)
+    sheet_name = get_model_sheet_name(model_name, adapter_path, input_file_name)
     print(f"Using Excel sheet name: '{sheet_name}'")
 
     # Read all prompts from the input file
@@ -284,17 +288,21 @@ def generate_blended_code(
     excel_manager.close()
     print(f"All results saved to Excel file: '{excel_file}'")
 
+
 # --- Example Usage ---
 if __name__ == "__main__":
-    # Define your input file and Excel file
-    input_file = "./medium_tasks.txt"
-    excel_file = "../results.xlsx"  # Global Excel file
+    if len(sys.argv) != 3:
+        print("Usage: python generate_code_from_jinja.py <input_txt_file> <output_excel_file>")
+        sys.exit(1)
+
+    input_file = sys.argv[1]
+    excel_file = sys.argv[2]
 
     generate_blended_code(
         input_prompts_file=input_file,
         excel_file=excel_file,
-        model_name="Qwen/Qwen2.5-Coder-3B-Instruct", # Replace with your model if different
-        adapter_path="../adapters_qwen_complete" # Replace with the actual path to your adapter weights
+        model_name="Qwen/Qwen2.5-Coder-3B-Instruct",
+        adapter_path="../adapters_qwen_complete"
     )
 
     print("\n--- Script execution finished ---")

@@ -1,0 +1,1 @@
+Display the result of truncating the number 9.8765

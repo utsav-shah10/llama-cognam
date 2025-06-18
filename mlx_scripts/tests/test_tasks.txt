@@ -1,0 +1,40 @@
+Task: print the string "Welcome", Jinja Template: {{ "Welcome" }}, Blended Template: 
+Task: render the number 256, Jinja Template: {{ 256 }}, Blended Template: 
+Task: print a variable named "email", Jinja Template: {{ email }}, Blended Template: 
+Task: render a variable named "total", Jinja Template: {{ total }}, Blended Template: 
+Task: convert the string "WORLD" to lowercase and print it, Jinja Template: {{ "WORLD".lower() }}, Blended Template: 
+Task: convert the string "python" to uppercase and render it, Jinja Template: {{ "python" | upper }}, Blended Template: 
+Task: convert a variable "city" to title case and print it, Jinja Template: {{ city | title }}, Blended Template: 
+Task: truncate the number 2.71828 and render it, Jinja Template: {{ 2.71828 | truncate }}, Blended Template: 
+Task: convert the number 50 to string and store in variable "count_str", Jinja Template: {% set count_str = 50 | string %}, Blended Template: 
+Task: concatenate "Hi" and "There" and print the result, Jinja Template: {{ "Hi" ~ "There" }}, Blended Template: 
+Task: join variable "first" and "last" with underscore and render it, Jinja Template: {{ first ~ "_" ~ last }}, Blended Template: 
+Task: print the string "Process started", Jinja Template: {{ "Process started" }}, Blended Template: 
+Task: render the number -10, Jinja Template: {{ -10 }}, Blended Template: 
+Task: convert "SERVICE" to lowercase and print it, Jinja Template: {{ "SERVICE" | lower }}, Blended Template: 
+Task: convert variable "region" to uppercase and render it, Jinja Template: {{ region.upper() }}, Blended Template: 
+Task: convert "data science" to title case and print it, Jinja Template: {{ "data science" | title }}, Blended Template: 
+Task: truncate variable "balance" and render it, Jinja Template: {{ balance | truncate }}, Blended Template: 
+Task: convert the number 75 to string and store in "score_str", Jinja Template: {% set score_str = 75 | string %}, Blended Template: 
+Task: concatenate "Dr." and variable "lastname" and print it, Jinja Template: {{ "Dr. " + lastname }}, Blended Template: 
+Task: join "Good" and "Morning" and render the result, Jinja Template: {{ "Good" ~ "Morning" }}, Blended Template: 
+Task: set variable "grade" to "A" if marks >= 90, else "B", then print it, Jinja Template: {% set grade = "A" if marks >= 90 else "B" %}{{ grade }}, Blended Template: 
+Task: set variable "status" to "premium" if membership == "gold", else "basic", then render it, Jinja Template: {% set status = "premium" if membership == "gold" else "basic" %}{{ status }}, Blended Template: 
+Task: set variable "access_level" to "admin" if is_superuser is true, else "user", then print it, Jinja Template: {% set access_level = "admin" if is_superuser else "user" %}{{ access_level }}, Blended Template: 
+Task: convert variable "product_name" to lowercase, then concatenate with ".html" and print it, Jinja Template: {{ product_name|lower }}.html, Blended Template: 
+Task: convert "MENU ITEMS" to title case, then concatenate with " List" and render the result, Jinja Template: {{ "MENU ITEMS" | title }} List, Blended Template: 
+Task: set variable "alert" to "critical" if error_count > 5, else "normal", then convert to uppercase and print it, Jinja Template: {% set alert = "critical" if error_count > 5 else "normal" %}{{ alert.upper() }}, Blended Template: 
+Task: set variable "plan" to "enterprise" if users > 100, else "standard", then render "Plan: " + plan, Jinja Template: {% set plan = "enterprise" if users > 100 else "standard" %}Plan: {{ plan }}, Blended Template: 
+Task: convert variable "filename" to lowercase, then set "output_file" to result + ".txt", then print it, Jinja Template: {% set output_file = filename.lower() + ".txt" %}{{ output_file }}, Blended Template: 
+Task: set variable "shipping" to "express" if weight < 5, else "standard", then print "Shipping: " + shipping, Jinja Template: {% set shipping = "express" if weight < 5 else "standard" %}Shipping: {{ shipping }}, Blended Template: 
+Task: concatenate "Order " and variable "order_number" and " - " and variable "customer_name", then render the result, Jinja Template: {{ "Order " + order_number + " - " + customer_name }}, Blended Template: 
+Task: convert variable "brand" to uppercase, then set "brand_label" to result + " PRODUCTS", then print it, Jinja Template: {{ brand.upper() + " PRODUCTS" }}, Blended Template: 
+Task: set variable "delivery" to "same_day" if priority == "urgent", else "next_day", then render "Delivery: " + delivery, Jinja Template: {% set delivery = "same_day" if priority == "urgent" else "next_day" %}Delivery: {{ delivery }}, Blended Template: 
+Task: truncate variable "amount", then concatenate with " euros" and print "Total: " + result, Jinja Template: {{ "Total: " + amount | truncate(2) + " euros" }}, Blended Template: 
+Task: convert "system maintenance" to title case, then concatenate with " Notice" and render the result, Jinja Template: {{ "system maintenance".title() + " Notice" }}, Blended Template: 
+Task: Write a template to apply floor function to variable "tax_amount" and print the result, Jinja Template: {{ tax_amount | floor }}, Blended Template: 
+Task: Write a template to get the length of array variable "products" and render it, Jinja Template: {{ products | length }}, Blended Template: 
+Task: Write a template to calculate the mean of variable "grades" and print the result, Jinja Template: {{ grades | mean }}, Blended Template: 
+Task: Write a template to create a range from 0 to variable "limit" and store in "sequence", then print "Range created", Jinja Template: {% set sequence = range(0, limit) %}Range created, Blended Template: 
+Task: Write a template to convert string "green" to RGB color using rgbcolor function and render the result, Jinja Template: {{ "green" | rgbcolor }}, Blended Template: 
+Task: Write a template to convert color array variable "color_values" to RGB color and print "Color: " + result, Jinja Template: Color: {{ color_values | rgbcolor }}, Blended Template:

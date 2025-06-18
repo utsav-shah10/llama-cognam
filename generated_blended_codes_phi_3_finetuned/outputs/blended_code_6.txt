@@ -1,5 +1,0 @@
-Task : Print the name 'Alice' and age 25. Jinja Template : {{'Alice'}} {{ 25 }}. Blended Template :
-
-{% print "Alice" %} {% print 25 %}
-
-==correct

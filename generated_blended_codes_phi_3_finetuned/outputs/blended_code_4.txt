@@ -1,5 +1,0 @@
-Task : Convert variable 'name' to lowercase and print it. Jinja Template : {{name | lower}}. Blended Template :
-
-{% print lower(name) %}
-
-==correct

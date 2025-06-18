@@ -1,5 +1,0 @@
-Task : Render 'Status' and number 200. Jinja Template : {{'Status'}} {{ 200 }}. Blended Template :
-
-blended_template = "{{'Status'}}" "{{200}}"<|end|><|end|>
-
-== correct (quotes should not be there surrounding brackets)

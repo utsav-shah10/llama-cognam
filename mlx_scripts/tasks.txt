@@ -198,3 +198,23 @@
 198. set variable "synchronization" to "enabled" if sync_mode is true, else "disabled", then print "Sync: " + synchronization
 199. concatenate "Report " and variable "report_id" and " - " and variable "report_date", then render the result
 200. convert variable "operation_status" to uppercase, then set "final_status" to "OPERATION: " + result, then print it
+201. Write a template to apply floor function to the number 3.7 and print the result
+202. Write a template to apply floor function to variable "price" and render it
+203. Write a template to apply floor function to 15.99 and store in variable "rounded_price", then print it
+204. Write a template to apply floor function to variable "temperature" and print "Temperature: " + result
+205. Write a template to get the length of array variable "items" and print the result
+206. Write a template to get the length of object variable "user_data" and render it
+207. Write a template to get the length of variable "shopping_cart" and store in "item_count", then print "Items: " + item_count
+208. Write a template to get the length of variable "config_options" and print "Total options: " + result
+209. Write a template to calculate the mean of array variable "scores" and print the result
+210. Write a template to calculate the mean of variable "temperatures" and render it
+211. Write a template to calculate the mean of array variable "ratings" and store in "average_rating", then print "Average: " + average_rating
+212. Write a template to calculate the mean of variable "test_scores" and print "Mean score: " + result
+213. Write a template to create a range from 1 to 10 and store in variable "numbers", then print the length of numbers
+214. Write a template to create a range from 0 to variable "max_count" and render the result
+215. Write a template to create a range from variable "start" to variable "end" and store in "sequence", then print "Range created"
+216. Write a template to create a range from 5 to 20 and store in variable "range_values", then print "Range: " + length of range_values
+217. Write a template to convert string "red" to RGB color using rgbcolor function and print the result
+218. Write a template to convert variable "color_name" to RGB color and render it
+219. Write a template to convert color array variable "rgb_values" to RGB color using rgbcolor function and store in "final_color", then print it
+220. Write a template to convert string "blue" to RGB color and print "Color: " + result

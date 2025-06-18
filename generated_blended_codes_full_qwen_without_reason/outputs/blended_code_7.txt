@@ -1,5 +1,0 @@
-Task : Print a boolean value true. Jinja Template : {{ true }}. Blended Template :
-
-Blended Template : {% print true %}
-
-==incorrect

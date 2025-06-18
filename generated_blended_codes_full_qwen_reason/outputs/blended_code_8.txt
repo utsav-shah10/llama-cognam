@@ -1,3 +1,0 @@
-Task : Render 'Status' and number 200. Jinja Template : {{'Status'}} {{ 200 }}. Blended Template :
-
-Blended is a variant of Jinja with strict type checking and scoping rules.

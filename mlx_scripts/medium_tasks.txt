@@ -1,0 +1,40 @@
+Task: print the string "Hello", Jinja Template: {{ "Hello" }}, Blended Template: 
+Task: render the number 100, Jinja Template: {{ 100 }}, Blended Template: 
+Task: convert the string "HELLO" to lowercase and render it, Jinja Template: {{ "HELLO" | lower }}, Blended Template: 
+Task: convert a variable "name" to title case and render it, Jinja Template: {{ name|title }}, Blended Template: 
+Task: convert the number 25 to string and store in variable "age_str", Jinja Template: {% set age_str = 25 | string %}, Blended Template: 
+Task: join variable "first_name" and "last_name" with a space and print it, Jinja Template: {{ first_name + " " + last_name }}, Blended Template: 
+Task: render the number 0, Jinja Template: {{ 0 }}, Blended Template: 
+Task: convert variable "title" to uppercase and render it, Jinja Template: {{ title.upper() }}, Blended Template: 
+Task: concatenate "Mr." and variable "surname" and print it, Jinja Template: {{ "Mr. " + surname }}, Blended Template: 
+Task: print the string "Loading...", Jinja Template: {{ "Loading..." }}, Blended Template: 
+Task: convert "api endpoint" to title case and render it, Jinja Template: {{ "api endpoint" | title }}, Blended Template: 
+Task: convert the number 0 to string and store in "zero_str", Jinja Template: {% set zero_str = 0 | string %}, Blended Template: 
+Task: render a boolean value "true", Jinja Template: {{ true }}, Blended Template: 
+Task: convert variable "department" to uppercase and render it, Jinja Template: {{ department.upper() }}, Blended Template: 
+Task: truncate variable "budget" and print it, Jinja Template: {{ budget|truncate(40) }}, Blended Template: 
+Task: convert variable "country" to upper case, join with variable "city", and print it, Jinja Template: {{ city + country | upper }}, Blended Template: 
+Task: Store the number 1000 in a variable "num", then render it after joining it with 12, Jinja Template: {% set num = 1000 %}{{ num | string + "12" }}, Blended Template: 
+Task: convert "contact us" to title case and render it, Jinja Template: {{ "contact us" | title }}, Blended Template: 
+Task: set variable "result" to "pass" if score >= 60, else "fail", then print it, Jinja Template: {% set result = "pass" if score >= 60 else "fail" %}{{ result }}, Blended Template: 
+Task: set variable "access" to "granted" if role == "admin", else "denied", then render it, Jinja Template: {% set access = "granted" if role == "admin" else "denied" %}, Blended Template: 
+Task: convert variable "email" to lowercase, then concatenate with "@domain.com" and print it, Jinja Template: {{ email|lower }}@domain.com, Blended Template: 
+Task: set variable "status" to "online" if active is true, else "offline", then convert to uppercase and print it, Jinja Template: {% set status = 'online' if active else 'offline' %}{{ status.upper() }}, Blended Template: 
+Task: set variable "message" to "Welcome back" if returning_user is true, else "Welcome", then print with "!", Jinja Template: {% if returning_user %}{{ message = "Welcome back" }}{% else %}{{ message = "Welcome" }}{% endif %}{{ message + "!" }}, Blended Template: 
+Task: set variable "priority" to "high" if urgent is true, else "normal", then convert to uppercase and print it, Jinja Template: {% set priority = "high" if urgent else "normal" %}{{ priority.upper() }}, Blended Template: 
+Task: set variable "mode" to "debug" if development is true, else "production", then print "Mode: " + mode, Jinja Template: {% set mode = "debug" if development else "production" %}Mode: {{ mode }}, Blended Template: 
+Task: set variable "theme" to "dark" if preference == "night", else "light", then render "Theme: " + theme, Jinja Template: {% set theme = "dark" if preference == "night" else "light" %}Theme: {{ theme }}, Blended Template: 
+Task: set variable "notification" to "enabled" if alerts is true, else "disabled", then print "Alerts: " + notification, Jinja Template: {% set notification = "enabled" if alerts else "disabled" %}Alerts: {{ notification }}, Blended Template: 
+Task: set variable "visibility" to "public" if shared is true, else "private", then render "Status: " + visibility, Jinja Template: {% set visibility = "public" if shared else "private" %}Status: {{ visibility }}, Blended Template: 
+Task: set variable "format" to "json" if api_version > 1, else "xml", then print "Format: " + format, Jinja Template: {% set format = "json" if api_version > 1 else "xml" %}Format: {{ format }}, Blended Template: 
+Task: convert "DATA MIGRATION" to title case, then concatenate with " Process" and render the result, Jinja Template: {{ "DATA MIGRATION".title() + " Process" }}, Blended Template: 
+Task: convert variable "service_name" to title case, then set "display_name" to result + " Service", then print it, Jinja Template: {{ service_name|title }} Service, Blended Template: 
+Task: set variable "cache" to "enabled" if performance_mode is true, else "disabled", then render "Cache: " + cache, Jinja Template: {% set cache = "enabled" if performance_mode else "disabled" %}Cache: {{ cache }}, Blended Template: 
+Task: convert "network connection" to title case, then concatenate with " Status" and render the result, Jinja Template: {{ "network connection".title() + " Status" }}, Blended Template: 
+Task: Write a template to apply floor function to the number 3.7 and print the result, Jinja Template: {{ 3.7 | floor }}, Blended Template: 
+Task: Write a template to apply floor function to variable "price" and render it, Jinja Template: {{ price | floor }}, Blended Template: 
+Task: Write a template to get the length of array variable "items" and print the result, Jinja Template: {{ items | length }}, Blended Template: 
+Task: Write a template to calculate the mean of array variable "scores" and print the result, Jinja Template: {{ scores | mean }}, Blended Template: 
+Task: Write a template to create a range from 1 to 10 and store in variable "numbers", then print the length of numbers, Jinja Template: {% set numbers = range(1, 11) %}{{ numbers | length }}, Blended Template: 
+Task: Write a template to convert string "red" to RGB color using rgbcolor function and print the result, Jinja Template: {{ "red" | rgbcolor }}, Blended Template: 
+Task: Write a template to convert variable "color_name" to RGB color and render it, Jinja Template: {{ color_name | rgbcolor }}, Blended Template:

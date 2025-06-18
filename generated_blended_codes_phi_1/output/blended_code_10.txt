@@ -1,3 +1,0 @@
-{% set status = 'active' if user_online else status = 'inactive' %} {{ status }}
-
-== Incorrect

@@ -1,5 +1,0 @@
-Task : Truncate the variable 'price' and render it. Jinja Template : {{ price | truncate }}. Blended Template :
-
-{{ truncate(price) }}
-
-==correct

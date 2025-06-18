@@ -1,3 +1,0 @@
-Task : Render boolean false. Jinja Template : {{ false }}. Blended Template :
-
-Blended is a variant of Jinja with strict type checking and scoping rules.

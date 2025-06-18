@@ -115,10 +115,6 @@ if __name__ == "__main__":
         adapter_path="../adapters_qwen_with_rules" # Replace with the actual path to your adapter weights
     )
 
-    # with open("full_output.txt", 'w') as f:
-
-    #     for   -
-
 
     print("\n--- Script execution finished ---")
 

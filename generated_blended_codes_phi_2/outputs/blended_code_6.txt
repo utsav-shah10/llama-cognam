@@ -1,8 +1,0 @@
-Task : Print the name 'Alice' and age 25. Jinja Template : {{'Alice'}} {{ 25 }}. Blended Template :
-
-{% set name = "Alice" %}
-{% set age = 25 %}
-{{ name }} {{ age }}
-
--- correct
--- should have used print statement, but haven't. But syntactically it is correct template

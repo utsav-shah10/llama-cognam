@@ -1,1 +1,0 @@
-full fine tune the qwen model - dataset (having no comments with examples and without reasoning)

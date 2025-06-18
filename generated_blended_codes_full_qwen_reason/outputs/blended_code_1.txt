@@ -1,3 +1,0 @@
-Task : Print 'Hello world'. Jinja Template : {{'Hello world'}}. Blended Template :
-
-Blended is a variant of Jinja with strict type checking and scoping rules. In Blended, when referred to just print, "print this string", it means printing that string. Format is exactly like Jinja : {{ "hello" }}, but it doesn't allow string literals

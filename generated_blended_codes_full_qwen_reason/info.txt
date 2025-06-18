@@ -1,1 +1,0 @@
-full fine tune the qwen model with data including reason for blended outputs so that model learns better using reasons. But it didn't perform well. 

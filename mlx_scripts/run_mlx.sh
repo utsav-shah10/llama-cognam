@@ -1,14 +1,14 @@
  python -m mlx_lm.lora \
-    --model  lmstudio-community/DeepSeek-R1-0528-Qwen3-8B-MLX-8bit\
-    --data fine-tune/data/dataset_with_rules \
+    --model  Qwen/Qwen2.5-Coder-3B-Instruct\
+    --data fine-tune/data/dataset_3 \
     --train \
     --fine-tune-type full \
     --batch-size 4\
-    --iters 100 \
-    --adapter-path adapters_deepseek_with_rules
+    --iters 500 \
+    --adapter-path adapters_qwen_complete
 # --num-layers 8\
 
 
 # Qwen3-8B-4bit-DWQ-053125
-# Phi-3.5-mini-instruct-4bit
+# microsoft/Phi-3.5-mini-instruct
 # Qwen/Qwen2.5-Coder-3B-Instruct

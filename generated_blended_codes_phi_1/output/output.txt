@@ -1,5 +1,0 @@
-{% print "Hello world" %}
-{% render "Hello world" %}
-{% set msg = 'Hi' if condition else msg = 'Hello' %} {% print msg %}
-{% print lower(name) %}
-{{ upper('utsav') }}

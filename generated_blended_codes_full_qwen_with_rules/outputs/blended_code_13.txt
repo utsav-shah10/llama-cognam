@@ -1,3 +1,0 @@
-Task : Convert variable 'city' to uppercase and render it. Jinja Template : {{ city | upper }}. Blended Template :
-
-{{ city | upper }}

@@ -1,3 +1,0 @@
-{% print truncate(3.14159) %}
-
-==correct

@@ -2,11 +2,12 @@ from mlx_lm import load, generate
 import pandas as pd
 
 # Load model and tokenizer
-model, tokenizer = load("Qwen/Qwen2.5-Coder-3B-Instruct")
+# model, tokenizer = load("Qwen/Qwen2.5-Coder-3B-Instruct")
+model, tokenizer = load("../models")
 
 tasks = []
 
-with open("tasks.txt", "r") as f: 
+with open("medium_tasks.txt", "r") as f: 
     tasks = f.readlines()
 
 # Prepare results storage
@@ -57,10 +58,10 @@ for index, task in enumerate(tasks):
 output_df = pd.DataFrame(results)
 
 # Save to CSV
-output_df.to_csv("../datasets/tasks_with_jinja_templates.csv", index=False)
+output_df.to_csv("../datasets/tasks_with_jinja_templates_2.csv", index=False)
 
 print(f"\nCompleted! Generated {len(results)} Jinja templates.")
-print("Results saved to '../datasets/tasks_with_jinja_templates.csv'")
+print("Results saved to '../datasets/tasks_with_jinja_templates_2.csv'")
 
 # Display first few results
 print("\nFirst few results:")

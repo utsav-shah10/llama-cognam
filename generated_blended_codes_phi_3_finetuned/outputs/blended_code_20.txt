@@ -1,5 +1,0 @@
-Task : Add two strings 'Hello' and 'World' and render the result. Jinja Template : {{'Hello' + 'World'}}. Blended Template :
-
-{{ "Hello" ~ "World" }}
-
-==correct

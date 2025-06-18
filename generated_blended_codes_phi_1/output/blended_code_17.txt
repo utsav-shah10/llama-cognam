@@ -1,4 +1,0 @@
-{% set title = title("home page") %}
-{{ title }}
-
-==correct

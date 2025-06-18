@@ -1,3 +1,0 @@
-Task : Convert variable 'title' to lowercase and render it. Jinja Template : {{ title | lower }}. Blended Template :
-
-{{ title | lower }}

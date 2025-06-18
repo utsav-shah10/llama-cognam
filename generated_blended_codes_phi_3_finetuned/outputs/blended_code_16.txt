@@ -1,7 +1,0 @@
-Task : Truncate 3.14159 and print it. Jinja Template : {{ 3.14159 | truncate }}. Blended Template :
-
-{% set num = 3.14159 %}
-{% set num_trunc = num | truncate %}
-{{ num_trunc }}<|end|>
-
-==incorrect

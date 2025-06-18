@@ -1,3 +1,0 @@
-{% set msg = 'Hi' if condition else msg = 'Hello' %} {% print msg %}
-
-== Print statement use is correct

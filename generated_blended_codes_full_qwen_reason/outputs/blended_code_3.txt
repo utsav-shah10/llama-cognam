@@ -1,3 +1,0 @@
-Task : set 'msg' variable to 'Hi' if condition is true else set 'msg' variable to 'Hello'. Print it after conditional block. Jinja Template : {% if condition %}{% set msg = 'Hello' %} {% else %} {% set msg = 'Hi' %}{% endif %} {{msg}}. Blended Template :
-
-{% set msg = "" %} {% if condition %} {% set msg = "Hello" %} {% else %} {% set msg = "Hi" %}{% endif %} {% print msg %}

@@ -10,7 +10,7 @@ def format_dataset(df):
         prompt_text = row['prompt']
         jinja_code = row['jinja']
         blended_code = row['blended']
-        rule = row['modified_rule']
+        # rule = row['modified_rule']
 
         # reasoning didn't work well
         
@@ -35,12 +35,11 @@ def format_dataset(df):
         # )
 
         # use rules 
-        prompt = prompts['prompt_3'].format(
+        prompt = prompts['prompt_2'].format(
             prompt_text = prompt_text, 
             jinja_code = jinja_code, 
             blended_code = blended_code, 
-            rule = rule
-            
+            # rule = rule
         )
         
 
@@ -52,13 +51,13 @@ def format_dataset(df):
     return csv_data
 
 # Load CSV dataset
-file_path = '../datasets/dataset_with_rules.csv'
+file_path = '../datasets/dataset_3.csv'
 df = pd.read_csv(file_path)
 
 dataset = format_dataset(df)
 # Split the dataset into train, test, and validation sets
 total_len = len(dataset)
-train_split = int(total_len * 3 / 4)
+train_split = int(total_len * 4 / 5)
 test_split = int(total_len * 1 / 6)
 
 train_dataset = dataset[:train_split]
@@ -68,15 +67,15 @@ valid_dataset = dataset[train_split + test_split:]
 
 # save the split data to jsonl files
 import json
-with open('./data/dataset_with_rules/train.jsonl', 'w') as train_file:
+with open('./data/dataset_3/train.jsonl', 'w') as train_file:
     for entry in train_dataset:
         train_file.write(json.dumps(entry) + '\n')
 
-with open('./data/dataset_with_rules/test.jsonl', 'w') as test_file:
+with open('./data/dataset_3/test.jsonl', 'w') as test_file:
     for entry in test_dataset:
         test_file.write(json.dumps(entry) + '\n')
 
-with open('./data/dataset_with_rules/valid.jsonl', 'w') as valid_file:
+with open('./data/dataset_3/valid.jsonl', 'w') as valid_file:
     for entry in valid_dataset:
         valid_file.write(json.dumps(entry) + '\n')
 

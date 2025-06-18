@@ -1,3 +1,0 @@
-Task : Convert variable 'age' to string and set it to variable age_str. Jinja Template : {% set age_str = age | string %}. Blended Template :
-
-{% set age_str = age | string %}

@@ -1,11 +1,11 @@
  python -m mlx_lm.lora \
-    --model  Qwen/Qwen2.5-Coder-3B-Instruct\
-    --data fine-tune/data/dataset_3 \
+    --model  Qwen/Qwen2.5-Coder-3B-Instruct \
+    --data document-FT/data/modified_docs_data_contrast \
     --train \
     --fine-tune-type full \
     --batch-size 4\
     --iters 500 \
-    --adapter-path adapters_qwen_complete
+    --adapter-path adapters_docs_contrast_finetune \
 # --num-layers 8\
 
 

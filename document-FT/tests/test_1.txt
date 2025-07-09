@@ -1,0 +1,150 @@
+Can you negate a negative number in Blended?
+What happens if a parent tag inside a child block does not contain a block statement with the same name?
+What are the benefits of using built-in functions in Blended?
+What happens if I include a template that contains variables that are not defined in the master template?
+How can I ensure that the 'Iterator' scope is used correctly in my Blended code?
+What happens if a nested block is defined inside a parent block?
+I read somewhere that, there are 4 types of delimiters present in blended. Is it true?
+What are the potential consequences of not following the rule regarding built-in function names in Blended?
+Is the ceil function case-sensitive?
+Can I use the keyword 'block' as a variable name in Blended?
+Is there any other way to add macros to scope other than using macro tag and from...import statement?
+What if a template has both a schema-definition and a user-function-definition file?
+What happens if I try to access a property that doesn't exist in an object?
+Can I define a anything named 'ceil' in my blended program?
+Can a template be created from a array in Blended?
+Can I use the word 'print' as a variable?
+What if a macro in Blended shares the name of a module defined in the same scope?
+How does the scope of Blended templates differ from Jinja/Twig?
+Can a macro be defined inside a macro tag within another macro tag?
+How do I use the `rgbcolor` function with an array of integers?
+What happens if a macro calls itself in a way that creates a loop?
+What happens if a name is assigned in the template and then used within a block?
+If a child template defines a block that is not found in the root or any ancestor, how many times will that block be evaluated?
+What happens if the only keyword is NOT used in the include tag?
+Can you negate a string in Blended?
+Can you tell me how many different scopes are present in Blended?
+How to introduce timestamps in blended?
+Can static text be interspersed with tags in Blended?
+What happens if the included template is not found or cannot be loaded?
+List 5 built-in functions in Blended
+Can I use a variable in a Render statement?
+Can Print statements be used to output multiple values at once?
+What if I want to concatenate a string with a variable in Blended?
+Can names assigned in the template be accessed within blocks?
+What is the purpose of the Concatenate (~) operator in Blended?
+How does the 'in' operator behave with empty strings or arrays?
+What is the purpose of the join function in Blended?
+What happens if a variable is defined in multiple blocks?
+What is the syntax for using the `int filter` in a Blended template?
+Is upper function of Jinja function in Blended?
+Are names assigned in the template accessible outside the template?
+Can the `notIn` operator be used with arrays?
+What if a variable is defined in a parent scope and then a child scope tries to modify it?
+Can a function be defined in both the template and the user environment?
+Can I import built-in functions from other modules in Blended?
+What happens if I try to use the `+` operator with numbers in Blended?
+What if tag uses delimiters '{%' and '%}' doesn't start its internal syntax which doesn't tell about purpose?
+What happens if the string passed to the `int filter` is not a valid number?
+If a macro imports another macro, can the imported macro access variables from the importing macro's parent scope?
+Does two blocks share scope?
+What happens if a variable is declared within a block in Blended?
+Can I import a module that contains a variable with the same name as a macro in the current scope?
+Concatenate arr1 and arr2 using concat function.
+Can I use 'truncate' as filter in Blended?
+Is floor a built-in filter in Blended?
+What if a macro imports a macro that is defined in the same scope but not imported by any macro in the same scope?
+Can the `items` filter be used in combination with other filters or modifiers?
+What are the ways to introduce safe strings in blended?
+What happens if a template does not have a schema-definition or user-function-definition file?
+What happens if a variable is defined in both a parent and a child scope?
+Can a macro be defined directly within the template scope?
+Can a macro access variables defined outside its macro tags?
+How to find the length of an array ?
+How are timestamps added to the scope?
+I read somewhere that multiple tags are not allowed in statements. Is it true?
+What is the purpose of the `macro` tag in Blended?
+Can I use `{% raw %}` and `{% endraw %}` in a Blended template to include HTML or other non-Jinja/Twig content?
+What happens if a function is defined in a template but not in the user environment?
+Is floor a built-in macro in Blended?
+What are the three pairs of delimiters used to distinguish tags from static text in Blended?
+Does user-function scope contains user functions?
+Is the syntax of print statement of blended similar to python or any other language?
+What are the delimiters used for comment tags in Blended?
+What is the purpose of macros in Blended templates?
+What is the purpose of the Else scope in Blended templates?
+Is print statement built in statement in blended?
+Can a macro in Blended import macros from multiple files?
+How do custom functions differ from built-in functions in Blended?
+What are the individual tags that can be used in Blended?
+I have defined a macro inside if...else statement. Is it possible?
+What is the significance of the prescribed behavior of a statement in Blended?
+Can custom functions be used in any part of the Blended code?
+How does the double evaluation affect the scope of variables within a block?
+What if a block statement is invoked by a parent tag inside a child block, and the parent block contains multiple block statements with the same name?
+Can I create a new item in the context?
+What are the benefits of using the template filter in Blended?
+Can I import a template using the `import` tag in Blended?
+What is the purpose of the double evaluation of a block scope in Blended?
+Which symbol is known as negate operator in blended?
+Can the else section of a for...else block be used with other control structures like if...else?
+Does built-in scope contains user functions?
+Can the `rgbcolor` function be used to generate a color from a hexadecimal string?
+I heard that there are 10 types of scopes present in blended. Is it true?
+Is string filter a built-in function in Blended?
+Can a macro access outside variables?
+What is the difference between a segment and a code segment in Blended?
+What is the difference between negating a positive number and a negative number in Blended?
+Can I use a variable set at the bottom of a for loop in the loop segment?
+Can I declare the same blended object twice in a Blended program?
+What happens if I apply the escape filter to a string that is already escaped?
+Can I use the word 'true' as a variable?
+How can I ensure that all functions used in my Blended application are defined in the user environment?
+How many ways are there to introduce safe strings in blended?
+Is title a built-in macro in Blended?
+Can the `title` function handle strings with multiple spaces between words?
+Can I create a macro named 'print' if print is already a built-in function in Blended?
+What are the implications of the 'Application' scope being immutable and global?
+A variable named 'var' is present inside macro, is it in macro scope?
+What happens if a named statement tag is immediately followed by a newline character in a Blended template?
+How does the rule handle nested named statement tags in a Blended template?
+Can a variable be declared in the template and then referenced in the JSON schema?
+Can the `concat` function be used to concatenate more than two lists or arrays in Blended?
+What if I include a template that has a function that modifies a variable in the master template?
+What are the strict scoping rules in Blended?
+Is `C++ or C or Javascript code` a code segment of blended?
+Can the title function handle special characters?
+What if the for loop is not executed due to a condition outside the loop?
+What happens if a macro is defined in a child scope and then accessed in a parent scope?
+How does the scope affect access to data in Blended templates?
+Can a macro be defined inside an if...else statement?
+Can I use the `rgbcolor` function in a template or script?
+I read somewhere that there are 10 data types present in blended templates. Correct me if I am wrong.
+Is mean a built-in macro in Blended?
+Is ceil a built-in filter in Blended?
+What does the 'in' operator do in Blended?
+What is the difference between a Safe string and a regular string in Blended?
+What happens if a macro tries to access a variable that is not defined in its scope or passed as an argument?
+Can I define a function in my Blended code that has the same name as a built-in function?
+I do not declare a variable in a parent scope and trying to access it in child scope. Is it possible?
+Can a macro be defined inside a for...else statement?
+Can the string filter be used with arrays or lists?
+What happens if the for loop is executed but the else section is not executed?
+A if-else block is present outside macro, is it in macro scope?
+There are 8 scopes present in Blended. Is it correct?
+Is truncate a built-in macro in Blended?
+What if I want to use a variable from a sibling context in Blended?
+Can the `upper` function be used on numbers or other data types?
+What is meant by a valid Blended template?
+Can a block modify a variable declared in a another block?
+I declared a variable inside a for loop and then tried to use it outside of it. I got an error, ,why?
+How does Blended-Lint ensure that a valid Blended template will execute in the same way regardless of the runtime?
+What if I want to access a property that is nested within another property?
+I defined a variable with name similar to macro name. Is it possible?
+How do built-in functions differ from user-defined functions in Blended?
+Which data names can be overridden?
+Can a macro import a macro that is defined in a different scope but not imported by any macro in the same scope?
+If a macro imports another macro, can the imported macro access the outside variables of the importing macro?
+Can variables be added to the scope as the return values of functions, which may then be passed in as input to a tag?
+Can I overwrite a variable declared in the parent scope within a child scope?
+How do you truncate a number in Blended?

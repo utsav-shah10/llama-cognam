@@ -1,40 +1,100 @@
-Task: print the string "Hello", Jinja Template: {{ "Hello" }}, Blended Template: 
-Task: render the number 100, Jinja Template: {{ 100 }}, Blended Template: 
-Task: convert the string "HELLO" to lowercase and render it, Jinja Template: {{ "HELLO" | lower }}, Blended Template: 
-Task: convert a variable "name" to title case and render it, Jinja Template: {{ name|title }}, Blended Template: 
-Task: convert the number 25 to string and store in variable "age_str", Jinja Template: {% set age_str = 25 | string %}, Blended Template: 
-Task: join variable "first_name" and "last_name" with a space and print it, Jinja Template: {{ first_name + " " + last_name }}, Blended Template: 
-Task: render the number 0, Jinja Template: {{ 0 }}, Blended Template: 
-Task: convert variable "title" to uppercase and render it, Jinja Template: {{ title.upper() }}, Blended Template: 
-Task: concatenate "Mr." and variable "surname" and print it, Jinja Template: {{ "Mr. " + surname }}, Blended Template: 
-Task: print the string "Loading...", Jinja Template: {{ "Loading..." }}, Blended Template: 
-Task: convert "api endpoint" to title case and render it, Jinja Template: {{ "api endpoint" | title }}, Blended Template: 
-Task: convert the number 0 to string and store in "zero_str", Jinja Template: {% set zero_str = 0 | string %}, Blended Template: 
-Task: render a boolean value "true", Jinja Template: {{ true }}, Blended Template: 
-Task: convert variable "department" to uppercase and render it, Jinja Template: {{ department.upper() }}, Blended Template: 
-Task: truncate variable "budget" and print it, Jinja Template: {{ budget|truncate(40) }}, Blended Template: 
-Task: convert variable "country" to upper case, join with variable "city", and print it, Jinja Template: {{ city + country | upper }}, Blended Template: 
-Task: Store the number 1000 in a variable "num", then render it after joining it with 12, Jinja Template: {% set num = 1000 %}{{ num | string + "12" }}, Blended Template: 
-Task: convert "contact us" to title case and render it, Jinja Template: {{ "contact us" | title }}, Blended Template: 
-Task: set variable "result" to "pass" if score >= 60, else "fail", then print it, Jinja Template: {% set result = "pass" if score >= 60 else "fail" %}{{ result }}, Blended Template: 
-Task: set variable "access" to "granted" if role == "admin", else "denied", then render it, Jinja Template: {% set access = "granted" if role == "admin" else "denied" %}, Blended Template: 
-Task: convert variable "email" to lowercase, then concatenate with "@domain.com" and print it, Jinja Template: {{ email|lower }}@domain.com, Blended Template: 
-Task: set variable "status" to "online" if active is true, else "offline", then convert to uppercase and print it, Jinja Template: {% set status = 'online' if active else 'offline' %}{{ status.upper() }}, Blended Template: 
-Task: set variable "message" to "Welcome back" if returning_user is true, else "Welcome", then print with "!", Jinja Template: {% if returning_user %}{{ message = "Welcome back" }}{% else %}{{ message = "Welcome" }}{% endif %}{{ message + "!" }}, Blended Template: 
-Task: set variable "priority" to "high" if urgent is true, else "normal", then convert to uppercase and print it, Jinja Template: {% set priority = "high" if urgent else "normal" %}{{ priority.upper() }}, Blended Template: 
-Task: set variable "mode" to "debug" if development is true, else "production", then print "Mode: " + mode, Jinja Template: {% set mode = "debug" if development else "production" %}Mode: {{ mode }}, Blended Template: 
-Task: set variable "theme" to "dark" if preference == "night", else "light", then render "Theme: " + theme, Jinja Template: {% set theme = "dark" if preference == "night" else "light" %}Theme: {{ theme }}, Blended Template: 
-Task: set variable "notification" to "enabled" if alerts is true, else "disabled", then print "Alerts: " + notification, Jinja Template: {% set notification = "enabled" if alerts else "disabled" %}Alerts: {{ notification }}, Blended Template: 
-Task: set variable "visibility" to "public" if shared is true, else "private", then render "Status: " + visibility, Jinja Template: {% set visibility = "public" if shared else "private" %}Status: {{ visibility }}, Blended Template: 
-Task: set variable "format" to "json" if api_version > 1, else "xml", then print "Format: " + format, Jinja Template: {% set format = "json" if api_version > 1 else "xml" %}Format: {{ format }}, Blended Template: 
-Task: convert "DATA MIGRATION" to title case, then concatenate with " Process" and render the result, Jinja Template: {{ "DATA MIGRATION".title() + " Process" }}, Blended Template: 
-Task: convert variable "service_name" to title case, then set "display_name" to result + " Service", then print it, Jinja Template: {{ service_name|title }} Service, Blended Template: 
-Task: set variable "cache" to "enabled" if performance_mode is true, else "disabled", then render "Cache: " + cache, Jinja Template: {% set cache = "enabled" if performance_mode else "disabled" %}Cache: {{ cache }}, Blended Template: 
-Task: convert "network connection" to title case, then concatenate with " Status" and render the result, Jinja Template: {{ "network connection".title() + " Status" }}, Blended Template: 
-Task: Write a template to apply floor function to the number 3.7 and print the result, Jinja Template: {{ 3.7 | floor }}, Blended Template: 
-Task: Write a template to apply floor function to variable "price" and render it, Jinja Template: {{ price | floor }}, Blended Template: 
-Task: Write a template to get the length of array variable "items" and print the result, Jinja Template: {{ items | length }}, Blended Template: 
-Task: Write a template to calculate the mean of array variable "scores" and print the result, Jinja Template: {{ scores | mean }}, Blended Template: 
-Task: Write a template to create a range from 1 to 10 and store in variable "numbers", then print the length of numbers, Jinja Template: {% set numbers = range(1, 11) %}{{ numbers | length }}, Blended Template: 
-Task: Write a template to convert string "red" to RGB color using rgbcolor function and print the result, Jinja Template: {{ "red" | rgbcolor }}, Blended Template: 
-Task: Write a template to convert variable "color_name" to RGB color and render it, Jinja Template: {{ color_name | rgbcolor }}, Blended Template:
+Convert the string "blue" to an RGB color using the rgbcolor function and display it
+I need you to take the word "blue" and transform it through the rgbcolor function, then show me what you get
+Your task involves "payment" - truncate this string, attach " USD" to the end, and output "Amount Due: " plus your result
+There's a string called "payment" that needs shortening, followed by adding " USD", then prepend "Amount Due: " to everything
+When the boolean "admin" evaluates to true, the variable "role" should become "manager", but if false, make it "staff" instead, then display
+Check if "admin" is true - if so, "role" gets set to "manager", otherwise it becomes "staff", and show the final value
+Take the list "hex_colors" and run each element through rgbcolor function, then output "RGB Values: " concatenated with the results
+Process every item in "hex_colors" using the rgbcolor transformation and present "RGB Values: " followed by what you computed
+Output this exact text: "Initialization complete"
+Your mission is to render the phrase "Initialization complete" to the screen
+Concatenate "Report_" with the current date stored in variable "date" and show the combined result
+The date is stored in a variable called "date" - prepend "Report_" to it and display what you create
+Show "Session started at " followed immediately by whatever is stored in the "start_time" variable
+Display the phrase "Session started at " and then append the value that lives inside "start_time"
+Evaluate if "items_left" is less than 10 - if true, set "inventory_status" to "Low Stock", otherwise "In Stock", then display
+When "items_left" falls below 10, "inventory_status" becomes "Low Stock", but if 10 or more, it's "In Stock" - show the result
+Calculate the square of the value in "side_length" and present it with the label "Area"
+Take whatever number is stored in "side_length", multiply it by itself, and show it labeled as "Area"
+Transform the contents of variable "country" to all uppercase letters and display the result
+Whatever string is inside "country" needs to be converted to capital letters and shown
+Present this message to the user: "Hello there"
+I want you to output the greeting "Hello there"
+Display the numerical value 1024
+Show me the integer that equals one thousand and twenty-four
+Print whatever value is currently stored inside the variable named "username"
+The variable "username" contains some data - display that data
+Show me what's contained within the variable called "subtotal"
+Output the value that resides in the "subtotal" variable
+Take "HELLO" and convert every character to lowercase, then print the result
+The string "HELLO" needs to be transformed so all letters are small, then displayed
+Change "flask" so all letters become uppercase and show the output
+Convert every character in "flask" to capital letters and display
+Transform the string in variable "department" to title case format and print
+Take whatever is in "department" and make it title case, then show it
+Convert the number 300 into string format and store it in a variable called "price_str"
+The integer 300 needs to become text and be saved as "price_str"
+Combine the words "Start" and "Now" together and display what you get
+Merge "Start" with "Now" to create a single string and show it
+Connect "first_name" and "last_name" variables using a hyphen between them and print the result
+Take the values from "first_name" and "last_name", put a dash in the middle, and display
+Show the negative integer forty-two
+Display the number that is negative 42
+Convert "FEATURES" from uppercase to lowercase and print the transformed version
+Take "FEATURES" and make all the letters small, then show the result
+Change "machine learning" to title case formatting and display
+Transform "machine learning" so each word starts with a capital letter and show it
+Turn the integer 99 into text format and assign it to the variable "final_score"
+Convert 99 from a number to a string and store it in "final_score"
+Prepend "Mr." to whatever is stored in the "surname" variable and print the combination
+Take the value in "surname", add "Mr." to the front of it, and display
+Join "Happy" and "Birthday" into one string and show the result
+Combine "Happy" with "Birthday" to form a single word and display it
+If "score" exceeds 50, set "result" to "Pass", but if 50 or less, set it to "Fail", then display the value
+Check whether "score" is greater than 50 - if yes, "result" becomes "Pass", if no, it's "Fail", then show it
+When "experience" is greater than 5, "level" should be "advanced", otherwise it's "beginner" - print the final value
+Evaluate if "experience" exceeds 5 - if true, set "level" to "advanced", if false, set to "beginner", and display
+Convert "file_title" to lowercase, append the extension ".md", and print the filename
+Take "file_title", make it all small letters, add ".md" to the end, and show the result
+Transform "DASHBOARD VIEW" to title case, add " Panel" at the end, and display
+Change "DASHBOARD VIEW" to proper title formatting, attach " Panel", and show what you created
+If "warnings" exceeds 10, set "risk" to "high", otherwise "low", then convert to uppercase and display
+When "warnings" is more than 10, "risk" becomes "high", else "low", then make it all capitals and show
+Set "subscription" to "pro" when "accounts" is over 50, else "basic", and print "Type: " plus the subscription value
+If "accounts" exceeds 50, "subscription" gets "pro", otherwise "basic", then display "Type: " followed by the result
+Convert "log_name" to lowercase and create "log_file" by adding ".log", then display the log_file value
+Make "log_name" all small letters, then set "log_file" to that plus ".log", and show log_file
+When "delivery_time" is under 2, set "mode" to "fast", else "slow", then print "Mode: " plus the mode
+If "delivery_time" is less than 2, "mode" becomes "fast", otherwise "slow", and display "Mode: " with the result
+Create a string combining "Invoice " with "invoice_id" and " for " with "client_name", then display
+Build a message using "Invoice " plus "invoice_id" plus " for " plus "client_name" and show it
+Make "company" uppercase, then create "header_text" as the uppercase company plus " INC." and print
+Convert "company" to capitals, set "header_text" to that result plus " INC.", and display header_text
+If "deadline" equals "today", set "urgency" to "high", else "normal", then show "Urgency: " plus the urgency value
+When "deadline" is "today", "urgency" becomes "high", otherwise "normal", and display "Urgency: " followed by urgency
+Change "update notes" to title case, append " Available", and show the final string
+Transform "update notes" to proper title format, add " Available" at the end, and display
+Generate a range starting at 1 and ending at "max_val", store it as "range_data", then print "Range generated"
+Create a sequence from 1 to the value in "max_val", assign it to "range_data", and show "Range generated"
+If "credit_score" is 700 or higher, set "status" to "approved", else "rejected", and display the status
+When "credit_score" reaches 700 or more, "status" becomes "approved", otherwise "rejected", then show status
+Display "User:" followed by the value contained in "user_id"
+Show the text "User:" and then append whatever is stored in "user_id"
+Set "label" to "hot" when "temperature" exceeds 30, otherwise "cold", and print the label
+If "temperature" is greater than 30, "label" gets "hot", else it gets "cold", then display label
+Make "doc_title" lowercase, add ".pdf" extension, and display the complete filename
+Convert "doc_title" to small letters, attach ".pdf", and show the resulting filename
+Transform "emergency alert" to all uppercase letters and print
+Change "emergency alert" so every character is capitalized and display
+Combine "Chapter" with "chapter_number" and " - " with "chapter_title", then print the full string
+Build a string from "Chapter" plus "chapter_number" plus " - " plus "chapter_title" and show it
+Compute the mean of all values in the "scores" list and display the average
+Find the average value of everything stored in the "scores" array and show the result
+Apply floor function to the "price" variable and print what you get
+Use the floor operation on "price" and display the floored value
+Count how many elements exist in the "orders" list and display the count
+Determine the length of the "orders" array and show the number of items
+Truncate the decimal number 9.8765 and display the truncated result
+Remove the decimal portion from 9.8765 and show what remains
+Apply truncation to "total_balance" and show the truncated value
+Remove the decimal part from "total_balance" and display the integer portion

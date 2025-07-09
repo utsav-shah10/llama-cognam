@@ -1,0 +1,185 @@
+Render statements accept either string or number types only. 
+
+How to use render statement : {{ 'hello' }}, {{ var }}, {{ 10 }}. 
+
+The upper filter of Jinja is a built-in blended function. It takes a string as an argument and converts it into uppercase. 
+
+How to use upper function in Blended : upper('hello')
+
+The rgbcolor filter of Jinja is a built-in blended function. It takes an array of size 3 or a string starting with ‘#’ as an argument and returns the color of the provided RGB values.
+
+How to use rgbcolor function in Blended : rgbcolor('#ffffff'), rgbcolor([1,2,3])
+
+The title filter of Jinja is a built-in blended function. It takes a string as an argument and converts the provided string to title. 
+
+How to use title function in Blended : title('hello').
+
+The join filter of Jinja is a built-in blended function. It takes multiple arguments of type string or an array of strings and returns the joined output as a whole string. 
+
+How to use join function in Blended : join('hello', 'world'), join('hello', ['world', 'how']), join(a, b, c), where a,b,c are strings as variables. 
+
+Addition of string is prohibited in Blended. {{ 'hello' + 'world' }} is not allowed. You can use the concatenate operator. 
+
+string filter: argument should be string or nothing. It converts blended objects to string. 
+
+How to use string filter in Blended? : 10 |string, here 10 is converted to string '10'
+
+Print statements accept either string or number types only. Print statements are used for outputting values to the template. 
+
+Print statements are used for outputting values to the template. Usage of Print statement : {% print “Hello” %}, {% print 1 %}, {% print var %}
+
+Iterator variables cannot be modified inside the for loop. 
+
+Loop variables cannot be modified inside the for loop. 
+
+Correct syntax for dual item iteration is for a,b (dict) | items
+
+loop.first and loop.last are of type boolean in case of for loop
+
+Functions must be present in user environment to be used
+
+Verbatim statement's code segment must not contain {% endraw %}. Verbatim statement's code segment must not contain {% endverbatim %}
+
+Direct usage {{x.b}} is not allowed if x doesn't contain b as key, where x is an object. 
+
+x.b can be used only with and operator in if conditions
+
+or operator is not valid with potentially undefined object properties
+
+Object keys cannot be accessed in elif or else blocks if checked in if statement
+
+Items present in context cannot be modified
+
+Items not present in context cannot be used directly
+
+ifblock is used to check if a block is present. Block must be defined before ifblock check. Usage of ifblock in Blended : {% block content %} Inside block content {% endblock %} {% ifblock content %} This will render since content block exists {% endifblock %}
+
+Following Jinja Filters are converted to functions in Blended : lower, upper, length, mean, rgbcolor, title, truncate, ceil, floor, join, concat etc. All are built-in functions in blended. 
+
+The lower filter of Jinja is a built-in blended function. It takes a string as an argument and converts it into lowercase. 
+
+Usage of lower function in Blended : lower('HELLO')
+
+The length filter of Jinja is a built-in blended function. It takes an array or string as an argument and returns the length of the provided object.
+
+Usage of length function in Blended : length('HELLO'), length([1,2,3]). 
+
+The mean filter of Jinja is a built-in blended function. It takes an array as an argument and returns the mean of the provided array.
+
+Usage of mean function in Blended : mean([1,2,3]).
+
+The ceil filter of Jinja is a built-in blended function. It takes a number as an argument and returns the ceil of the provided number. 
+
+Usage of ceil function in Blended : ceil(10.5).
+
+The floor filter of Jinja is a built-in blended function. It takes a number as an argument and returns the floor of the provided number. 
+
+Usage of floor function in Blended : floor(10.5).
+
+The truncate filter of Jinja is a built-in blended function. It takes a number and number of decimal places to which the number has to be truncated as an argument and returns the truncated number. 
+
+Usage of truncate function in Blended : truncate(48.3589, 2).
+
+The concat filter of Jinja is a built-in blended function. It takes 2 arrays and concatenates them and returns a new array. 
+
+Usage of concat function in Blended : concat([1,2], [3, 4])
+
+Reserved words cannot be used as variables. Reserved words include: true, TRUE, block, ifblock, if, else, elif, set, print, block etc. loop can be used as variable only inside loop scope
+
+Negate (-) operator is prohibited on strings. {{ -'hello' }} is not allowed. 
+
+Negate (-) operator works on integers. {{ -10 }} is allowed. 
+
+Concatenate (~)  operator works on strings. {{ 'hello' ~ 'world' }} is valid. 
+
+The concatenate (~) operator does not work on boolean. {{ false ~ true}} is not valid. 
+
+Addition of string is prohibited in Blended. {{ 'hello' + 'world' }} is not allowed. You can use the concatenate operator. 
+
+in operator works on string and array. It checks if an item is present in a string or array. 
+
+notIn operator works on string and array. It checks if an item is not present in a string or array. 
+
+Single quotes can contain double quotes. Single quotes cannot contain another single quote. Double quotes can contain single quotes. Double quotes cannot contain another double quote
+
+int filter: works on string, takes only one argument, does not work on boolean.
+
+How to use int filter in Blended? : '10' |int, here 10 is converted to int 10
+
+Names defined inside parent or ancestor scopes are available for use within child or descendant scopes, but not vice-versa. 
+
+Multiple declarations of a variable or blended object are not allowed in Blended.
+
+Names defined inside parent or ancestor scopes cannot be overwritten or modified within child or descendant scopes--they are read-only.
+
+Names defined inside a scope are unavailable after the scope exits--they are local to that scope;
+
+Macros are different: the only external objects automatically accessible from inside a macro are built-in functions, user functions, and whatever other macros were defined inside the same scope.  
+
+Inside a macro, you can also import macros from other files, but the only way that a macro can get access to outside variables is for them to be passed in as arguments.
+
+Comments are same as Jinja comments - {# … #}
+
+We use the terms “segment” and “code segment” to refer to any Blended code found between two tags of the same statement.  A code segment acts as a partial template that is rendered according to the prescribed behavior of the statement to which it belongs.
+
+Access to the data that statements operate upon is restricted by scope.  Nine (9) types of scope are defined for Blended templates : Built-in, User-function, Render, Template, Macro, Block, Iterator, Loop, Else.
+
+“Built-in” scope: built-in functions provided by Blended
+
+“User-function” scope: custom functions provided by the application
+
+“Render” scope: data provided by the application at the time that “render” is invoked on a template.
+
+“Template” scope: names assigned in the template, outside any blocks
+
+“Macro” scope: template code inside macro tags
+
+“Block” scope: template code inside block tags
+
+“Iterator” scope: iteration objects used by for...else block
+
+“Loop” scope: template code inside for section of the for...else block
+
+“Else” scope: template code inside the else section of a for...else block
+
+Pair lists may be introduced by applying the items filter to dictionary objects.
+
+Timestamps may be introduced by applying the datetime filter to properly formatted lists or to properly formatted strings.
+
+Templates may be introduced through the use of the template filter, which compiles a string into a template object.
+
+Safe strings may be introduced by applying the safe filter, or as the output of any macro invocation.
+
+Escaped strings may be introduced by applying the escape filter (alias e) to string objects.
+
+Data names may be referenced or accessed by a tag or expression if and only if it has previously been defined within the current scope or within a parent or ancestor scope.
+
+No data names used in any parent or ancestor scope may be modified or overridden within any child or descendant scope--they are read-only within the child or descendant scope.  This means that names in use by the parent scope (or in any ancestor scope) may not be used as a target for set, as a macro name, as a name for a module imported using the import tag, or as an iteration item in the for tag.  Only names declared within the current scope may be overwritten.
+
+Built-in function names are defined within the outermost scope, the “built-in” scope.  By implication, no functions, variables, macros or imported modules may share a name with any built-in functions.  Built-in functions are defined as part of the language specification itself.
+
+User-defined functions inhabit the second-level scope, the “user-function” scope, which is the child of the “built-in” scope.  As follows from the rules above, no user-defined function may share the name of any built-in function, nor may any template-defined macro, variable or imported module share the name of any user-defined function.  For purposes of Blended-Lint, user-defined functions are declared in a specifically-formatted JSON file that specifies each function’s name, argument data types, and possible return types.
+
+“Application” scope is the child of the “user-function” scope, and is the parent of the template scope.  As a result, it follows naturally that it is both immutable, and global within the template.  Variables defined in the application scope are accessible inside all templates and tags, but no such variable may be modified or overwritten in any template by any tag.
+
+Any variable name that is referenced or accessed within the body of a template, but which has not been declared within the body of the template, should be assumed to have been introduced within the application scope.  However, a JSON schema document may be provided to Blended-Lint which declares all of the application variables for a given template file.  In the case that such a schema file is provided, any variable name that is referenced or accessed within the body of a template which has neither been declared within the body of the template nor declared within the JSON schema document shall be deemed an error (“variable undefined”), causing the file to be declared invalid.
+
+The “template” scope is the scope of all variables, macros and modules defined inside the root template, outside of all macro tags, block tags, and for...else statements.
+
+Passing variable names as arguments is the only way for a macro to have access to any portion of the caller’s scope.  The values are passed by reference, so while the values themselves are immutable, what values the argument names refer to may change within the “macro” scope.  These variables are part of the “macro” scope.
+
+Macros can make recursive calls to themselves, but circular calls between and among macros is prohibited.
+
+No macro may share the name of any other object defined before or after its definition in the same scope, or in any parent scope.
+
+The macro statement may not appear inside an if...else statement, nor inside a for...else statement.  Defining a macro using a macro tag inside of another macro tag, however, is permitted.  Macro tags may only be used directly within the “template” scope, directly within the scope of a block statement, or within a “macro” scope.
+
+“Block” scope describes the contents of block statements.  Each separate block within a template has its own, independent scope, which does not have access or reference to any other block.
+
+The for...else statement effectively has three distinct scoping levels: the “iterator” scope, the “loop” scope, and the “else” scope.  The for...else statement’s “iterator” scope persists for the duration of the tag’s execution, and contains the named item variables and the forloop variable.  The for...else statement’s “loop” scope is a child scope encapsulated by the “iterator” scope. By this arrangement, the forloop variable and the named item variable(s) are prohibited from being modified inside the “loop” scope.
+
+The for...else statement’s “else” scope (which is coincident with the contents of the template segment that follows the else tag, termed the “else segment”) is a sibling of the “iterator” scope, and therefore only shares with it and the “loop” scope whatever variables are defined in the scope that contains the for...else statement itself.  It does not have access to the forloop variable nor the named item variables from the “iterator” scope.
+
+However, a variable set inside an if...else statement may only be accessed after that statement if the variable is guaranteed to have already been set.  If a variable is used after an if...else statement, that variable MUST have been (a) defined before entering the if...else statement, or (b) defined in both the if section and the else section of the if...else statement.  If a variable is set only in the if section, or only in the else section, without being defined earlier on within the same scope, then it will not be available after the if...else statement.
+
+

@@ -1,0 +1,100 @@
+Task: Convert the string "blue" to an RGB color using the rgbcolor function and display it, Jinja Template: {{ rgbcolor("blue") }}, Blended Template: 
+Task: I need you to take the word "blue" and transform it through the rgbcolor function, then show me what you get, Jinja Template: {{ rgbcolor('blue') }}, Blended Template: 
+Task: Your task involves "payment" - truncate this string, attach " USD" to the end, and output "Amount Due: " plus your result, Jinja Template: Amount Due: {{ payment|truncate(10) }} USD, Blended Template: 
+Task: There's a string called "payment" that needs shortening, followed by adding " USD", then prepend "Amount Due: " to everything, Jinja Template: Amount Due: {{ payment | shorten }} USD, Blended Template: 
+Task: When the boolean "admin" evaluates to true, the variable "role" should become "manager", but if false, make it "staff" instead, then display, Jinja Template: {% if admin %} {{ role = "manager" }} {% else %} {{ role = "staff" }} {% endif %}, Blended Template: 
+Task: Check if "admin" is true - if so, "role" gets set to "manager", otherwise it becomes "staff", and show the final value, Jinja Template: {% if admin %} {% set role = "manager" %} {% else %} {% set role = "staff" %} {% endif %} {{ role }}, Blended Template: 
+Task: Take the list "hex_colors" and run each element through rgbcolor function, then output "RGB Values: " concatenated with the results, Jinja Template: {% for hex_color in hex_colors %} {{ rgbcolor(hex_color) }} {% endfor %} RGB Values: {{ ' '.join(rgbcolor(hex_color) for hex_color in hex_colors) }}, Blended Template: 
+Task: Process every item in "hex_colors" using the rgbcolor transformation and present "RGB Values: " followed by what you computed, Jinja Template: {% for hex_color in hex_colors %} {{ rgbcolor(hex_color) }}<br> {% endfor %} RGB Values: {{ rgbcolor(hex_color) }}, Blended Template: 
+Task: Output this exact text: "Initialization complete", Jinja Template: Initialization complete, Blended Template: 
+Task: Your mission is to render the phrase "Initialization complete" to the screen, Jinja Template: Initialization complete, Blended Template: 
+Task: Concatenate "Report_" with the current date stored in variable "date" and show the combined result, Jinja Template: Report_{{ date }}, Blended Template: 
+Task: The date is stored in a variable called "date" - prepend "Report_" to it and display what you create, Jinja Template: Report_{{ date }}, Blended Template: 
+Task: Show "Session started at " followed immediately by whatever is stored in the "start_time" variable, Jinja Template: Session started at {{ start_time }}, Blended Template: 
+Task: Display the phrase "Session started at " and then append the value that lives inside "start_time", Jinja Template: Session started at {{ start_time }}, Blended Template: 
+Task: Evaluate if "items_left" is less than 10 - if true, set "inventory_status" to "Low Stock", otherwise "In Stock", then display, Jinja Template: {% if items_left < 10 %} {% set inventory_status = "Low Stock" %} {% else %} {% set inventory_status = "In Stock" %} {% endif %} {{ inventory_status }}, Blended Template: 
+Task: When "items_left" falls below 10, "inventory_status" becomes "Low Stock", but if 10 or more, it's "In Stock" - show the result, Jinja Template: {% if items_left < 10 %} inventory_status = "Low Stock" {% else %} inventory_status = "In Stock" {% endif %}, Blended Template: 
+Task: Calculate the square of the value in "side_length" and present it with the label "Area", Jinja Template: {{ side_length ** 2 }} Area, Blended Template: 
+Task: Take whatever number is stored in "side_length", multiply it by itself, and show it labeled as "Area", Jinja Template: {{ side_length * side_length }} Area, Blended Template: 
+Task: Transform the contents of variable "country" to all uppercase letters and display the result, Jinja Template: {{ country.upper() }}, Blended Template: 
+Task: Whatever string is inside "country" needs to be converted to capital letters and shown, Jinja Template: {{ country.upper() }}, Blended Template: 
+Task: Present this message to the user: "Hello there", Jinja Template: Hello there, Blended Template: 
+Task: I want you to output the greeting "Hello there", Jinja Template: Hello there, Blended Template: 
+Task: Display the numerical value 1024, Jinja Template: {{ 1024 }}, Blended Template: 
+Task: Show me the integer that equals one thousand and twenty-four, Jinja Template: {{ 1024 }}, Blended Template: 
+Task: Print whatever value is currently stored inside the variable named "username", Jinja Template: {{ username }}, Blended Template: 
+Task: The variable "username" contains some data - display that data, Jinja Template: {{ username }}, Blended Template: 
+Task: Show me what's contained within the variable called "subtotal", Jinja Template: {{ subtotal }}, Blended Template: 
+Task: Output the value that resides in the "subtotal" variable, Jinja Template: {{ subtotal }}, Blended Template: 
+Task: Take "HELLO" and convert every character to lowercase, then print the result, Jinja Template: {{ 'HELLO'.lower() }}, Blended Template: 
+Task: The string "HELLO" needs to be transformed so all letters are small, then displayed, Jinja Template: {{ "HELLO".lower() }}, Blended Template: 
+Task: Change "flask" so all letters become uppercase and show the output, Jinja Template: {{ 'flask'.upper() }}, Blended Template: 
+Task: Convert every character in "flask" to capital letters and display, Jinja Template: {{ "flask".upper() }}, Blended Template: 
+Task: Transform the string in variable "department" to title case format and print, Jinja Template: {{ department|title }}, Blended Template: 
+Task: Take whatever is in "department" and make it title case, then show it, Jinja Template: {{ department|title }}, Blended Template: 
+Task: Convert the number 300 into string format and store it in a variable called "price_str", Jinja Template: {% set price_str = 300|string %}, Blended Template: 
+Task: The integer 300 needs to become text and be saved as "price_str", Jinja Template: {{ price_str = "300" }}, Blended Template: 
+Task: Combine the words "Start" and "Now" together and display what you get, Jinja Template: {{ "Start" + "Now" }}, Blended Template: 
+Task: Merge "Start" with "Now" to create a single string and show it, Jinja Template: {{ "Start" + "Now" }}, Blended Template: 
+Task: Connect "first_name" and "last_name" variables using a hyphen between them and print the result, Jinja Template: {{ first_name }}-{{ last_name }}, Blended Template: 
+Task: Take the values from "first_name" and "last_name", put a dash in the middle, and display, Jinja Template: {{ first_name }}-{{ last_name }}, Blended Template: 
+Task: Show the negative integer forty-two, Jinja Template: {{ -42 }}, Blended Template: 
+Task: Display the number that is negative 42, Jinja Template: {{ -42 }}, Blended Template: 
+Task: Convert "FEATURES" from uppercase to lowercase and print the transformed version, Jinja Template: {{ features|lower }}, Blended Template: 
+Task: Take "FEATURES" and make all the letters small, then show the result, Jinja Template: {{ "FEATURES".lower() }}, Blended Template: 
+Task: Change "machine learning" to title case formatting and display, Jinja Template: {{ "machine learning" | title }}, Blended Template: 
+Task: Transform "machine learning" so each word starts with a capital letter and show it, Jinja Template: {{ ' '.join(word.capitalize() for word in 'machine learning'.split()) }}, Blended Template: 
+Task: Turn the integer 99 into text format and assign it to the variable "final_score", Jinja Template: {% set final_score = "99" %}, Blended Template: 
+Task: Convert 99 from a number to a string and store it in "final_score", Jinja Template: {{ final_score = "99" }}, Blended Template: 
+Task: Prepend "Mr." to whatever is stored in the "surname" variable and print the combination, Jinja Template: {{ 'Mr. ' + surname }}, Blended Template: 
+Task: Take the value in "surname", add "Mr." to the front of it, and display, Jinja Template: {{ 'Mr. ' + surname }}, Blended Template: 
+Task: Join "Happy" and "Birthday" into one string and show the result, Jinja Template: {{ "Happy" + "Birthday" }}, Blended Template: 
+Task: Combine "Happy" with "Birthday" to form a single word and display it, Jinja Template: {{ "Happy" + "Birthday" }}, Blended Template: 
+Task: If "score" exceeds 50, set "result" to "Pass", but if 50 or less, set it to "Fail", then display the value, Jinja Template: {% if score > 50 %} {{ result = "Pass" }} {% else %} {{ result = "Fail" }} {% endif %} {{ result }}, Blended Template: 
+Task: Check whether "score" is greater than 50 - if yes, "result" becomes "Pass", if no, it's "Fail", then show it, Jinja Template: {% if score > 50 %} result = "Pass" {% else %} result = "Fail" {% endif %}, Blended Template: 
+Task: When "experience" is greater than 5, "level" should be "advanced", otherwise it's "beginner" - print the final value, Jinja Template: {% if experience > 5 %} advanced {% else %} beginner {% endif %}, Blended Template: 
+Task: Evaluate if "experience" exceeds 5 - if true, set "level" to "advanced", if false, set to "beginner", and display, Jinja Template: {% if experience > 5 %} level = "advanced" {% else %} level = "beginner" {% endif %}, Blended Template: 
+Task: Convert "file_title" to lowercase, append the extension ".md", and print the filename, Jinja Template: {{ file_title.lower() }}.md, Blended Template: 
+Task: Take "file_title", make it all small letters, add ".md" to the end, and show the result, Jinja Template: {{ file_title|lower }}.md, Blended Template: 
+Task: Transform "DASHBOARD VIEW" to title case, add " Panel" at the end, and display, Jinja Template: {{ "DASHBOARD VIEW".title() }} Panel, Blended Template: 
+Task: Change "DASHBOARD VIEW" to proper title formatting, attach " Panel", and show what you created, Jinja Template: {{ "DASHBOARD VIEW".title() + " Panel" }}, Blended Template: 
+Task: If "warnings" exceeds 10, set "risk" to "high", otherwise "low", then convert to uppercase and display, Jinja Template: {% set risk = "high" if warnings > 10 else "low" %} {{ risk.upper() }}, Blended Template: 
+Task: When "warnings" is more than 10, "risk" becomes "high", else "low", then make it all capitals and show, Jinja Template: {{ 'HIGH' if warnings > 10 else 'LOW' | upper }}, Blended Template: 
+Task: Set "subscription" to "pro" when "accounts" is over 50, else "basic", and print "Type: " plus the subscription value, Jinja Template: {% set subscription = 'pro' if accounts > 50 else 'basic' %} Type: {{ subscription }}, Blended Template: 
+Task: If "accounts" exceeds 50, "subscription" gets "pro", otherwise "basic", then display "Type: " followed by the result, Jinja Template: Type: {% if accounts > 50 %}pro{% else %}basic{% endif %}, Blended Template: 
+Task: Convert "log_name" to lowercase and create "log_file" by adding ".log", then display the log_file value, Jinja Template: {{ log_name|lower }}.log, Blended Template: 
+Task: Make "log_name" all small letters, then set "log_file" to that plus ".log", and show log_file, Jinja Template: {{ log_name|lower }}.log, Blended Template: 
+Task: When "delivery_time" is under 2, set "mode" to "fast", else "slow", then print "Mode: " plus the mode, Jinja Template: {% set mode = "fast" if delivery_time < 2 else "slow" %} Mode: {{ mode }}, Blended Template: 
+Task: If "delivery_time" is less than 2, "mode" becomes "fast", otherwise "slow", and display "Mode: " with the result, Jinja Template: {% if delivery_time < 2 %} Mode: fast {% else %} Mode: slow {% endif %}, Blended Template: 
+Task: Create a string combining "Invoice " with "invoice_id" and " for " with "client_name", then display, Jinja Template: Invoice {{ invoice_id }} for {{ client_name }}, Blended Template: 
+Task: Build a message using "Invoice " plus "invoice_id" plus " for " plus "client_name" and show it, Jinja Template: Invoice {{ invoice_id }} for {{ client_name }}, Blended Template: 
+Task: Make "company" uppercase, then create "header_text" as the uppercase company plus " INC." and print, Jinja Template: {{ company.upper() }} INC., Blended Template: 
+Task: Convert "company" to capitals, set "header_text" to that result plus " INC.", and display header_text, Jinja Template: {{ company.upper() }} INC., Blended Template: 
+Task: If "deadline" equals "today", set "urgency" to "high", else "normal", then show "Urgency: " plus the urgency value, Jinja Template: {% if deadline == "today" %} Urgency: high {% else %} Urgency: normal {% endif %}, Blended Template: 
+Task: When "deadline" is "today", "urgency" becomes "high", otherwise "normal", and display "Urgency: " followed by urgency, Jinja Template: {% if deadline == "today" %} Urgency: high {% else %} Urgency: normal {% endif %}, Blended Template: 
+Task: Change "update notes" to title case, append " Available", and show the final string, Jinja Template: {{ "update notes".title() + " Available" }}, Blended Template: 
+Task: Transform "update notes" to proper title format, add " Available" at the end, and display, Jinja Template: {{ "update notes".title() }} Available, Blended Template: 
+Task: Generate a range starting at 1 and ending at "max_val", store it as "range_data", then print "Range generated", Jinja Template: {% set range_data = range(1, max_val + 1) %} Range generated, Blended Template: 
+Task: Create a sequence from 1 to the value in "max_val", assign it to "range_data", and show "Range generated", Jinja Template: {% set range_data = range(1, max_val + 1) %} Range generated, Blended Template: 
+Task: If "credit_score" is 700 or higher, set "status" to "approved", else "rejected", and display the status, Jinja Template: {% if credit_score >= 700 %} status: approved {% else %} status: rejected {% endif %}, Blended Template: 
+Task: When "credit_score" reaches 700 or more, "status" becomes "approved", otherwise "rejected", then show status, Jinja Template: {% if credit_score >= 700 %} approved {% else %} rejected {% endif %}, Blended Template: 
+Task: Display "User:" followed by the value contained in "user_id", Jinja Template: User: {{ user_id }}, Blended Template: 
+Task: Show the text "User:" and then append whatever is stored in "user_id", Jinja Template: User: {{ user_id }}, Blended Template: 
+Task: Set "label" to "hot" when "temperature" exceeds 30, otherwise "cold", and print the label, Jinja Template: {% set label = "hot" if temperature > 30 else "cold" %} {{ label }}, Blended Template: 
+Task: If "temperature" is greater than 30, "label" gets "hot", else it gets "cold", then display label, Jinja Template: {% if temperature > 30 %} {{ label = "hot" }} {% else %} {{ label = "cold" }} {% endif %} {{ label }}, Blended Template: 
+Task: Make "doc_title" lowercase, add ".pdf" extension, and display the complete filename, Jinja Template: {{ doc_title|lower }}.pdf, Blended Template: 
+Task: Convert "doc_title" to small letters, attach ".pdf", and show the resulting filename, Jinja Template: {{ doc_title|lower }}.pdf, Blended Template: 
+Task: Transform "emergency alert" to all uppercase letters and print, Jinja Template: {{ "emergency alert" | upper }}, Blended Template: 
+Task: Change "emergency alert" so every character is capitalized and display, Jinja Template: {{ 'emergency alert'.upper() }}, Blended Template: 
+Task: Combine "Chapter" with "chapter_number" and " - " with "chapter_title", then print the full string, Jinja Template: {{ "Chapter" + chapter_number + " - " + chapter_title }}, Blended Template: 
+Task: Build a string from "Chapter" plus "chapter_number" plus " - " plus "chapter_title" and show it, Jinja Template: {{ "Chapter" + chapter_number + " - " + chapter_title }}, Blended Template: 
+Task: Compute the mean of all values in the "scores" list and display the average, Jinja Template: {% set scores = [10, 20, 30, 40, 50] %} {% set total = sum(scores) %} {% set count = len(scores) %} {% set average = total / count %} Average score: {{ average }}, Blended Template: 
+Task: Find the average value of everything stored in the "scores" array and show the result, Jinja Template: {% set total = 0 %} {% set count = 0 %} {% for score in scores %} {% set total = total + score %} {% set count = count + 1 %} {% endfor %} {% if count > 0 %} {{ total / count }} {% else %} No scores available {% endif %}, Blended Template: 
+Task: Apply floor function to the "price" variable and print what you get, Jinja Template: {{ price | floor }}, Blended Template: 
+Task: Use the floor operation on "price" and display the floored value, Jinja Template: {{ price|floor }}, Blended Template: 
+Task: Count how many elements exist in the "orders" list and display the count, Jinja Template: {{ orders|length }}, Blended Template: 
+Task: Determine the length of the "orders" array and show the number of items, Jinja Template: {% set order_count = orders|length %} Number of items in the "orders" array: {{ order_count }}, Blended Template: 
+Task: Truncate the decimal number 9.8765 and display the truncated result, Jinja Template: {{ 9.8765 | round(0) }}, Blended Template: 
+Task: Remove the decimal portion from 9.8765 and show what remains, Jinja Template: {{ 9.8765 | floor }}, Blended Template: 
+Task: Apply truncation to "total_balance" and show the truncated value, Jinja Template: {{ total_balance|truncate(10) }}, Blended Template: 
+Task: Remove the decimal part from "total_balance" and display the integer portion, Jinja Template: {{ total_balance | int }}, Blended Template: 

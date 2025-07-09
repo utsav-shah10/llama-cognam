@@ -1,0 +1,11 @@
+{"prompt": "Is the 'Application' scope immutable and global within the template?", "completion": "Yes, the 'Application' scope is both immutable and global within the template."}
+{"prompt": "How does the rule affect the order of static text and statements in a Blended template?", "completion": "The resultant template instance retains the ordered relationship of the static text to any statements contained within that text."}
+{"prompt": "What happens if the only keyword is present in the include tag?", "completion": "If the only keyword is present in the include tag, the 'application' scope of the included template is populated only by the dictionary passed in using the with keyword."}
+{"prompt": "What if a variable is declared in the JSON schema but not referenced in the template?", "completion": "The variable is not considered an error, as it is declared in the JSON schema."}
+{"prompt": "What is the purpose of a named tag in Blended?", "completion": "A named tag in Blended begins its internal syntax with a name that identifies its purpose."}
+{"prompt": "What if a macro imports a macro that is defined in the same scope but not imported by any macro in the same scope?", "completion": "The macro from the same scope is not accessible within the macro that imports it."}
+{"prompt": "What if a data name is defined in a parent scope and then redefined in a child scope with the same name?", "completion": "Redefinition or Multiple declarations of data name is not allowed in Blended. "}
+{"prompt": "How are Pair lists added to the scope?", "completion": "Pair lists are added to the scope through transformations performed on core variable types via filters."}
+{"prompt": "What is the scope of the 'iterator' in a Blended for...else statement?", "completion": "The 'iterator' scope persists for the duration of the tag's execution and contains the named item variables and the forloop variable."}
+{"prompt": "Can a variable defined in a child scope be accessed in a parent scope?", "completion": "No, a variable defined in a child scope is not available for use within parent or ancestor scopes."}
+{"prompt": "Does all data names occupy same namespace?", "completion": "Yes, all data names occupy same namespace"}

@@ -6,6 +6,7 @@ from openpyxl import load_workbook, Workbook
 from openpyxl.styles import Font, PatternFill, Border, Side
 from openpyxl.utils.dataframe import dataframe_to_rows
 import sys
+import requests
 
 
 def parse_prompt(prompt_line):
@@ -70,7 +71,7 @@ class ExcelManager:
                 self.workbook.remove(self.workbook['Sheet'])
             print(f"Created new Excel workbook")
     
-    def add_row(self, sheet_name, task, jinja_template, output_template):
+    def add_row(self, sheet_name, task, jinja_template, output_template, lint_output):
         """Add a new row to the specified sheet."""
         # Check if sheet exists and delete it if it does
         if sheet_name in self.workbook.sheetnames:
@@ -80,7 +81,7 @@ class ExcelManager:
         # Create new sheet
         worksheet = self.workbook.create_sheet(sheet_name)
         # Add headers with formatting
-        headers = ['Task', 'Jinja Template', 'Output Template']
+        headers = ['Task', 'Jinja Template', 'Output Template', 'Lint Output']
         worksheet.append(headers)
         
         # Format headers
@@ -100,14 +101,15 @@ class ExcelManager:
             cell.border = border
         
         # Set column widths
-        worksheet.column_dimensions['A'].width = 30  # Task
-        worksheet.column_dimensions['B'].width = 40  # Jinja Template
-        worksheet.column_dimensions['C'].width = 50  # Output Template
+        worksheet.column_dimensions['A'].width = 20  # Task
+        worksheet.column_dimensions['B'].width = 30  # Jinja Template
+        worksheet.column_dimensions['C'].width = 30  # Output Template
+        worksheet.column_dimensions['D'].width = 20  # Lint Template
         
         print(f"Created new sheet: '{sheet_name}'")
         
         # Add the new row
-        worksheet.append([task, jinja_template, output_template])
+        worksheet.append([task, jinja_template, output_template, lint_output])
         
         # Format the new row
         row_num = worksheet.max_row
@@ -118,7 +120,7 @@ class ExcelManager:
             bottom=Side(style='thin')
         )
         
-        for col in range(1, 4):  # 3 columns
+        for col in range(1, 5):  # 4 columns
             cell = worksheet.cell(row=row_num, column=col)
             cell.border = border
             cell.alignment = cell.alignment.copy(wrap_text=True, vertical='top')
@@ -182,16 +184,23 @@ def generate_blended_code(
         # final_prompt = f"Instruction: As an expert in code conversion, your task is to convert the provided Jinja template to its equivalent Blended template. Additionally, you must thoroughly explain the reasoning behind the specific conversion choices, demonstrating a deep understanding of Blended's strict type checking and scoping rules. Blended is a variant of Jinja with strict type checking and scoping rules. Do not include any other text, just provide translated code and below its reason. {prompt}"
 
         # without reasoning
-        final_prompt = f"Instruction: Convert the following Jinja template to its Blended equivalent, applying the language's specific conversion rules. Blended is a variant of Jinja with strict type checking and scoping rules. Do not include any other text, just provide translated code. {prompt}"
+        final_prompt = f"""You are an expert in Blended language template generation. Write blended template for following task which is compliant with Blended rules you know.
+        Use provided jinja template as help in generating correct blended code.
+
+        Task : {task}
+        Jinja Template : {jinja_template}
+
+        DO NOT OUTPUT ANY OTHER TEXT.
+        """
 
         # Skip empty lines in the input file
-        if not prompt:
+        if not task:
             print(f"Skipping empty prompt line {i+1}.")
             continue
 
         print(f"\n--- Processing Prompt {i+1}/{len(prompts)} ---")
         print(f"Task: {task}")
-        print(f"Jinja Template: {jinja_template}")
+        # print(f"Jinja Template: {jinja_template}")
 
         # Construct the command to run mlx_lm.generate
         command = [
@@ -227,15 +236,28 @@ def generate_blended_code(
             if generated_code.endswith("<|end|>"):
                 generated_code = generated_code[:-len("<|end|>")].strip()
 
+
+            # Lint output
+            try:
+                response = requests.post(
+                    'http://10.5.0.97:8080/lint',
+                    json={'code': generated_code},
+                    timeout=5
+                )
+                lint_result = response.json().get('lint', 'Lint server error')
+            except Exception as lint_err:
+                lint_result = f"Linting error: {str(lint_err)}"
+            
+
             # Handle sheet creation/deletion logic
             if not first_prompt_processed:
                 # First prompt: this will delete existing sheet if it exists and create new one
-                excel_manager.add_row(sheet_name, task, jinja_template, generated_code)
+                excel_manager.add_row(sheet_name, task, jinja_template, generated_code, lint_result)
                 first_prompt_processed = True
             else:
                 # Subsequent prompts: add to existing sheet
                 worksheet = excel_manager.workbook[sheet_name]
-                worksheet.append([task, jinja_template, generated_code])
+                worksheet.append([task, jinja_template, generated_code, lint_result])
                 
                 # Format the new row
                 row_num = worksheet.max_row
@@ -246,7 +268,7 @@ def generate_blended_code(
                     bottom=Side(style='thin')
                 )
                 
-                for col in range(1, 4):  # 3 columns
+                for col in range(1, 5):  # 3 columns
                     cell = worksheet.cell(row=row_num, column=col)
                     cell.border = border
                     cell.alignment = cell.alignment.copy(wrap_text=True, vertical='top')
@@ -301,8 +323,8 @@ if __name__ == "__main__":
     generate_blended_code(
         input_prompts_file=input_file,
         excel_file=excel_file,
-        model_name="Qwen/Qwen2.5-Coder-3B-Instruct",
-        adapter_path="../adapters_qwen_complete"
+        model_name="../model/qwen-tuned",
+        adapter_path="../adapters_docs_new_tuned_finetune"
     )
 
     print("\n--- Script execution finished ---")

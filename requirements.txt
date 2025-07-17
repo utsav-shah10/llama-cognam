@@ -1,0 +1,8 @@
+huggingface_hub
+huggingface_hub[cli]
+mlx-lm
+pandas
+langchain
+langchain_community
+rich
+openpyxl

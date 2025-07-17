@@ -1,0 +1,101 @@
+round the number 2.71828 and render it
+Print the first three elements of array [1, 2, 3, 4, 5] 
+concatenate 'Build ' and '3.1' and print it
+concatenate array ['Hello', 'World', '!'] with spaces and render it
+Can I use expressions in a Print statement?
+set variable 'debug_mode' to 'enabled' if development is true, else 'disabled', then print 'Debug: ' + debug_mode
+set variable 'access_level' to 'admin' if user.role == 'manager' and user.active == true, else 'user', then print it
+What happens if a macro references a variable that doesn't exist in its scope?
+What if a block in Blended shares the name of a built-in function?
+Does nested blocks inherit parent scope?
+convert 'DATABASE' to lowercase and print it
+convert array ['ITEM1', 'ITEM2', 'ITEM3'] to lowercase and render joined with commas
+Can I import custom functions from external modules in Blended?
+create a macro named welcome that takes user parameter and prints Welcome back + user
+create a macro named process_items that takes items array parameter, loops through each item, converts to uppercase, and render each item
+Write a template to get the length of variable product_list and render Available products: + result
+convert the string 'hello' to uppercase and print it
+What are the potential issues of shadowing built-in function names in Blended?
+loop through variable products and render each product in uppercase
+loop through nested array variable categories.subcategories and render each subcategory with parent category name
+create a macro named nav_item that takes link parameter and creates navigation element
+Write a template to create a range from 1 to variable max_value and assign it to variable 'b'.
+Write a template to create nested ranges from 1 to 3 and for each number create range 1 to that number, store in variable 'matrix'
+create a block named sidebar and print Navigation Menu
+print a variable named 'session_id'
+What is the syntax for using the `string filter` in a Blended template?
+Is there any other way to define blocks other than using block tag?
+How does the 'notIn' behave with objects?
+create a macro named build_table that takes headers and rows parameters and creates HTML table
+List 7 built-in functions in Blended
+What happens if a child block inside a parent tag contains undefined variables?
+What if I want to multiply a number with a variable in Blended?
+set variable 'permission' to 'allowed' if user_level >= 5, else 'restricted', then render it
+create a macro named apply_tax that takes base_price and tax_rate parameters, set tax_amount to base_price * tax_rate, return base_price + tax_amount
+create a macro named calculate_shipping that takes items array parameter, calculate total weight, set shipping to 0 if weight < 5 else weight * 2, return shipping
+create a block named footer and print variable copyright_text joined with space
+loop through orders and set shipping_cost to 0 if order.total > 100 else 5.99, render order.id + : $+ shipping_cost
+Write a template to apply ceil function to variable width and render it
+Write a template to apply floor function to each number in array variable measurements and store results in variable 'floored_measurements'
+What happens when the integer is passed to the `string filter`?
+What is the purpose of the join function in Blended?
+create a macro named show_warning that takes alert parameter and prints alert in yellow with WARNING:
+Can I define a variable named 'floor' in my blended program?
+Render a boolean value 'false'
+Can I use the keyword 'macro' as a variable name in Blended?
+set variable 'status' to 'active' and render it after converting to lower case
+What are the performance implications of using built-in functions in Blended?
+convert 'SYSTEM READY' to title case, then set 'system_msg' to result, then print it
+convert 'database manager' to title case, then set 'job_title' to result, then render it
+If a parent template defines a block that is not used in any child, how is it handled?
+Can the `in` operator be used with objects?
+create a macro named format_price that takes value and currency parameters, set prefix to $ if currency is USD else £, return prefix + value
+set variable 'greeting' to 'Good evening' and print it
+Write a template to create a range from 10 to variable start_num and assign it to variable 'b'.
+Are variables assigned in blocks accessible in parent template?
+Can Render statements be used to output string expressions?
+Can I use the word 'render' as a variable?
+Is lower filter of Jinja available as a built-in function in Blended?
+create a macro named form_input that takes label and type parameters and creates input field
+convert variable 'app_name' to title case, then set 'window_title' to result + ' - Dashboard', then print it
+create a block named header with content Application Title
+Write a template to create a range from 1 to variable 'item_count' and assign it to variable 'b'.
+concatenate 'Welcome ' and variable 'username', then convert the result to lowercase and render it
+How does variable resolution work in nested Blended templates?
+create a macro named link_menu that takes links parameter and displays links with ->
+Is the round function case-sensitive?
+Write a template to apply ceil function to 7.2 and store in variable ceiling_value then render it
+Write a template to calculate the sum of variable scores given in array 'arr' and store in total_score then print it
+Write a template to find maximum value in nested array variable grade_matrix and store in max_grade then render it
+What happens if a macro is defined in multiple templates?
+Can a macro be defined inside a loop within a macro tag?
+Write a template to get the length of array variable 'menu_options' and render it
+What happens if I try to access an index that doesn't exist in an array?
+loop through array variable usernames and render each username in uppercase
+What is the delimiter used for expressions?
+Can a macro be defined in both the template and imported from another file?
+create a block named alert and render variable alert_message
+create a macro named format_name that takes name parameter and returns name in uppercase
+create a macro named label that takes text and style parameters and creates styled label
+How do you use the string filter in Blended?
+print the string 'Complete!'
+What happens if a macro is defined inside if statement?
+What is the syntax of 'ifblock' in blended?
+What is the purpose of 'ifblock' in blended?
+Can variables assigned in macros be accessed within their calling scope?
+If a template imports a macro, can the macro access the template's global variables?
+How to format dates in blended?
+create a block named profile and render Profile: + variable user_profile
+create a block named spinner and print Loading... if variable is_processing is true
+Print object {name: 'John', age: 30}
+loop through items and set category_type to premium if item.price > 50 else standard, set display_class to highlight if category_type is premium else normal, print item.title + : + display_class
+loop through nested object variable departments.employees and for each employee set bonus to salary * 0.1 if performance > 8 else 0, render employee.name + : $+ bonus
+What if a variable is defined in a macro and then a template tries to access it?
+What happens if I try to use the `-` operator with strings in Blended?
+concatenate variable 'city' and 'country' with comma, then convert to uppercase and render it
+create a block named actions and print Create | Update | Delete
+What happens if a macro parameter has the same name as a global variable?
+loop through variable documents and display each document with extension .pdf
+create a macro named show_status that takes status parameter and shows in lowercase
+Write a template to create a range from 0 to 5 and store in variable 'indices', then print the length of indices
+I heard that Blended supports 5 different scope types. Is this accurate?

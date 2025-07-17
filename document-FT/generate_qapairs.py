@@ -1,13 +1,32 @@
+# This file is used to generate question-answer pairs related to provided rule. 
+# Created file is manually checked and cleaned to prepare the training data.
+
+
 import subprocess
 import json5
 import csv
 import os
 
 MODEL_NAME = "Qwen/Qwen2.5-Coder-3B-Instruct"
-RULES_FILE = "extra_rules.txt"
+RULES_FILE = "rules.txt"
 OUTPUT_FILE = f"blended_dataset_{MODEL_NAME.split('/')[0]}_temp_2.csv"
 
 def extract_rules_from_file(filename):
+
+    """
+        Role of this function is to extract the rules out of text file and append it to array. 
+        In rules file, all rules are need to be separated by a empty line
+
+        Rule 1
+
+        Rule 2
+
+        Rule 3
+        ...
+
+    """
+
+
     with open(filename, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
@@ -27,36 +46,32 @@ def extract_rules_from_file(filename):
 
     return rules
 
-def estimate_num_questions(rule) : 
 
-    word_count = len(rule.split())
-    if word_count < 20:
-        return 3
-    elif word_count < 40:
-        return 5
-    else:
-        return 7
 def generate_qa(rule):
-    # num_questions = estimate_num_questions(rule)
-    prompt = f"""\
-You're helping to teach a modified programming language (Blended), which is based on Jinja/Twig but has strict scoping rules. 
 
-Rule: "In Blended, {rule}"
+    """
+        This function actually generates QnA pairs using local LLM.
+    """
 
-Generate at most 5 most important unique questions someone might ask about this rule, and provide clear, accurate answers strictly based on the rule only. If usage of anything provided in rule, generate similar useful examples given in rule as examples.
+    prompt = f"""
+        You're helping to teach a modified programming language (Blended), which is based on Jinja/Twig but has strict scoping rules. 
+
+        Rule: "In Blended, {rule}"
+
+        Generate at most 5 most important unique questions someone might ask about this rule, and provide clear, accurate answers strictly based on the rule only. If usage of anything provided in rule, generate similar useful examples given in rule as examples.
 
 
-DO NOT INCLUDE ANY OTHER TEXT. 
+        DO NOT INCLUDE ANY OTHER TEXT. 
 
-Respond in JSON format as:
-[
-  {{
-    "question": "...",
-    "answer": "..."
-  }},
-  ...
-]
-"""
+        Respond in JSON format as:
+        [
+        {{
+            "question": "...",
+            "answer": "..."
+        }},
+        ...
+        ]
+        """
     try:
         result = subprocess.run(
             [
@@ -79,7 +94,6 @@ Respond in JSON format as:
         print(f"⚠️ Error generating for rule: {rule}\n{e}")
         return []
 
-
 def main():
     if not os.path.exists(RULES_FILE):
         print(f"❌ {RULES_FILE} not found. Add your rules (1 per line).")
@@ -99,6 +113,9 @@ def main():
                 "Question": pair["question"],
                 "Answer": pair["answer"]
             })
+    
+
+    # finally all qna pairs are written to mentioned csv file.
 
     with open(OUTPUT_FILE, "w", newline='', encoding="utf-8") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=["Rule", "Question", "Answer"])

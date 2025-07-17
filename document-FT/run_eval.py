@@ -1,3 +1,5 @@
+# This file is used to run the fine tuned model on given tests. It is similar to generate_code_from_jinja.py file only. 
+
 import subprocess
 import os
 import sys
@@ -7,11 +9,16 @@ from openpyxl.styles import Font, PatternFill, Border, Side
 from pathlib import Path
 
 MODEL_NAME = "Qwen/Qwen2.5-Coder-3B-Instruct"
-ADAPTER_PATH = "../adapters_docs_contrast_finetune"
-RESULTS_FILE = "qa_results.xlsx"
+ADAPTER_PATH = "../adapters_docs_code_finetune"
+RESULTS_FILE = "../results_excel/qa_results.xlsx"
 
 
 def generate_answer(question):
+
+    """
+        This function is used to generate the answer for a given question.
+    """
+
     prompt = f"""You are an expert in Blended templating language. Answer the question in precise format.
     
     Question: {question}
@@ -44,6 +51,7 @@ def generate_answer(question):
         return f"⚠️ Error: {e}"
 
 
+# this function writes the output to excel file in specified sheet name. Directly pasted from prev file.
 def write_to_excel(sheet_name, qas):
     if Path(RESULTS_FILE).exists():
         wb = load_workbook(RESULTS_FILE)
@@ -82,6 +90,10 @@ def write_to_excel(sheet_name, qas):
     wb.save(RESULTS_FILE)
 
 
+# Chat mode is also enabled in this to do continuous QnA like GPT. 
+# Can be accessed using --chat option while running the file 
+# All chat convo (que and ans) are stored into excel file to review afterwards if needed.
+
 def chat_mode():
     print("🧠 Blended Chat (type 'exit' to quit)")
     session = []
@@ -107,6 +119,8 @@ def chat_mode():
         write_to_excel(sheet_name, session)
         print(f"✅ Saved chat session to '{RESULTS_FILE}' in sheet '{sheet_name}'")
 
+
+# File mode is directly giving the text file containing tasks as input and results will be saved in excel file. 
 
 def file_mode(input_file):
     if not os.path.exists(input_file):

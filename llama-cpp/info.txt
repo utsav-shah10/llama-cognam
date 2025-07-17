@@ -1,0 +1,1 @@
+This folder contains working with Llama-cpp library. This is based on prompt engineering tasks given in third-fourth weeks. Langchain was used to incorporate memory into model. 

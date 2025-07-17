@@ -1,2 +1,0 @@
-rule,question,answer
-The title filter of Jinja is a built-in blended function. It takes a string as an argument and converts the provided string to title.,What is the purpose of the title function in Blended?,"The title function in Blended is a built-in function that converts a given string to title case, where the first letter of each word is capitalized and the rest are in lowercase."

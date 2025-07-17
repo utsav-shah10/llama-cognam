@@ -1,0 +1,278 @@
+rule,question,answer
+,set variable 'count' to 10 and render it,"{% set count = 10 %}
+{{ count }}"
+,convert variable 'id' to string and store in 'user_id',{% set user_id = id | string  %}
+,convert variable 'score' to string and store in 'result',{% set result = score | string %}
+,truncate variable 'salary' and print it,"{% print truncate(salary, 2) %}"
+,join 'Thank' and 'You' with a space and print it,{% set temp = 'Thank' ~  'You' %}{% print temp %}
+,convert the string 'world' to uppercase and print it,{% print  upper('world') %}
+,convert the string 'world' to uppercase and print it,{% print  upper('world') %}
+,concatenate 'Mr.' and variable 'surname' and print it,{% set temp = 'Mr. ' ~  surname %}{% print temp %}
+,print the string 'Loading...',{% print 'Loading...' %}
+,concatenate 'Version ' and '2.0' and print it,{% set temp = 'Version' ~  '2.0' %}{% print temp %}
+,truncate the number 3.14159 and render it,"{{ truncate(3.14159, 2) }}"
+,truncate the number 3.14159 and print it,"{% print truncate(3.14159, 2) %}"
+,loop through numbers 1 to 5 and display Count: + number for odd numbers only,"{% for i in range(1 , 6) %}{% if i % 2 == 1 %}{{'Count: ' ~  i|string }}{% endif %}{% endfor %}"
+,"set variable 'level' to 1 if experience < 5, else 2, then convert to string and print 'Level: ' + result",{% set level = 0 %} {% if experience < 5 %} {% set level = 1 %} {% else %} {% set level = 2 %} {% endif %} {% print 'Level: ' ~ level | string %}
+,join 'Good' and 'Bye' and render the result,"{{ join('Good', 'Bye') }}"
+,Write a template to create a range from 0 to variable 'max_count' and assign it to variable 'a'.,"{% set a = range(0, max_count) %}"
+,Write a template to create a range from 0 to variable limit and assign it to variable 'a'.,"{% set a = range(0, limit) %}"
+,Write a template to create a range from 2 to 12 and assign it to variable 'a'.,"{% set a = range(2, 13) %}"
+,Write a template to create a range from 5 to variable end_num and assign it to variable 'a'.,"{% set a = range(5, end_num) %}"
+,set variable 'message' to 'Good morning' and print it,"{% set message = 'Good morning' %}
+{% print message %}"
+,set variable 'status' to 'active' and print it,"{% set status = 'active' %}
+{% print status %}"
+,concatenate variable 'prefix' and 'suffix' and render it,{{ prefix ~ suffix }}
+,set variable 'level' to 1 and render it,{% set level = 1 %} {{level}}
+,"join variable 'city' and 'country', convert it to upper case and print it",{% print  upper(city ~ country) %}
+,set variable 'priority' to 'high' and render it after converting to upper case,"{% set priority = 'high' %}
+{{ upper(priority) }}"
+,"concatenate 'Hello ' and variable 'name', then convert the result to title case and render it",{{ title('Hello ' ~ name)  }}
+,"convert 'CUSTOMER SUPPORT' to title case, then set variable 'department' to obtained result, then render with ' Team'",{% set department = title('CUSTOMER SUPPORT') %} {{ department ~ ' Team' }}
+,"convert 'user profile settings' to title case, then set 'page_title' to result, then print it",{% set page_title = title('user profile settings') %} {% print page_title %}
+,"set variable 'size' to 'large' if quantity > 10, else 'small', then convert to uppercase and render it",{% set size = '' %} {% if quantity > 10 %} {% set size = 'large' %} {% else %} {% set size = 'small' %} {% endif %} {{ upper(size) }}
+,"concatenate 'Order #' and variable 'order_id', then set 'order_label' to result, then print it",{% set order_label = 'Order #' ~ order_id %} {% print order_label %}
+,"convert 'BACKUP COMPLETED' to title case, then set 'status_msg' to result, then print it","{% set status_msg = title('BACKUP COMPLETED') %}
+{% print status_msg %}"
+,"concatenate variable 'protocol' and '://' and variable 'hostname', then print 'URL: ' + result","{% set temp = 'URL: ' ~ protocol ~ '://' ~ hostname %}
+{% print temp %}"
+,"convert variable 'error_type' to uppercase, then set 'error_label' to 'ERROR: ' + result, then print it",{% set error_label = 'ERROR: ' ~ upper(error_type) %} {% print error_label %}
+,"convert 'system administrator' to title case, then set 'role_name' to result, then render it",{% set role_name = title('system administrator') %} {{ role_name }}
+,"concatenate 'Build ' and variable 'build_number', then convert to uppercase and render it",{{ upper('Build ' ~ build_number) }}
+,"convert variable 'environment' to lowercase, then set variable 'env_name' to result + '_env', then print it",{% set env_name = lower(environment) ~ '_env' %} {% print env_name %}
+,"concatenate variable 'user_type' and '_user', then convert to uppercase and render 'Type: ' + result",{% set temp =  'Type: ' ~ upper(user_type ~ '_user') %}{% print temp %}
+,"convert 'CONFIGURATION LOADED' to title case, then set 'config_status' to result, then render it",{% set config_status = title('CONFIGURATION LOADED') %} {{ config_status }}
+,"concatenate 'Session ' and variable 'session_id', then convert to lowercase and render it",{{ lower('Session ' ~ session_id) }}
+,"convert variable 'module_name' to uppercase, then set variable 'module_label' to 'MODULE: ' + result, then print it",{% set module_label = 'MODULE: ' ~ upper(module_name) %} {% print module_label %}
+,"concatenate variable 'hostname' and ':' and variable 'port', then set 'endpoint' to result, then render it","{% set endpoint = hostname ~ ':' ~ port %}
+{{endpoint}}"
+,print the string 'Hello',{% print 'Hello' %}
+,print the number 42,{% print 42%}
+,render the string 'Welcome',{{ 'Welcome' }}
+,render the number 100,{{100}}
+,print a variable named 'username',{% print username %}
+,render a variable named 'price',{{price}}
+,convert the string 'HELLO' to lowercase and print it,{% print lower('HELLO') %}
+,convert the string 'HELLO' to lowercase and render it,{{ lower('HELLO') }}
+,convert a variable 'name' to title case and render it,{{ title(name) }}
+,convert the number 25 to string and store in variable 'age_str',{% set age_str = 25 | string %}
+,concatenate 'Hello' and 'World' and render the result,{{ 'Hello' ~ 'World' }}
+,concatenate 'Hello' and 'World' and print the result,{% set str = 'Hello' ~ 'World' %} {% print str %}
+,join variable 'first_name' and 'last_name' with a space and print it,{% print first_name ~ ' ' ~ last_name %}
+,join variable 'first_name' and 'last_name' with a space and renderit,{{ first_name ~ ' ' ~ last_name }}
+,print the string 'Error: Not found',{% print 'Error: Not found' %}
+,render the number 0,{{ 0 }}
+,convert 'Customer Service' to lowercase and print it,{% print lower('Customer Service') %}
+,convert variable 'title' to uppercase and render it,Error : Title is a reserved keyword in Blended. It cannot be used as variable nam
+,convert 'home page' to title case and render it,{{ title('home page') }}
+,render the number -5,{{ -5 }}
+,convert 'DATABASE' to lowercase and print it,{% print lower('DATABASE') %}
+,convert 'api endpoint' to title case and render it,{{ title('api endpoint') }}
+,convert the number 0 to string and store in 'zero_str',{% set zero_str = '0' %}
+,convert the number 0 to string and store in 'zero_str',{% set zero_str = 0 | string %}
+,convert the number 0 to string and store in 'zero_str',{% set zero_str = '0' %}
+,"Print list [1,2,3]","{% set temp = [1, 2, 3] %} {% print temp | string %}"
+,Render a boolean value 'true',{% set temp = true %} {% print temp | string %}
+,print the string 'Success!',{% print  'Success!' %}
+,render the number 3.14,{{ 3.14 }}
+,convert 'ADMIN' to lowercase and print it,{% print lower('ADMIN') %}
+,convert variable 'department' to uppercase and render it,{{ upper(department) }}
+,convert 'user profile' to title case and print it,{% print title('user profile') %}
+,"convert variable 'country' to upper case, join with variable 'city', and print it.",{% set temp = upper(country) ~ city %} {% print  temp %}
+,"Store the number 1000 in a variable 'num', then render it after joining it with 12","{% set num = 1000 %}
+{{ num | string ~ '12' }}"
+,convert 'SYSTEM' to lowercase and print it,{% print lower('SYSTEM') %}
+,convert 'contact us' to title case and render it,{{ title('contact us')}}
+,"set variable 'result' to 'pass' if score >= 60, else 'fail', then print it",{% set result = '' %} {% if score >= 60 %} {% set result = 'pass' %} {% else %} {% set result = 'fail' %} {% endif %} {% print result %}
+,"set variable 'greeting' to 'Good morning' if time < 12, else 'Good evening', then print it",{% set greeting = '' %} {% if time < 12 %} {% set greeting = 'Good morning' %} {% else %} {% set greeting = 'Good evening' %} {% endif %} {{greeting}}
+,"set variable 'access' to 'granted' if role == 'admin', else 'denied', then render it",{% set access = '' %} {% if role == 'admin' %} {% set access = 'granted' %} {% else %} {% set access = 'denied' %} {% endif %} {{access}}
+,"convert variable 'email' to lowercase, then concatenate with '@domain.com' and print it",{% set temp = lower(email)  ~ '@domain.com' %} {% print temp %}
+,"convert 'PRODUCT NAME' to title case, then concatenate with ' - Available' and render it",{% set temp = title('PRODUCT NAME')  ~ '- Available' %} {% print temp %}
+,"set variable 'status' to 'online' if active is true, else 'offline', then convert to uppercase and print it",{% set status = '' %} {% if active%} {% set status = 'online'%} {% else %} {% set status = 'offline' %} {% endif %} {% print upper(status) %}
+,"convert variable 'title' to lowercase, then set 'formatted_title' to result + ' - draft', then print it",Error : Title is a reserved keyword in Blended. It cannot be used as variable name
+,"set variable 'message' to 'Welcome back' if returning_user is true, else 'Welcome', then print result + '!'",{% set message = '' %} {% if returning_user %} {% set message = 'Welcome back' %} {% else %} {% set message = 'Welcome' %} {% endif %} {% print message ~ '!' %}
+,"set variable 'priority' to 'high' if urgent is true, else 'normal', then convert to uppercase and print it",{% set priority = '' %} {% if urgent %} {% set priority = 'high' %} {% else %} {% set priority = 'normal' %} {% endif %} {% print upper(priority) %}
+,"concatenate variable 'first_name' and 'last_name' with space, then convert to title case and render it",{{ title(first_name ~ ' ' ~ last_name) }}
+,"set variable 'mode' to 'debug' if development is true, else 'production', then print 'Mode: ' + mode",{% set mode = '' %} {% if development %} {% set mode = 'debug' %} {% else %} {% set mode = 'production' %} {% endif %} {% print 'Mode: ' ~ mode %}
+,"convert variable 'category' to uppercase, then set 'section' to result + ' ITEMS', then print it",{% set section = upper(category) ~ ' ITEMS' %} {% print section %}
+,"set variable 'theme' to 'dark' if preference == 'night', else 'light', then render 'Theme: ' + theme",{% set theme = '' %} {% if preference == 'night' %} {% set theme = 'dark' %} {% else %} {% set theme = 'light' %} {% endif %} {{ 'Theme: ' ~ theme }}
+,"convert variable 'server_name' to lowercase, then concatenate with '.local' and print 'Server: ' + result",{% set temp = 'Server: ' ~ lower(server_name) ~ '.local' %}{% print temp %}
+,"set variable 'notification' to 'enabled' if alerts is true, else 'disabled', then print 'Alerts: ' + notification",{% set notification = '' %} {% if alerts %} {% set notification = 'enabled' %} {% else %} {% set notification = 'disabled' %} {% endif %} {% set temp = 'Alerts: ' ~ notification %}{% print temp %}
+,"set variable 'connection' to 'secure' if ssl is true, else 'insecure', then render 'Connection: ' + connection",{% set connection = '' %} {% if ssl %} {% set connection = 'secure' %} {% else %} {% set connection = 'insecure' %} {% endif %} {{ 'Connection: ' ~ connection }}
+,"set variable 'visibility' to 'public' if shared is true, else 'private', then render 'Status: ' + visibility",{% set visibility = '' %} {% if shared %} {% set visibility = 'public' %} {% else %} {% set visibility = 'private' %} {% endif %} {{ 'Status: ' ~ visibility }}
+,"set variable 'format' to 'json' if api_version > 1, else 'xml', then print 'Format: ' + format",{% set format = '' %} {% if api_version > 1 %} {% set format = 'json' %} {% else %} {% set format = 'xml' %} {% endif %} {% set temp = 'Format: ' ~ format %}{% print temp %}
+,"set variable 'compression' to 'enabled' if file_size > 1000, else 'disabled', then render 'Compression: ' + compression",{% set compression = '' %} {% if file_size > 1000 %} {% set compression = 'enabled' %} {% else %} {% set compression = 'disabled' %} {% endif %} {{ 'Compression: ' ~ compression }}
+,"set variable 'encryption' to 'on' if secure_mode is true, else 'off', then print 'Encryption: ' + encryption",{% set encryption = '' %} {% if secure_mode %} {% set encryption = 'on' %} {% else %} {% set encryption = 'off' %} {% endif %} (% set temp = 'Encryption: ' ~ encryption %} {% print temp %}
+,"convert variable 'service_name' to title case, then set 'display_name' to result + ' Service', then print it",{% set display_name = title(service_name) ~ ' Service' %} {% print display_name %}
+,"convert variable 'service_name' to title case, then set 'display_name' to result + ' Service', then print it",{% set display_name = title(service_name) ~ ' Service' %} {% print display_name %}
+,"set variable 'cache' to 'enabled' if performance_mode is true, else 'disabled', then render 'Cache: ' + cache",{% set cache = '' %} {% if performance_mode %} {% set cache = 'enabled' %} {% else %} {% set cache = 'disabled' %} {% endif %} {{ 'Cache: ' ~ cache }}
+,"set variable 'logging' to 'verbose' if debug_mode is true, else 'minimal', then print 'Logging: ' + logging",{% set logging = '' %} {% if debug_mode %} {% set logging = 'verbose' %} {% else %} {% set logging = 'minimal' %} {% endif %} {% set temp = 'Logging: ' ~ logging %} {% print temp %}
+,"set variable 'backup' to 'automatic' if scheduled is true, else 'manual', then render 'Backup: ' + backup",{% set backup = '' %} {% if scheduled %} {% set backup = 'automatic' %} {% else %} {% set backup = 'manual' %} {% endif %} {{ 'Backup: ' ~ backup }}
+,"convert 'network connection' to title case, then concatenate with ' Status' and render the result",{{ title('network connection') ~ ' Status' }}
+,"set variable 'authentication' to 'required' if security_level > 2, else 'optional', then print 'Auth: ' + authentication",{% set authentication = '' %} {% if security_level > 2 %} {% set authentication = 'required' %} {% else %} {% set authentication = 'optional' %} {% endif %} {% set temp = 'Auth: ' ~ authentication %} {% print temp %}
+,"convert variable 'task_name' to title case, then set 'task_label' to result + ' Task', then print it","{% set task_label= title(task_name) ~ ' Task'%}
+{% print task_label %}"
+,"set variable 'monitoring' to 'active' if health_check is true, else 'inactive', then render 'Monitoring: ' + monitoring",{% set monitoring = '' %} {% if health_check %} {% set monitoring = 'active' %} {% else %} {% set monitoring = 'inactive' %} {% endif %} {% set temp = 'Monitoring: ' ~ monitoring %} {% print temp %}
+,"convert 'PROCESS COMPLETED' to title case, then set 'completion_msg' to result, then render it","{% set completion_msg = title(PROCESS_COMPLETED)  %}
+{{ completion_msg }}"
+,"set variable 'synchronization' to 'enabled' if sync_mode is true, else 'disabled', then print 'Sync: ' + synchronization",{% set synchronization = '' %} {% if sync_mode %} {% set synchronization = 'enabled' %} {% else %} {% set synchronization = 'disabled' %} {% endif %} {% set temp = 'Sync: ' ~ synchronization %} {% print temp %}
+,"concatenate 'Report ' and variable 'report_id' and ' - ' and variable 'report_date', then render the result",{{ 'Report ' ~ report_id ~ ' - ' ~ report_date }}
+,Write a template to apply floor function to the number 3.7 and print the result,{% print floor(3.7) %}
+,Write a template to apply floor function to variable 'temperature' and print 'Temperature: ' + result,"{% set temp =  'Temperature: ' ~ floor(temperature) | string %}
+{% print temp %}"
+,Write a template to get the length of array variable 'items' and print the result,"{% set temp =  length(items) %}
+{% print temp %}"
+,"Write a template to get the length of variable 'shopping_cart' and store in 'item_count', then print 'Items: ' + item_count","{% set item_count =  length(shopping_cart) %}
+{% set temp =  'Items: ' ~ item_count | string %}
+{% print temp %}"
+,Write a template to get the length of variable 'config_options' and render'Total options: ' + result,"{% set temp =  'Total options: ' ~ length(config_options) | string%}
+{{temp}}"
+,Write a template to calculate the mean of array variable 'scores' and print the result,{% print mean(scores) %}
+,"Write a template to calculate the mean of array variable 'ratings' and store in 'average_rating', then print 'Average: ' + average_rating","{% set average_rating=  mean(rating) %}
+{% set temp =  'Average: ' ~ average_rating | string %}
+{% print temp %}"
+,Write a template to calculate the mean of variable 'test_scores' and print 'Mean score: ' + result,"{% set temp =  'Mean score: ' ~ mean(test_scores) | string%}
+{{temp}}"
+,"Write a template to create a range from 1 to 10 and store in variable 'numbers', then print the length of numbers","{% set numbers = range(1, 11) %}
+{% print length(numbers) %}"
+,"Write a template to create a range from 5 to 20 and store in variable 'range_values', then print 'Range: ' + length of range_values","{% set range_values =  range(5, 21) %}
+{% set temp =  'Range: ' ~ length(range_values)| string %}
+{% print temp %}"
+,Write a template to apply floor function to the number 8.9 and print the result,{% print floor(8.9) %}
+,Write a template to apply floor function to variable height and render it,{{ floor(height) }}
+,Write a template to apply floor function to 12.75 and store in variable rounded_height then print it,{% set rounded_height = floor (12.75)%}{% print rounded_height %}
+,Write a template to get the length of array variable products and print the result,{% print length(products) %}
+,Write a template to get the length of object variable settings and render it,{{ length(settings) }}
+,Write a template to get the length of variable menu_items and render Total items: + result,{% set temp = length(menu_items)  %}Total items: {{ temp }}
+,Write a template to calculate the mean of array variable grades and print the result,{% print mean(grades) %}
+,Write a template to calculate the mean of variable prices and render it,{{ mean(prices) }}
+,Write a template to calculate the mean of variable weights and print Mean weight: + result,{% set temp = mean(weights) %}Mean weight: {{ temp }}
+,Write a template to create a range from variable min to variable max and store in numbers then print Range created,"{% set numbers = range(min, max) %}Range created"
+,Write a template to create a range from 3 to 8 and store in variable values then print Range: + length of values,"{% set values = range(3, 9) %} Range: {{ length(values) }}"
+,Write a template to apply floor function to variable distance and store in rounded_distance then render it,{% set rounded_distance = floor(distance) %}{{ rounded_distance }}
+,Write a template to calculate the mean of variable scores and store in avg_score then print Score: + avg_score,{% set avg_score = mean(scores) %}Score: {{ avg_score }}
+,Write a template to apply floor function to 7.8 and render it,{{ floor(7.8)}}
+,Write a template to get the length of array variable categories and store in cat_count then render it,{% set cat_count = length(categories)%}{{ cat_count }}
+,Write a template to calculate the mean of array variable values and print the result,{% print mean(values) %}
+,Write a template to create a range from variable start_num to 20 and store in range_data then print Created range,"{% set range_data = range(start_num, 21) %}{% print 'Created range' %}"
+,Write a template to calculate the mean of variable ratings and store in mean_rating then print it,{% set mean_rating =  mean(ratings) %}{% print mean_rating %}
+,Write a template to apply floor function to 9.3 and store in variable floored_value then render it,{% set floored_value =  floor(9.3) %}{{ floored_value }}
+,Write a template to get the length of object variable config and print the result,{% print length(config) %}
+,Write a template to calculate the mean of array variable times and render Average time: + result,{% set temp = mean(times) %}Average time: {{ temp }}
+,loop through numbers 1 to 5 and print each number,"{% for i in range(1 , 6) %}{% print i %}{% endfor %}"
+,loop through variable items and render each item,{% for item in items %}{{ item }}{% endfor %}
+,loop through array variable names and print 'Hello' + each name,{% for name in names %}{% print 'Hello ' ~ name %} {% endfor %}
+,loop through numbers 1 to 3 and render 'Item' + number,"{% for i in range(1 , 4) %}Item {{ i }}{% endfor %}"
+,loop through variable colors and render each color with index,{% for color in colors %} {{ loop.index }} {{ color }}{% endfor %}
+,loop through variable colors and print each color with index,{% for color in colors %} {% print (loop.index|string ~  color) %}{% endfor %}
+,loop through array variable scores and print each score truncated,"{% for score in scores %}{% print truncate(score, 0)  %}{% endfor %}"
+,loop through numbers 10 to 15 and render 'Number' + each number,"{% for i in range(10 , 16) %}{{'Number ' ~  i |string }}{% endfor %}"
+,loop through variable categories and render each category in title case,{% for category in categories %}{{ title(category)  }}{% endfor %}
+,loop through variable users and print 'User: ' + each user,{% for user in users %}{% print ('User: ' ~ user) %}{% endfor %}
+,"loop through numbers 2, 4, 6 and render each number squared","{% for i in [2, 4, 6] %}{{ i * i }}{% endfor %}"
+,loop through variable files and display each filename with extension .txt,{% for file in files %}{{ file }}.txt{% endfor %}
+,loop through variable files and display each filename with extension .txt,{% for file in files %}{% print (file ~'.txt') %}{% endfor %}
+,loop through array variable temperatures and render each with °C,{% for temp in temperatures %}{{ temp ~ '°C' }}{% endfor %}
+,loop through numbers 1 to 3 and print Step + number + complete,"{% for i in range(1,4) %}{% print 'Step ' ~  i|string ~ ' complete' %}{% endfor %}"
+,loop through variable tags and render each tag in uppercase with #,{% for tag in tags %}#{{ upper(tag) }}{% endfor %}
+,loop through variable orders and render 'Order' + order + 'processed',{% for order in orders %}{{ 'Order ' ~  order  ~ ' processed' }}{% endfor %}
+,loop through numbers 5 to 8 and display each number with index,"{% for i in range(5 ,9) %}{{ loop.index }}: {{ i }}{% endfor %}"
+,loop through variable messages and print each message in lowercase,{% for message in messages %}{% print lower(message) %}{% endfor %}
+,loop through array variable prices and print each price with $,{% for price in prices %} {% print '$' ~  price|string %}{% endfor %}
+,loop through numbers 1 to 4 and print Level + number if number > 2,"{% for i in range(1, 5) %}{% if i > 2 %}{% print 'Level ' ~  i|string %}{% endif %}{% endfor %}"
+,loop through variable statuses and render each status if it equals active,{% for status in statuses %}{% if status == active %}{{ status }}{% endif %}{% endfor %}
+,loop through variable words and print each word in title case with index,{% for word in words %}{% print loop.index|string ~ '. '  ~ title(word) %}{% endfor %}
+,loop through variable values and print each value if it's greater than 10,{% for value in values %}{% if value > 10 %}{% print value %}{% endif %}{% endfor %}
+,loop through array variable emails and render each email in lowercase,{% for email in emails %}{{ lower(email) }}{% endfor %}
+,loop through variable tasks and print TODO: + each task,{% for task in tasks %}{% print 'TODO: ' ~ task %}{% endfor %}
+,create a block named header and print Welcome to our site,{% block header %}{% print 'Welcome to our site' %}{% endblock %}
+,create a block named title with content Home Page,{% block title %}{{ 'Home Page' }}{% endblock %}
+,create a block named content and render variable page_content,{% block content %}{{ page_content }}{% endblock %}
+,create a block named footer and print Copyright 2024,{% block footer %}{% print 'Copyright 2024' %}{% endblock %}
+,create a block named navigation with links Home | About | Contact,{% block navigation %}Home | About | Contact{% endblock %}
+,create a block named sidebar and render variable sidebar_content,{% block sidebar %}{{ sidebar_content }}{% endblock %}
+,create a block named main and print Main content area,{% block main %}{% print 'Main content area' %}{% endblock %}
+,create a block named meta and print variable meta_tags,{% block meta %}{% print meta_tags %}{% endblock %}
+,create a block named scripts and print <script src='app.js'></script>,{% block scripts %}{% print '<script src='app.js'></script>' %}{% endblock %}
+,create a block named styles and print variable custom_css,{% block styles %}{% print custom_css %}{% endblock %}
+,create a block named banner and print Special Offer Today!,{% block banner %}{% print 'Special Offer Today!' %}{% endblock %}
+,create a block named breadcrumb and render variable breadcrumb_path,{% block breadcrumb %}{{ breadcrumb_path }}{% endblock %}
+,create a block named alerts and print variable alert_message if it exists,{% block alerts %}{% if alert_message %}{{ alert_message }}{% endif %}{% endblock %}
+,create a block named search and print <input type='search' placeholder='Search...'>,{% block search %}{% print '<input type='search' placeholder='Search...'>' %}{% endblock %}
+,create a block named user_info and render Welcome + variable username,{% block user_info %}{% print 'Welcome ' ~ username %}{% endblock %}
+,create a block named menu and print variable menu_items joined with |,{% block menu %}{% print menu_items ~ '|' %}{% endblock %}
+,create a block named pagination and render variable page_links,{% block pagination %}{{ page_links }}{% endblock %}
+,create a block named status_bar and print Status: + variable current_status,{% block status_bar %}{% print 'Status: ' ~ current_status %}{% endblock %}
+,create a block named toolbar and print Save | Edit | Delete,{% block toolbar %}{% print 'Save | Edit | Delete' %}{% endblock %}
+,create a block named loading and print Please wait... if variable is_loading is true,{% block loading %}{% if is_loading %}{% print 'Please wait...' %}{% endif %}{% endblock %}
+,create a block named error and render variable error_message in uppercase,{% block error %}{{ upper(error_message) }}{% endblock %}
+,create a block named success and print Operation completed successfully,{% block success %}{% print 'Operation completed successfully' %}{% endblock %}
+,create a block named form and render variable form_fields,{% block form %}{{ form_fields }}{% endblock %}
+,create a block named table_header and print Name | Email | Status,{% block table_header %}{% print 'Name | Email | Status' %}{% endblock %}
+,create a block named modal and render variable modal_content,{% block modal %}{{ modal_content }}{% endblock %}
+,create a block named widget and print variable widget_title + : + variable widget_data,{% block widget %}{{ widget_title ~ ': ' ~ widget_data }}{% endblock %}
+,create a block named summary and render variable summary_text in title case,{% block summary %}{{ title(summary_text) }}{% endblock %}
+,create a block named actions and print Create | Update | Delete,{% block actions %}Create | Update | Delete{% endblock %}
+,create a block named filters and render variable filter_options,{% block filters %}{{ filter_options }}{% endblock %}
+,create a macro named greet that takes name parameter and prints Hello + name,{% macro greet(name) %}{% print 'Hello ' ~ name %}{% endmacro %}
+,create a macro named format_price that takes amount parameter and returns amount with $,{% macro format_price(amount) %}{% print '$' ~ amount|string %}{% endmacro %}
+,create a macro named display_status that takes status parameter and prints status in uppercase,{% macro display_status(status) %}{% print upper(status) %}{% endmacro %}
+,create a macro named create_link that takes url and text parameters and creates HTML link,"{% macro create_link(url, text) %}<a href={{ url }}>{{ text }}</a>{% endmacro %}"
+,create a macro named format_date that takes date parameter and prints Date: + date,{% macro format_date(date) %}{% print 'Date: ' ~ date %}{% endmacro %}
+,create a macro named show_error that takes message parameter and prints message in uppercase with ERROR:,{% macro show_error(message) %}{% print 'ERROR: ' ~ upper(message) %}{% endmacro %}
+,create a macro named badge that takes text and color parameters and creates colored badge,"{% macro badge(text ,color) %}<span class=badge-{{ color }}>{{ text }}</span>{% endmacro %}"
+,create a macro named format_number that takes num parameter and returns truncated number,"{% macro format_number(num) %}{{ truncate(num, 2) }}{% endmacro %}"
+,create a macro named user_card that takes username and email parameters and displays user info,"{% macro user_card(username, email) %}{{ username ~ ' (' ~ email ~ ')' }}{% endmacro %}"
+,create a macro named progress_bar that takes percentage parameter and shows progress,{% macro progress_bar(percentage) %}{% print 'Progress: ' ~ percentage|string ~ '%' %}{% endmacro %}
+,create a macro named format_title that takes word parameter and returns word in title case,{% macro format_title(word) %}{{ title(word) }}{% endmacro %}
+,create a macro named button that takes text and action parameters and creates button,"{% macro button(text, action) %}<button onclick={{ action }}>{{ text }}</button>{% endmacro %}"
+,create a macro named status_icon that takes status parameter and shows appropriate icon,{% macro status_icon(status) %}{% if status == 'active' %}{% print '✓' %}{% else %}{% print '✗' %}{% endif %}{% endmacro %}
+,create a macro named format_currency that takes amount and currency parameters,"{% macro format_currency(amount, currency) %}{{ amount|string ~ ' ' ~ currency }}{% endmacro %}"
+,create a macro named tag_list that takes tags parameter and displays tags with #,{% macro tag_list(tags) %}{% for tag in tags %}{% print '#' ~ tag ~ ' ' %}{% endfor %}{% endmacro %}
+,create a macro named capitalize_name that takes name parameter and returns name in title case,{% macro capitalize_name(name) %}{{ title(name) }}{% endmacro %}
+,create a macro named format_time that takes time parameter and prints Time: + time,{% macro format_time(time) %}{% print 'Time: ' ~ time %}{% endmacro %}
+,create a macro named create_list_item that takes text parameter and creates li element,{% macro create_list_item(text) %}<li>{{ text }}</li>{% endmacro %}
+,create a macro named show_percentage that takes value parameter and displays with % sign,{% macro show_percentage(value) %}{{ value|string ~ '%' }}{% endmacro %}
+,create a macro named format_address that takes street city parameters and formats address,"{% macro format_address(street, city) %}{{ street ~ ', ' ~ city }}{% endmacro %}"
+,create a macro named display_count that takes count parameter and shows Count: + count,{% macro display_count(count) %}{% print 'Count: ' ~ count|string %}{% endmacro %}
+,create a macro named header_text that takes text parameter and creates h1 element,{% macro header_text(text) %}{% print '<h1>' ~ text ~ '</h1>' %}{% endmacro %}
+,create a macro named format_score that takes score parameter and truncates then adds /100,"{% macro format_score(score) %}{{ truncate(score, 2)|string ~ '/100' }}{% endmacro %}"
+,create a macro named email_link that takes email parameter and creates mailto link,{% macro email_link(email) %}<a href=mailto:{{ email }}>{{ email }}</a>{% endmacro %}
+,create a macro named show_version that takes version parameter and prints v + version,{% macro show_version(version) %}{% print 'v' ~ version %}{% endmacro %}
+,create a macro named format_file_size that takes size parameter and adds MB,{% macro format_file_size(size) %}{{ size|string ~ 'MB' }}{% endmacro %}
+,create a macro named display_priority that takes priority parameter and shows in uppercase,{% macro display_priority(priority) %}{% print upper(priority) %}{% endmacro %}
+,create a macro named timestamp that takes time parameter and formats with brackets,{% macro timestamp(time) %}{% print '[' ~ time ~ ']' %}{% endmacro %}
+,create a macro named user_status that takes user parameter and prints Active if user.status is true else Inactive,{% macro user_status(user) %}{% set status = '' %}{% if user.status %}{% set status = 'Active' %}{% else %}{% set status = 'Inactive' %}{% endif %}{{ status }}{% endmacro %}
+,create a macro named format_user that takes user parameter and renders user.name if user exists else prints Guest,{% macro format_user(user) %}{% set result = '' %}{% if user %}{% set result = user.name %}{% else %}{% set result = 'Guest' %}{% endif %}{% print result %}{% endmacro %}
+,"create a block named summary and initialize message as empty, if total_sales > 1000 set message to Excellent else Good, print Sales Summary: + message",{% block summary %}{% set message = '' %}{% if total_sales > 1000 %}{% set message = 'Excellent' %}{% else %}{% set message = 'Good' %}{% endif %}{% print 'Sales Summary: ' ~ message %}{% endblock %}
+,"create a macro named process_order that takes order parameter, set status to Shipped if order.paid else Pending, render Order + order.id + : + status",{% macro process_order(order) %}{% set status = '' %}{% if order.paid %}{% set status = 'Shipped' %}{% else %}{% set status = 'Pending' %}{% endif %}Order {{ order.id }}: {{ status }}{% endmacro %}
+,"create a macro named discount_price that takes price and customer_type parameters, set discount to 20 if customer_type is premium else 10, return price - discount","{% macro discount_price(price, customer_type) %}{% set discount = 0 %}{% if customer_type == 'premium' %}{% set discount = 20 %}{% else %}{% set discount = 10 %}{% endif %}{{ price - discount }}{% endmacro %}"
+,"create a macro named tax_calculator that takes amount parameter, declare tax_rate as 0, set tax_rate to 0.15 if amount > 5000 else 0.10, return amount * tax_rate",{% macro tax_calculator(amount) %}{% set tax_rate = 0 %}{% if amount > 5000 %}{% set tax_rate = 0.15 %}{% else %}{% set tax_rate = 0.10 %}{% endif %}{{ amount * tax_rate }}{% endmacro %}
+,"loop through tasks and set priority_level to urgent if task.deadline < 7 else normal, set new_status to high_priority if priority_level is urgent else keep original status, print task.name + : + new_status",{% for task in tasks %}{% set priority_level = '' %}{% if task.deadline < 7 %}{% set priority_level = 'urgent' %}{% else %}{% set priority_level = 'normal' %}{% endif %}{% if priority_level == 'urgent' %}{% set new_status = 'high_priority' %}{% else %}{% set new_status = task.status %}{% endif %}{% print task.name ~ ': ' ~ new_status %}{% endfor %}
+,"create a macro named shipping_cost that takes weight and distance parameters, set base_cost to 10, modify base_cost by adding 5 if weight > 10, modify base_cost by adding distance * 0.5, return base_cost","{% macro shipping_cost(weight, distance) %}{% set base_cost = 10 %}{% if weight > 10 %}{% set base_cost = base_cost + 5 %}{% endif %}{% set base_cost = base_cost + (distance * 0.5) %}{{ base_cost }}{% endmacro %}"
+,"loop through orders and declare processing_fee, set processing_fee to 25 if order.total > 500 else 15, set final_total to order.total + processing_fee, print Order + order.id + Final: + final_total",{% for order in orders %}{% set processing_fee = 0 %}{% if order.total > 500 %}{% set processing_fee = 25 %}{% else %}{% set processing_fee = 15 %}{% endif %}{% set final_total = order.total + processing_fee %}{% print 'Order ' ~ order.id|string ~ ' Final: ' ~ final_total|string %}{% endfor %}
+,"create a macro named validate_email that takes email parameter, set is_valid to true if @ in email else false, print Email validation: + is_valid",{% macro validate_email(email) %}{% set is_valid = false %}{% if '@' in email %}{% set is_valid = true %}{% else %}{% set is_valid = false %}{% endif %}{% print 'Email validation: ' ~ is_valid|string %}{% endmacro %}
+,"create a macro named calculate_age that takes birth_year parameter, set current_year to 2024, return current_year minus birth_year",{% macro calculate_age(birth_year) %}{% set current_year = 2024 %}{{ current_year - birth_year }}{% endmacro %}
+,"create a macro named format_currency that takes amount and currency parameters, set symbol to $ if currency is USD else €, return symbol + amount","{% macro format_currency(amount, currency) %}{% set symbol = '' %}{% if currency == 'USD' %}{% set symbol = '$' %}{% else %}{% set symbol = '€' %}{% endif %}{{ symbol }}{{ amount }}{% endmacro %}"
+,"loop through bookings and set status to confirmed if booking.payment_received else pending, print Booking + booking.id + : + status",{% for booking in bookings %}{% set status = '' %}{% if booking.payment_received %}{% set status = 'confirmed' %}{% else %}{% set status = 'pending' %}{% endif %}{% print 'Booking ' ~ booking.id|string ~ ': ' ~ status %}{% endfor %}
+,"loop through files and set size_mb by converting bytes to MB, set category to large if size_mb > 100 else small, render file.name + : + category",{% for file in files %}{% set category = '' %}{% set size_mb = file.size / (1024 * 1024) %}{% if size_mb > 100 %}{% set category = 'large' %}{% else %}{% set category = 'small' %}{% endif %}{{ file.name ~ ': ' ~  category }}{% endfor %}
+,"loop through comments and set moderation_status to approved if comment.spam_score < 0.5 else flagged, render comment.id + : + moderation_status",{% for comment in comments %}{% set moderation_status = '' %}{% if comment.spam_score < 0.5 %}{% set moderation_status = 'approved' %}{% else %}{% set moderation_status = 'flagged' %}{% endif %}{{ comment.id }}: {{ moderation_status }}{% endfor %}
+,"create a macro named calculate_discount that takes original_price and percentage parameters, set discount_amount to original_price * percentage / 100, return original_price - discount_amount","{% macro calculate_discount(original_price, percentage) %}{% set discount_amount = original_price * percentage / 100 %}{{ original_price - discount_amount }}{% endmacro %}"
+,"create a macro named format_address that takes address parameter, set formatted to address with proper capitalization, return formatted address",{% macro format_address(address) %}{{ title(address) }}{% endmacro %}
+,"create a macro named validate_age that takes age parameter, set is_adult to true if age >= 18 else false, print Age verification: + is_adult",{% macro validate_age(age) %}{% set is_adult = false %}{% if age >= 18 %}{% set is_adult = true %}{% else %}{% set is_adult = false %}{% endif %}{% print 'Age verification: ' ~ is_adult|string %}{% endmacro %}
+,"loop through campaigns and set status to active if campaign.budget > 0 and campaign.end_date > today else inactive, print campaign.name + : + status",{% for campaign in campaigns %}{% set status = '' %}{% if campaign.budget > 0 and campaign.end_date > today %}{% set status = 'active' %}{% else %}{% set status = 'inactive' %}{% endif %}{% print campaign.name ~ ': ' ~ status %}{% endfor %}
+,"create a macro named format_percentage that takes decimal parameter, set percentage to decimal * 100, return percentage with % symbol",{% macro format_percentage(decimal) %}{{ (decimal * 100) }}%{% endmacro %}
+,"loop through surveys and set completion_status to complete if survey.questions_answered equals survey.total_questions else incomplete, render survey.id + : + completion_status",{% for survey in surveys %}{% set completion_status = '' %}{% if survey.questions_answered == survey.total_questions %}{% set completion_status = 'complete' %}{% else %}{% set completion_status = 'incomplete' %}{% endif %}{{ survey.id }}: {{ completion_status }}{% endfor %}
+,"create a macro named calculate_tax that takes amount and rate parameters, set tax_amount to amount * rate, return tax amount","{% macro calculate_tax(amount, rate) %}{{ amount * rate }}{% endmacro %}"
+,"create a macro named calculate_shipping that takes weight and zone parameters, set base_rate to 5, add extra charges based on weight and zone, return total shipping cost","{% macro calculate_shipping(weight, zone) %}{% set base_rate = 5 %}{% if weight > 5 %}{% set base_rate = base_rate + 3 %}{% endif %}{% if zone == 'international' %}{% set base_rate = base_rate + 10 %}{% endif %}{{ base_rate }}{% endmacro %}"
+,"create a macro named validate_credit_card that takes card_number parameter, set is_valid to true if card_number length is 16 else false, print Card validation: + is_valid",{% macro validate_credit_card(card_number) %}{% set is_valid = false %}{% if length(card_number)== 16 %}{% set is_valid = true %}{% else %}{% set is_valid = false %}{% endif %}Card validation: {{ is_valid|string }}{% endmacro %}
+,loop through variable products and print each product in uppercase,{% for prod in products %}{% print upper(prod) %}{% endfor %}
+,"Write a template to create a range from variable 'start' to variable 'end' and store in 'sequence', then print 'Range created'","{% set sequence = range(start, end) %}
+{% print 'Range created' %}"
+,Write a template to create a range from 1 to 5 and store in variable sequence then print the length of sequence,"{% set seq= range(1 , 6) %}{% print length(seq) %}"
+,Write a template to apply floor function to variable 'price' and render it,{{ floor(price)}}
+,"Write a template to apply floor function to 15.99 and store in variable 'rounded_price', then print it",{% set rounded_price = floor(15.99) %} {% print rounded_price %}
+,Write a template to get the length of object variable 'user_data' and render it,{{ length(user_data)  }}
+,"create a macro named check_password that takes password parameter, set strength to strong if length > 8 else weak, print Password is + strength",{% macro check_password(password) %}{% set strength = '' %}{% if length(password)> 8 %}{% set strength = 'strong' %}{% else %}{% set strength = 'weak' %}{% endif %}{% print 'Password is ' ~ strength %}{% endmacro %}
+,Write a template to calculate the mean of variable 'temperatures' and render it,{{ mean(temperature)}}

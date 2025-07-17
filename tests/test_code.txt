@@ -1,0 +1,214 @@
+create a block named error and render variable error_message in uppercase
+set variable "access" to "granted" if role == "admin", else "denied", then render it
+Write a template to apply floor function to 9.3 and store in variable floored_value then render it
+Write a template to get the length of variable menu_items and render Total items: + result
+set variable "encryption" to "on" if secure_mode is true, else "off", then print "Encryption: " + encryption
+create a block named loading and print Please wait... if variable is_loading is true
+print the string "Error: Not found"
+create a macro named format_currency that takes amount and currency parameters, set symbol to $ if currency is USD else €, return symbol + amount
+Write a template to calculate the mean of array variable "scores" and print the result
+Write a template to apply floor function to the number 3.7 and print the result
+convert "BACKUP COMPLETED" to title case, then set "status_msg" to result, then print it
+create a macro named timestamp that takes time parameter and formats with brackets
+create a block named title with content Home Page
+Write a template to calculate the mean of array variable times and render Average time: + result
+render the number 0
+concatenate "Version " and "2.0" and print it
+Write a template to get the length of variable "shopping_cart" and store in "item_count", then print "Items: " + item_count
+create a block named toolbar and print Save | Edit | Delete
+create a macro named calculate_discount that takes original_price and percentage parameters, set discount_amount to original_price * percentage / 100, return original_price - discount_amount
+Write a template to create a range from 0 to variable limit and assign it to variable 'a'.
+create a macro named badge that takes text and color parameters and creates colored badge
+set variable "priority" to "high" and render it after converting to upper case
+convert the string "world" to uppercase and print it
+concatenate "Order #" and variable "order_id", then set "order_label" to result, then print it
+convert variable "server_name" to lowercase, then concatenate with ".local" and print "Server: " + result
+Write a template to calculate the mean of array variable "ratings" and store in "average_rating", then print "Average: " + average_rating
+loop through numbers 1 to 3 and print Step + number + complete
+Write a template to create a range from 0 to variable "max_count" and assign it to variable 'a'.
+convert variable "task_name" to title case, then set "task_label" to result + " Task", then print it
+set variable "size" to "large" if quantity > 10, else "small", then convert to uppercase and render it
+create a macro named greet that takes name parameter and prints Hello + name
+Write a template to calculate the mean of variable ratings and store in mean_rating then print it
+Write a template to calculate the mean of variable prices and render it
+convert variable "environment" to lowercase, then set variable "env_name" to result + "_env", then print it
+render the number 3.14
+Write a template to apply floor function to variable height and render it
+convert the number 0 to string and store in "zero_str"
+loop through array variable emails and render each email in lowercase
+create a macro named format_percentage that takes decimal parameter, set percentage to decimal * 100, return percentage with % symbol
+create a block named alerts and print variable alert_message if it exists
+create a block named banner and print Special Offer Today!
+Write a template to get the length of array variable "items" and print the result
+create a macro named create_link that takes url and text parameters and creates HTML link
+Write a template to create a range from 1 to 10 and store in variable "numbers", then print the length of numbers
+print a variable named "username"
+create a macro named format_title that takes word parameter and returns word in title case
+concatenate variable "first_name" and "last_name" with space, then convert to title case and render it
+render the number -5
+truncate the number 3.14159 and render it
+create a block named menu and print variable menu_items joined with |
+Write a template to create a range from variable "start" to variable "end" and store in "sequence", then print "Range created"
+concatenate variable "protocol" and "://" and variable "hostname", then print "URL: " + result
+create a macro named format_score that takes score parameter and truncates then adds /100
+create a macro named button that takes text and action parameters and creates button
+create a block named breadcrumb and render variable breadcrumb_path
+set variable "status" to "online" if active is true, else "offline", then convert to uppercase and print it
+Write a template to create a range from 5 to variable end_num and assign it to variable 'a'.
+Write a template to get the length of variable "config_options" and render"Total options: " + result
+concatenate "Session " and variable "session_id", then convert to lowercase and render it
+loop through variable categories and render each category in title case
+Print list [1,2,3]
+convert "SYSTEM" to lowercase and print it
+create a macro named format_user that takes user parameter and renders user.name if user exists else prints Guest
+loop through variable words and print each word in title case with index
+loop through variable files and display each filename with extension .txt
+set variable "level" to 1 and render it
+loop through variable colors and render each color with index
+print the string "Success!"
+Write a template to apply floor function to 7.8 and render it
+loop through variable messages and print each message in lowercase
+set variable "priority" to "high" if urgent is true, else "normal", then convert to uppercase and print it
+create a macro named calculate_shipping that takes weight and zone parameters, set base_rate to 5, add extra charges based on weight and zone, return total shipping cost
+loop through numbers 1 to 3 and render "Item" + number
+set variable "message" to "Good morning" and print it
+loop through tasks and set priority_level to urgent if task.deadline < 7 else normal, set new_status to high_priority if priority_level is urgent else keep original status, print task.name + : + new_status
+loop through files and set size_mb by converting bytes to MB, set category to large if size_mb > 100 else small, render file.name + : + category
+create a block named navigation with links Home | About | Contact
+convert the string "world" to uppercase and print it
+Write a template to get the length of object variable "user_data" and render it
+loop through surveys and set completion_status to complete if survey.questions_answered equals survey.total_questions else incomplete, render survey.id + : + completion_status
+create a block named main and print Main content area
+Write a template to calculate the mean of variable weights and print Mean weight: + result
+loop through numbers 1 to 5 and display Count: + number for odd numbers only
+convert variable "country" to upper case, join with variable "city", and print it.
+loop through variable items and render each item
+convert variable "service_name" to title case, then set "display_name" to result + " Service", then print it
+concatenate "Hello " and variable "name", then convert the result to title case and render it
+create a macro named show_version that takes version parameter and prints v + version
+set variable "message" to "Welcome back" if returning_user is true, else "Welcome", then print result + "!"
+create a block named user_info and render Welcome + variable username
+print the number 42
+create a macro named display_priority that takes priority parameter and shows in uppercase
+convert "system administrator" to title case, then set "role_name" to result, then render it
+create a macro named show_error that takes message parameter and prints message in uppercase with ERROR:
+set variable "backup" to "automatic" if scheduled is true, else "manual", then render "Backup: " + backup
+Render a boolean value "true"
+create a macro named tag_list that takes tags parameter and displays tags with #
+create a macro named header_text that takes text parameter and creates h1 element
+create a block named modal and render variable modal_content
+concatenate "Report " and variable "report_id" and " - " and variable "report_date", then render the result
+set variable "max_attempts" to 3 if user_level < 5, else 10, then convert to string and concatenate with " attempts remaining" and print it
+convert variable "department_code" to uppercase, then join with ":" and variable "employee_id", then set "badge_number" to result and render it
+create a range from variable "start_point" to variable "end_point", assign to "data_range", then loop through and print "Item: " + number for even numbers only
+convert "PROCESSING REQUEST" to title case, then concatenate with " - " and variable "request_id", then convert result to lowercase and print it
+set variable "discount_rate" to 0.15 if total_amount > 100, else 0.05, then convert to string and join with "%" and render "Discount: " + result
+truncate variable "calculated_score" and convert to string, then concatenate with "/100" and set "final_score" to result, then print it
+convert variable "service_name" to title case, then join with " Service" and variable "version_number", then convert to uppercase and render it
+loop through numbers 10 to 20 and display "Processing item " + number + " of 20" for numbers divisible by 3 only
+convert "user management system" to title case, then set "system_name" to result, then concatenate with " v" and variable "version" and print it
+set variable "access_level" to "admin" if user_role == "manager", else "user", then convert to uppercase and render "ACCESS: " + result
+convert variable "error_message" to lowercase, then replace spaces with underscores and set "log_entry" to result, then print it
+join variable "protocol" and "://" and variable "server_name" and ":" and variable "port_number", then set "full_url" to result and render it
+convert "BACKUP IN PROGRESS" to title case, then concatenate with " - " and truncated variable "progress_percent" and "%" and print it
+set variable "priority_level" to "urgent" if severity > 8, else "normal", then convert to title case and render "Priority: " + result
+convert variable "category_name" to lowercase, then join with "_" and variable "item_id", then set "reference_key" to result and print it
+create a range from 1 to variable "max_items", assign to "item_list", then loop and print "Loading item " + number for odd numbers only
+convert "SYSTEM MAINTENANCE" to title case, then set "maintenance_msg" to result + " scheduled", then convert to lowercase and render it
+join variable "first_name" and variable "middle_initial" and variable "last_name" with spaces, then convert to title case and print "Full Name: " + result
+set variable "timeout_value" to 30 if connection_type == "slow", else 10, then convert to string and concatenate with " seconds" and render it
+convert variable "status_code" to string and join with " - " and variable "status_text", then set "response_info" to result and print it
+truncate variable "average_rating" and convert to string, then join with "/5 stars" and render "Rating: " + result
+convert "configuration manager" to title case, then set "role_title" to result, then concatenate with " - " and variable "department" and print it
+loop through numbers 5 to 15 and display "Step " + number + " completed" for numbers greater than 10 only
+convert variable "command_name" to uppercase, then join with "_" and variable "parameter_count" and set "function_key" to result, then render it
+set variable "memory_usage" to "high" if ram_percent > 80, else "normal", then convert to uppercase and print "MEMORY: " + result
+convert "DATA SYNCHRONIZATION" to title case, then concatenate with " - " and variable "sync_time" and " ms", then convert to lowercase and render it
+join variable "country_code" and "-" and variable "region_code" and "-" and variable "city_code", then set "location_id" to result and print it
+convert variable "file_extension" to lowercase, then join with "." and variable "filename", then set "full_filename" to result and render it
+set variable "retry_count" to 5 if error_type == "timeout", else 2, then convert to string and concatenate with " retries" and print it
+convert "NETWORK CONNECTION" to title case, then set "connection_status" to result + " established", then convert to uppercase and render it
+truncate variable "completion_percentage" and convert to string, then join with "%" and render "Progress: " + result
+convert variable "log_level" to uppercase, then join with ": " and variable "log_message", then set "log_entry" to result and print it
+create a range from variable "min_value" to variable "max_value", assign to "value_range", then loop and print "Value: " + number for even numbers only
+convert "user authentication service" to title case, then set "service_title" to result, then concatenate with " " and variable "build_number" and render it
+set variable "cache_expiry" to 3600 if data_type == "static", else 900, then convert to string and join with " seconds" and print it
+convert variable "operation_type" to lowercase, then join with "_" and variable "timestamp", then set "operation_id" to result and render it
+join variable "api_version" and "." and variable "minor_version" and "." and variable "patch_version", then set "version_string" to result and print it
+convert "RESOURCE ALLOCATION" to title case, then concatenate with " - " and truncated variable "allocation_percent" and "%", then convert to lowercase and render it
+set variable "thread_count" to 8 if cpu_cores > 4, else 4, then convert to string and concatenate with " threads" and print it
+convert variable "queue_name" to uppercase, then join with "_" and variable "queue_id", then set "queue_identifier" to result and render it
+loop through numbers 2 to 12 and display "Processing batch " + number + " of 12" for numbers divisible by 4 only
+convert "session management" to title case, then set "feature_name" to result, then concatenate with " - " and variable "session_timeout" and " min" and print it
+set variable "compression_level" to "high" if file_size > 1000, else "low", then convert to uppercase and render "COMPRESSION: " + result
+convert variable "database_name" to lowercase, then join with "_" and variable "table_name", then set "full_table_name" to result and print it
+truncate variable "response_time" and convert to string, then join with " ms" and render "Response Time: " + result
+convert "PERMISSION DENIED" to title case, then set "error_title" to result, then concatenate with " - " and variable "resource_name" and render it
+join variable "scheme" and "://" and variable "host" and "/" and variable "path", then set "complete_url" to result and print it
+set variable "batch_size" to 1000 if record_count > 10000, else 100, then convert to string and concatenate with " records" and render it
+convert variable "notification_type" to title case, then join with " " and variable "notification_id", then set "notification_key" to result and print it
+create a range from 0 to variable "total_pages", assign to "page_range", then loop and print "Page " + number + " loaded" for odd numbers only
+convert "SECURITY VALIDATION" to title case, then concatenate with " - " and variable "validation_result", then convert to lowercase and render it
+set variable "connection_timeout" to 60 if network_speed == "slow", else 30, then convert to string and join with "s" and print it
+convert variable "metric_name" to uppercase, then join with "_" and variable "metric_value", then set "metric_key" to result and render it
+join variable "year" and "-" and variable "month" and "-" and variable "day", then set "date_string" to result and print it
+convert "load balancer configuration" to title case, then set "config_name" to result, then concatenate with " v" and variable "config_version" and render it
+truncate variable "cpu_usage" and convert to string, then join with "%" and render "CPU Usage: " + result
+set variable "pool_size" to 20 if concurrent_users > 100, else 10, then convert to string and concatenate with " connections" and print it
+convert variable "alert_level" to lowercase, then join with "_" and variable "alert_code", then set "alert_identifier" to result and render it
+loop through numbers 1 to 10 and display "Initializing component " + number for numbers less than 6 only
+convert "CACHE INVALIDATION" to title case, then set "cache_msg" to result + " complete", then convert to uppercase and render it
+join variable "username" and "@" and variable "domain", then set "email_address" to result and print it
+set variable "max_retries" to 10 if operation_type == "critical", else 3, then convert to string and concatenate with " attempts" and render it
+convert variable "task_name" to title case, then join with " - " and variable "task_id", then set "task_label" to result and print it
+convert "application server" to title case, then set "server_type" to result, then concatenate with " " and variable "server_number" and render it
+truncate variable "disk_usage" and convert to string, then join with " GB" and render "Disk Usage: " + result
+set variable "log_rotation" to "daily" if log_size > 1000, else "weekly", then convert to uppercase and print "ROTATION: " + result
+convert variable "environment_name" to lowercase, then join with "_" and variable "deployment_id", then set "deployment_key" to result and render it
+create a range from variable "start_index" to variable "end_index", assign to "index_range", then loop and print "Index: " + number for even numbers only
+convert "TRANSACTION PROCESSING" to title case, then concatenate with " - " and variable "transaction_id", then convert to lowercase and print it
+join variable "major_version" and "." and variable "minor_version", then set "software_version" to result and render it
+set variable "buffer_size" to 2048 if data_volume == "large", else 512, then convert to string and concatenate with " bytes" and print it
+convert variable "component_name" to uppercase, then join with "_" and variable "component_version", then set "component_key" to result and render it
+convert "service discovery" to title case, then set "discovery_name" to result, then concatenate with " - " and variable "discovery_port" and print it
+truncate variable "memory_allocated" and convert to string, then join with " MB" and render "Memory: " + result
+set variable "heartbeat_interval" to 5 if monitoring_level == "high", else 15, then convert to string and join with "s" and print it
+convert variable "routing_table" to lowercase, then join with "_" and variable "route_id", then set "route_key" to result and render it
+loop through numbers 3 to 13 and display "Validating rule " + number for numbers divisible by 5 only
+convert "CLUSTER MANAGEMENT" to title case, then set "cluster_title" to result + " active", then convert to uppercase and render it
+join variable "cluster_name" and ":" and variable "node_id", then set "node_identifier" to result and print it
+set variable "sync_frequency" to "realtime" if data_criticality == "high", else "hourly", then convert to title case and render "Sync: " + result
+convert variable "policy_name" to title case, then join with " Policy " and variable "policy_version", then set "policy_title" to result and print it
+convert "firewall configuration" to title case, then set "firewall_name" to result, then concatenate with " - " and variable "rule_count" and " rules" and render it
+truncate variable "throughput_rate" and convert to string, then join with " req/sec" and render "Throughput: " + result
+set variable "worker_count" to 16 if processing_load == "heavy", else 4, then convert to string and concatenate with " workers" and print it
+convert variable "schedule_type" to uppercase, then join with "_" and variable "schedule_id", then set "schedule_key" to result and render it
+create a range from 1 to variable "task_count", assign to "task_range", then loop and print "Task " + number + " queued" for odd numbers only
+convert "BACKUP RESTORATION" to title case, then concatenate with " - " and variable "backup_date", then convert to lowercase and render it
+join variable "service_group" and "." and variable "service_name", then set "service_fqdn" to result and print it
+set variable "idle_timeout" to 300 if session_type == "guest", else 1800, then convert to string and join with " seconds" and render it
+convert variable "endpoint_name" to lowercase, then join with "/" and variable "endpoint_version", then set "endpoint_path" to result and print it
+convert "monitoring dashboard" to title case, then set "dashboard_name" to result, then concatenate with " - " and variable "dashboard_id" and render it
+truncate variable "error_rate" and convert to string, then join with "%" and render "Error Rate: " + result
+set variable "partition_size" to 1000 if dataset_size > 50000, else 200, then convert to string and concatenate with " items" and print it
+convert variable "widget_type" to uppercase, then join with "_" and variable "widget_id", then set "widget_key" to result and render it
+loop through numbers 0 to 8 and display "Initializing module " + number for numbers greater than 3 only
+convert "HEALTH CHECK" to title case, then set "health_status" to result + " passed", then convert to lowercase and render it
+join variable "namespace" and "::" and variable "class_name", then set "class_path" to result and print it
+set variable "refresh_rate" to 1 if update_frequency == "fast", else 5, then convert to string and concatenate with " seconds" and render it
+convert variable "template_name" to title case, then join with " Template " and variable "template_version", then set "template_title" to result and print it
+convert "event processing" to title case, then set "processor_name" to result, then concatenate with " - " and variable "event_count" and " events" and render it
+truncate variable "latency_ms" and convert to string, then join with " ms" and render "Latency: " + result
+set variable "chunk_size" to 10240 if transfer_mode == "bulk", else 1024, then convert to string and join with " bytes" and print it
+convert variable "handler_name" to lowercase, then join with "_" and variable "handler_priority", then set "handler_key" to result and render it
+create a range from variable "min_port" to variable "max_port", assign to "port_range", then loop and print "Port " + number + " available" for even numbers only
+convert "LOAD TESTING" to title case, then concatenate with " - " and variable "test_duration" and " minutes", then convert to uppercase and render it
+join variable "region" and "-" and variable "zone" and "-" and variable "instance_id", then set "instance_identifier" to result and print it
+set variable "scale_factor" to 2 if demand_level == "peak", else 1, then convert to string and concatenate with "x scaling" and render it
+convert variable "pipeline_name" to uppercase, then join with "_" and variable "pipeline_stage", then set "pipeline_key" to result and print it
+convert "resource monitoring" to title case, then set "monitor_name" to result, then concatenate with " Agent " and variable "agent_version" and render it
+truncate variable "availability_percent" and convert to string, then join with "%" and render "Availability: " + result
+set variable "queue_depth" to 1000 if message_rate > 100, else 100, then convert to string and concatenate with " messages" and print it
+convert variable "filter_name" to lowercase, then join with "_" and variable "filter_order", then set "filter_key" to result and render it
+loop through numbers 1 to 7 and display "Cleaning up resource " + number for numbers less than 4 only
+convert "DEPLOYMENT PIPELINE" to title case, then set "pipeline_title" to result + " running", then convert to lowercase and render it

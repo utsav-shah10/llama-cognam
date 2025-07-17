@@ -1,0 +1,100 @@
+truncate the number 3.14159 and render it
+concatenate 'Version ' and '2.0' and print it
+Can I use a variable in a Render statement?
+set variable 'encryption' to 'on' if secure_mode is true, else 'off', then print 'Encryption: ' + encryption
+What happens if a macro calls itself in a way that creates a loop?
+What if a macro in Blended shares the name of a module defined in the same scope?
+Does two blocks share scope?
+Can you tell me how many different scopes are present in Blended?
+convert 'SYSTEM' to lowercase and print it
+Can I import built-in functions from other modules in Blended?
+create a macro named greet that takes name parameter and prints Hello + name
+Write a template to get the length of variable menu_items and render Total items: + result
+convert the string 'world' to uppercase and print it
+What are the potential consequences of not following the rule regarding built-in function names in Blended?
+Can static text be interspersed with tags in Blended?
+How can I ensure that the 'Iterator' scope is used correctly in my Blended code?
+loop through variable categories and render each category in title case
+create a macro named header_text that takes text parameter and creates h1 element
+Write a template to create a range from 0 to variable limit and assign it to variable 'a'.
+create a block named banner and print Special Offer Today!
+print a variable named 'username'
+What is the syntax for using the `int filter` in a Blended template?
+Is there any other way to add macros to scope other than using macro tag and from...import statement?
+How does the 'in' operator behave with empty strings or arrays?
+create a macro named create_link that takes url and text parameters and creates HTML link
+List 5 built-in functions in Blended
+What happens if a parent tag inside a child block does not contain a block statement with the same name?
+What if I want to concatenate a string with a variable in Blended?
+set variable 'access' to 'granted' if role == 'admin', else 'denied', then render it
+create a macro named calculate_discount that takes original_price and percentage parameters, set discount_amount to original_price * percentage / 100, return original_price - discount_amount
+create a block named menu and print variable menu_items joined with |
+loop through surveys and set completion_status to complete if survey.questions_answered equals survey.total_questions else incomplete, render survey.id + : + completion_status
+Write a template to apply floor function to variable height and render it
+What happens if the string passed to the `int filter` is not a valid number?
+What is the purpose of the join function in Blended?
+create a macro named show_error that takes message parameter and prints message in uppercase with ERROR:
+Can I define a anything named 'ceil' in my blended program?
+Render a boolean value 'true'
+Can I use the keyword 'block' as a variable name in Blended?
+set variable 'priority' to 'high' and render it after converting to upper case
+What are the benefits of using built-in functions in Blended?
+convert 'BACKUP COMPLETED' to title case, then set 'status_msg' to result, then print it
+Can a template be created from a array in Blended?
+convert 'system administrator' to title case, then set 'role_name' to result, then render it
+If a child template defines a block that is not found in the root or any ancestor, how many times will that block be evaluated?
+Can the `notIn` operator be used with arrays?
+create a macro named format_currency that takes amount and currency parameters, set symbol to $ if currency is USD else €, return symbol + amount
+set variable 'message' to 'Good morning' and print it
+Write a template to create a range from 5 to variable end_num and assign it to variable 'a'.
+Are names assigned in the template accessible outside the template?
+Can Print statements be used to output multiple values at once?
+What if a template has both a schema-definition and a user-function-definition file?
+Can I use the word 'print' as a variable?
+Is upper function of Jinja function in Blended?
+create a macro named button that takes text and action parameters and creates button
+convert variable 'service_name' to title case, then set 'display_name' to result + ' Service', then print it
+create a block named title with content Home Page
+Write a template to create a range from 0 to variable 'max_count' and assign it to variable 'a'.
+concatenate 'Hello ' and variable 'name', then convert the result to title case and render it
+How does the scope of Blended templates differ from Jinja/Twig?
+create a macro named tag_list that takes tags parameter and displays tags with #
+Is the ceil function case-sensitive?
+Write a template to apply floor function to 9.3 and store in variable floored_value then render it
+Write a template to calculate the mean of variable ratings and store in mean_rating then print it
+What happens if the included template is not found or cannot be loaded?
+What happens if I include a template that contains variables that are not defined in the master template?
+What happens if the only keyword is NOT used in the include tag?
+What happens if a variable is defined in multiple blocks?
+Can a macro be defined inside a macro tag within another macro tag?
+Can you negate a string in Blended?
+Can you negate a negative number in Blended?
+Write a template to get the length of object variable 'user_data' and render it
+What happens if I try to access a property that doesn't exist in an object?
+loop through array variable emails and render each email in lowercase
+What if tag uses delimiters '{%' and '%}' doesn't start its internal syntax which doesn't tell about purpose?
+Can a function be defined in both the template and the user environment?
+create a block named modal and render variable modal_content
+create a macro named format_title that takes word parameter and returns word in title case
+How do I use the `rgbcolor` function with an array of integers?
+create a macro named badge that takes text and color parameters and creates colored badge
+What is the purpose of the Concatenate (~) operator in Blended?
+print the string 'Success!'
+What happens if a nested block is defined inside a parent block?
+Can names assigned in the template be accessed within blocks?
+If a macro imports another macro, can the imported macro access variables from the importing macro's parent scope?
+How to introduce timestamps in blended?
+create a block named user_info and render Welcome + variable username
+create a block named loading and print Please wait... if variable is_loading is true
+Print list [1,2,3]
+loop through tasks and set priority_level to urgent if task.deadline < 7 else normal, set new_status to high_priority if priority_level is urgent else keep original status, print task.name + : + new_status
+What if a variable is defined in a parent scope and then a child scope tries to modify it?
+What happens if I try to use the `+` operator with numbers in Blended?
+concatenate variable 'first_name' and 'last_name' with space, then convert to title case and render it
+create a block named toolbar and print Save | Edit | Delete
+What happens if a name is assigned in the template and then used within a block?
+loop through variable files and display each filename with extension .txt
+create a macro named display_priority that takes priority parameter and shows in uppercase
+Write a template to create a range from 1 to 10 and store in variable 'numbers', then print the length of numbers
+create a macro named timestamp that takes time parameter and formats with brackets
+I read somewhere that, there are 4 types of delimiters present in blended. Is it true?

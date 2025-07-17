@@ -1,3 +1,6 @@
+# This file is used to augment the generated QnA pairs which is then used for training. 
+# Before augmenting the dataset, it was cleaned manually beforehand to make sure only correct QnA pairs goes into training. 
+
 import subprocess
 import json
 import pandas as pd
@@ -5,10 +8,16 @@ import csv
 import os
 
 MODEL_NAME = "Qwen/Qwen2.5-Coder-3B-Instruct"
-INPUT_FILE = "./datasets/docs_data_contrast.csv"
-OUTPUT_FILE = f"modified_{INPUT_FILE.split('/')[-1].split('.')[0]}.csv"
+INPUT_FILE = "./datasets/code.csv"
+OUTPUT_DIR = "../datasets/augmented_datasets"
+OUTPUT_FILE = f"{OUTPUT_DIR}/augmented_{INPUT_FILE.split('/')[-1].split('.')[0]}.csv"
 
 def paraphrase_question(question):
+
+    """
+        This function generates 3 paraphrased question of given question and append it to dataset. 
+    """
+
     prompt = f"""
     You are a language expert and a master at creatively paraphrasing questions.
 
@@ -51,7 +60,8 @@ def paraphrase_question(question):
 original_dataset = pd.read_csv(INPUT_FILE)
 
 modified_rows = []
-q_list = []
+q_list = [] # to make sure only unique questions are taken out of generated ones.
+
 for i, row in original_dataset.iterrows():
     question = row['question']
     rule = row['rule']
@@ -59,6 +69,9 @@ for i, row in original_dataset.iterrows():
 
     print(f"Paraphrasing Question : {i}/{len(original_dataset)}")
 
+    # only question is paraphrased and not the answer. 
+    # answer is same for paraphrased questions
+    
     paraphrased_questions = paraphrase_question(question)
     
     for q in paraphrased_questions:
@@ -70,6 +83,8 @@ for i, row in original_dataset.iterrows():
             })
             q_list.append(q)
     
+
+# Finally, new augmented dataset is created and then it is used for training purposes. 
 
 with open(OUTPUT_FILE, "w", newline='', encoding="utf-8") as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=["rule", "question", "answer"])

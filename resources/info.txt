@@ -1,0 +1,1 @@
+This folder contains - Basic setup files for conda, git commands, some useful huggingface scripts, blended test cases, blended documentation, yaml test cases for blended
